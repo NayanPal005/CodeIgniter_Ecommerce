@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -314,7 +317,11 @@
                                 <span>Account Settings</span>
                             </li>
                             <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-                            <li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
+                         <!--   <li><a href="admin_login/logout"><i class="halflings-icon off"></i> Logout</a></li> -->
+                         <li>  <!--USING ROUTING -->
+                          <!--   <a href="<?php base_url('admin-logout') ?>"><i class="halflings-icon off"></i> Logout</a> -->
+                            <li><a href="<?php base_url('admin_login/logout') ?>"><i class="halflings-icon user"></i> LogOut</a></li>
+                         </li>
                         </ul>
                     </li>
                     <!-- end: User Dropdown -->
@@ -585,7 +592,13 @@
                 </div>
 
             </div>
-            -->
+<!--
+            <?php
+            echo '<pre>';
+            //print_r($this->session->all_userdata());
+            print_r($myAlldata);
+            ?>
+-->
 
             <div class="row-fluid">
 

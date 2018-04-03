@@ -57,7 +57,7 @@
                 </div>
                 <h2>Login to your account</h2>
 
-              <!--  <form class="form-horizontal" action="<?= base_url('Admin/checkadminLogin.html') ?>" method="post"> --> <!-- normally linking -->
+              <!--  <form class="form-horizontal" action="<?= base_url('admin_login/checkadminLogin.html') ?>" method="post"> --> <!-- normally linking -->
                 <form class="form-horizontal" action="<?= base_url()?>admin-login" method="post"> <!-- routing use kore linking -->
                     <p>
 
