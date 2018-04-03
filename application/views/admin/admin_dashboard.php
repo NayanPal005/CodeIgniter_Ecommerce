@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -317,11 +314,7 @@
                                 <span>Account Settings</span>
                             </li>
                             <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-                         <!--   <li><a href="admin_login/logout"><i class="halflings-icon off"></i> Logout</a></li> -->
-                         <li>  <!--USING ROUTING -->
-                          <!--   <a href="<?php base_url('admin-logout') ?>"><i class="halflings-icon off"></i> Logout</a> -->
-                            <li><a href="<?php base_url('admin_login/logout') ?>"><i class="halflings-icon user"></i> LogOut</a></li>
-                         </li>
+                            <li><a href="admin-logout"><i class="halflings-icon off"></i> Logout</a></li>
                         </ul>
                     </li>
                     <!-- end: User Dropdown -->
@@ -342,7 +335,7 @@
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
                     <li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
-                    <li><a href="<?= base_url('Admin/addCategory') ?>"><i class="icon-envelope"></i><span class="hidden-tablet"> Add Category</span></a></li>
+                    <li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
                     <li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
                     <li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
                     <li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
@@ -387,8 +380,217 @@
                 </li>
                 <li><a href="#">Dashboard</a></li>
             </ul>
-         <!--   <?php echo $userDetail; ?> -->
 
+            <div class="row-fluid">
+
+                <div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
+                    <div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
+                    <div class="number">854<i class="icon-arrow-up"></i></div>
+                    <div class="title">visits</div>
+                    <div class="footer">
+                        <a href="#"> read full report</a>
+                    </div>
+                </div>
+                <div class="span3 statbox green" onTablet="span6" onDesktop="span3">
+                    <div class="boxchart">1,2,6,4,0,8,2,4,5,3,1,7,5</div>
+                    <div class="number">123<i class="icon-arrow-up"></i></div>
+                    <div class="title">sales</div>
+                    <div class="footer">
+                        <a href="#"> read full report</a>
+                    </div>
+                </div>
+                <div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
+                    <div class="boxchart">5,6,7,2,0,-4,-2,4,8,2,3,3,2</div>
+                    <div class="number">982<i class="icon-arrow-up"></i></div>
+                    <div class="title">orders</div>
+                    <div class="footer">
+                        <a href="#"> read full report</a>
+                    </div>
+                </div>
+                <div class="span3 statbox yellow" onTablet="span6" onDesktop="span3">
+                    <div class="boxchart">7,2,2,2,1,-4,-2,4,8,,0,3,3,5</div>
+                    <div class="number">678<i class="icon-arrow-down"></i></div>
+                    <div class="title">visits</div>
+                    <div class="footer">
+                        <a href="#"> read full report</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row-fluid">
+
+                <div class="span8 widget blue" onTablet="span7" onDesktop="span8">
+
+                    <div id="stats-chart2"  style="height:282px" ></div>
+
+                </div>
+
+                <div class="sparkLineStats span4 widget green" onTablet="span5" onDesktop="span4">
+
+                    <ul class="unstyled">
+
+                        <li><span class="sparkLineStats3"></span>
+                            Pageviews:
+                            <span class="number">781</span>
+                        </li>
+                        <li><span class="sparkLineStats4"></span>
+                            Pages / Visit:
+                            <span class="number">2,19</span>
+                        </li>
+                        <li><span class="sparkLineStats5"></span>
+                            Avg. Visit Duration:
+                            <span class="number">00:02:58</span>
+                        </li>
+                        <li><span class="sparkLineStats6"></span>
+                            Bounce Rate: <span class="number">59,83%</span>
+                        </li>
+                        <li><span class="sparkLineStats7"></span>
+                            % New Visits:
+                            <span class="number">70,79%</span>
+                        </li>
+                        <li><span class="sparkLineStats8"></span>
+                            % Returning Visitor:
+                            <span class="number">29,21%</span>
+                        </li>
+
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                </div><!-- End .sparkStats -->
+
+            </div>
+
+            <div class="row-fluid hideInIE8 circleStats">
+
+                <div class="span2" onTablet="span4" onDesktop="span2">
+                    <div class="circleStatsItemBox yellow">
+                        <div class="header">Disk Space Usage</div>
+                        <span class="percent">percent</span>
+                        <div class="circleStat">
+                            <input type="text" value="58" class="whiteCircle" />
+                        </div>
+                        <div class="footer">
+							<span class="count">
+								<span class="number">20000</span>
+								<span class="unit">MB</span>
+							</span>
+                            <span class="sep"> / </span>
+                            <span class="value">
+								<span class="number">50000</span>
+								<span class="unit">MB</span>
+							</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2" onTablet="span4" onDesktop="span2">
+                    <div class="circleStatsItemBox green">
+                        <div class="header">Bandwidth</div>
+                        <span class="percent">percent</span>
+                        <div class="circleStat">
+                            <input type="text" value="78" class="whiteCircle" />
+                        </div>
+                        <div class="footer">
+							<span class="count">
+								<span class="number">5000</span>
+								<span class="unit">GB</span>
+							</span>
+                            <span class="sep"> / </span>
+                            <span class="value">
+								<span class="number">5000</span>
+								<span class="unit">GB</span>
+							</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2" onTablet="span4" onDesktop="span2">
+                    <div class="circleStatsItemBox greenDark">
+                        <div class="header">Memory</div>
+                        <span class="percent">percent</span>
+                        <div class="circleStat">
+                            <input type="text" value="100" class="whiteCircle" />
+                        </div>
+                        <div class="footer">
+							<span class="count">
+								<span class="number">64</span>
+								<span class="unit">GB</span>
+							</span>
+                            <span class="sep"> / </span>
+                            <span class="value">
+								<span class="number">64</span>
+								<span class="unit">GB</span>
+							</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2 noMargin" onTablet="span4" onDesktop="span2">
+                    <div class="circleStatsItemBox pink">
+                        <div class="header">CPU</div>
+                        <span class="percent">percent</span>
+                        <div class="circleStat">
+                            <input type="text" value="83" class="whiteCircle" />
+                        </div>
+                        <div class="footer">
+							<span class="count">
+								<span class="number">64</span>
+								<span class="unit">GHz</span>
+							</span>
+                            <span class="sep"> / </span>
+                            <span class="value">
+								<span class="number">3.2</span>
+								<span class="unit">GHz</span>
+							</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2" onTablet="span4" onDesktop="span2">
+                    <div class="circleStatsItemBox orange">
+                        <div class="header">Memory</div>
+                        <span class="percent">percent</span>
+                        <div class="circleStat">
+                            <input type="text" value="100" class="whiteCircle" />
+                        </div>
+                        <div class="footer">
+							<span class="count">
+								<span class="number">64</span>
+								<span class="unit">GB</span>
+							</span>
+                            <span class="sep"> / </span>
+                            <span class="value">
+								<span class="number">64</span>
+								<span class="unit">GB</span>
+							</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span2" onTablet="span4" onDesktop="span2">
+                    <div class="circleStatsItemBox greenLight">
+                        <div class="header">Memory</div>
+                        <span class="percent">percent</span>
+                        <div class="circleStat">
+                            <input type="text" value="100" class="whiteCircle" />
+                        </div>
+                        <div class="footer">
+							<span class="count">
+								<span class="number">64</span>
+								<span class="unit">GB</span>
+							</span>
+                            <span class="sep"> / </span>
+                            <span class="value">
+								<span class="number">64</span>
+								<span class="unit">GB</span>
+							</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
             <div class="row-fluid">
 
@@ -592,13 +794,6 @@
                 </div>
 
             </div>
-<!--
-            <?php
-            echo '<pre>';
-            //print_r($this->session->all_userdata());
-            print_r($myAlldata);
-            ?>
--->
 
             <div class="row-fluid">
 
@@ -817,9 +1012,7 @@
         </div><!--/.fluid-container-->
 
         <!-- end: Content -->
-
     </div><!--/#content.span10-->
-
 </div><!--/fluid-row-->
 
 <div class="modal hide fade" id="myModal">

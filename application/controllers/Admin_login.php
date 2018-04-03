@@ -37,9 +37,9 @@ class Admin_login extends CI_Controller
               $sessionData['myAlldata']=$this->session->all_userdata();
              // echo '<pre>';
              // print_r($sessionData);
-            //  exit();
+            // exit();
              // $this->session->userdata('user_email');
-              $this->load->view('admin/admin_Dashboard',$sessionData);
+            redirect('admin-dashboard');
 
           }
 
@@ -66,7 +66,7 @@ class Admin_login extends CI_Controller
       // $this->session->unset_userdata('user_status');
         $this->session->sess_destroy();
        // redirect('admin-login');
-        redirect('admin_login');
+        redirect('admin-login');
 
     }
 
