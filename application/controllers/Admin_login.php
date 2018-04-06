@@ -4,7 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin_login extends CI_Controller
 {
     public function index(){
-
+         /*
+        if (isset($this->session->user_email)){
+            redirect('admin-dashboard');
+        }
+        else {
+            $this->load->view('admin/admin_login');
+        }
+         */
         $this->load->view('admin/admin_login');
 
     }
@@ -56,8 +63,6 @@ class Admin_login extends CI_Controller
     public function addCategory(){
 
           $this->load->view('admin/add_category');
-
-
 
     }
 

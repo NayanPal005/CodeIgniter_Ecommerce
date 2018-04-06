@@ -65,21 +65,29 @@ class Welcome extends CI_Controller
 
 
 	*/
+
         $data=array();
+
         $data['title']='Home';
 
         $data['slider']=$this->load->view('pages/slider','',true);
+
         $data['featured_item']=$this->load->view('pages/featured_item','',true);
 
         $this->load->view('welcome_page_start',$data);
 
     }
 
-    public function accounts(){
+    public function accounts() {
+
         //  echo "This is Linking practice";
+
         $data['slider']='';
+
         $data['title']='Accounts';
+
         $data['featured_item']="<h1 align='center'>Accounts content</h1>";
+
         $this->load->view('welcome_page_start',$data);
     }
 }
