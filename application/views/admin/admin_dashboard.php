@@ -83,11 +83,12 @@
                     <li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
                  <!--   <li><a href="<?php base_url('admin-registration_test')?>"><i class="icon-envelope"></i><span class="hidden-tablet"> Register Admin</span></a></li> -->
                     <!--<li><a href="admin-form"><i class="icon-envelope"></i><span class="hidden-tablet"> Register Admin</span></a></li>-->
-                    <li><a href="admin-form_test"><i class="icon-envelope"></i><span class="hidden-tablet"> Register Admin_Test</span></a></li>
+                    <li><a href="admin-form_test"><i class="icon-envelope"></i><span class="hidden-tablet">Admin Registration</span></a></li>
                     <li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
                     <li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
                     <li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
                     <li>
+
                         <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Dropdown</span><span class="label label-important"> 3 </span></a>
                         <ul>
                             <li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 1</span></a></li>
@@ -95,6 +96,7 @@
                             <li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
                         </ul>
                     </li>
+
                     <li><a href=""><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>
                     <li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Charts</span></a></li>
                     <li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Typography</span></a></li>
@@ -133,13 +135,18 @@
 <div class="clearfix">
 
 
+    <?php echo $form_test;?>
+<!--
+    <div style="background-color:green;color:white;">
 
+        <?php
+        if (isset($message))
+            echo $message;
+        ?>
 
+    </div>
 
-<?php echo $form_test;?>
-
-
-
+    <?php echo $view_form;?>
 
 
 

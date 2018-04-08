@@ -50,14 +50,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['admin-form']='admin/form';/* This is manually linking */
+$route['admin-registration']='admin/admin_registration';
+
 $route['dashboard']='admin/show_dashboard';
 $route['admin-dashboard']='admin/show_dashboard';
+
 $route['admin-logout']='admin_login/logout';
-$route['admin-registration']='admin/admin_registration_form';
+//$route['admin-registration']='admin/admin_registration_form';
 $route['admin-form_test']='admin/form_test'; /* This is dynamic linking */
+
 $route['admin-login']='admin_login/index';
 $route['admin-check'] = 'admin_login/checkAdminLogin';
+
 $route['default_controller'] = 'welcome';
 $route['home-page'] = 'Home';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

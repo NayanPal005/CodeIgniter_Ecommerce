@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller
@@ -12,6 +13,8 @@ class Admin extends CI_Controller
 
             redirect('admin-login');
         }
+
+        $this->load->model('admin_model');
     }
 
 
@@ -36,9 +39,11 @@ class Admin extends CI_Controller
 
 
     }
+
     public function form(){
         $this->load->view('admin/form');
     }
+
     public function form_test(){
        // $this->load->view('admin/form');
         $data=array();
@@ -47,6 +52,67 @@ class Admin extends CI_Controller
         $this->load->view('admin/admin_dashboard',$data);
 
 
+
+
+    }
+    public function admin_registration(){
+/*
+        echo "Hello Admin";
+       $userName=$this->input->post('name');
+       $userEmail=$this->input->post('email');
+       $userPass=$this->input->post('psw');
+       $userConPass=$this->input->post('con_psw');
+       echo '<pre>';
+
+       print_r($userEmail);
+       print_r($userName);
+       print_r($userPass);
+       print_r($userConPass);
+
+exit();
+
+*/
+
+        $this->form_validation->set_rules('email','User Email','required|is_unique[user.user_email]'); ////|is_unique[user.user_email]
+
+        $this->form_validation->set_rules('name','User Name','required');
+
+        $this->form_validation->set_rules('psw','Password','required|min_length[6]');
+
+        $this->form_validation->set_rules('con_psw','Confirm Password','required|min_length[6]|matches[psw]');
+
+
+        if ($this->form_validation->run()){
+
+            $this->load->model('admin_model');
+
+            $this->admin_model->admin_registration();
+
+            $data['message']= "Data Inserted Successfully";
+
+           // $this->load->view('admin/admin_dashboard',$data);
+
+            $data['view_form']=$this->load->view('pages/form_test',$data,True);
+            $data['form_test']=$this->load->view('pages/form_test','',True);
+            //$ndata['view_form'] = 'pages/form_test';
+
+            $this->load->view('admin/admin_dashboard',$data);
+
+
+
+            /*
+            $notification['form_test']=$this->load->view('pages/form_test','',True);
+            $notification['success']="Data Inserted Successfully";
+            $this->load->view('admin/admin_dashboard',$notification);
+            */
+
+        }
+
+        else{
+
+           redirect('admin-form_test');
+
+        }
 
 
     }
