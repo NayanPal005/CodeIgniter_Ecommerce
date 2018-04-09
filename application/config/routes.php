@@ -55,6 +55,16 @@ $route['admin-registration']='admin/admin_registration';
 $route['dashboard']='admin/show_dashboard';
 $route['admin-dashboard']='admin/show_dashboard';
 
+/*===========================product related routes start======================================= */
+$route['product-add']='product/add_product';
+
+$route['category-add']='product/add_category'; /*==============for add category======*/
+
+$route['category-show']='product/get_category';
+
+/*============================product related routes end=================================== */
+
+
 $route['admin-logout']='admin_login/logout';
 //$route['admin-registration']='admin/admin_registration_form';
 $route['admin-form_test']='admin/form_test'; /* This is dynamic linking */

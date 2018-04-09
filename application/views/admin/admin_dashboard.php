@@ -84,7 +84,7 @@
                  <!--   <li><a href="<?php base_url('admin-registration_test')?>"><i class="icon-envelope"></i><span class="hidden-tablet"> Register Admin</span></a></li> -->
                     <!--<li><a href="admin-form"><i class="icon-envelope"></i><span class="hidden-tablet"> Register Admin</span></a></li>-->
                     <li><a href="admin-form_test"><i class="icon-envelope"></i><span class="hidden-tablet">Admin Registration</span></a></li>
-                    <li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
+                    <li><a href="product-add"><i class="icon-tasks"></i><span class="hidden-tablet">Add Product</span></a></li>
                     <li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
                     <li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
                     <li>
@@ -111,6 +111,7 @@
         </div>
         <!-- end: Main Menu -->
 
+
         <noscript>
             <div class="alert alert-block span10">
                 <h4 class="alert-heading">Warning!</h4>
@@ -129,24 +130,15 @@
                     <i class="icon-angle-right"></i>
                 </li>
                 <li><a href="#">Dashboard</a></li>
-            </ul>
+
+
 
 
 <div class="clearfix">
 
 
-    <?php echo $form_test;?>
-<!--
-    <div style="background-color:green;color:white;">
 
-        <?php
-        if (isset($message))
-            echo $message;
-        ?>
 
-    </div>
-
-    <?php echo $view_form;?>
 
 
 
@@ -160,6 +152,7 @@
     </p>
 
 </footer>
+
 
 <!-- start: JavaScript-->
 

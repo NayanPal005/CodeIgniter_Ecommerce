@@ -22,7 +22,6 @@ class Admin extends CI_Controller
     {
         $this->load->view('admin/admin_dashboard');
 
-
     }
 
     public function admin_registration_form(){
@@ -37,7 +36,6 @@ class Admin extends CI_Controller
 
         $this->load->view('admin/adminRegi_formDash',$data);
 
-
     }
 
     public function form(){
@@ -48,16 +46,12 @@ class Admin extends CI_Controller
        // $this->load->view('admin/form');
         $data=array();
         $data['form_test']=$this->load->view('pages/form_test','',True);
-
         $this->load->view('admin/admin_dashboard',$data);
-
-
-
 
     }
     public function admin_registration(){
 /*
-        echo "Hello Admin";
+       echo "Hello Admin";
        $userName=$this->input->post('name');
        $userEmail=$this->input->post('email');
        $userPass=$this->input->post('psw');
