@@ -42,5 +42,15 @@ class Products_model extends CI_Model{
     }
 
 */
+    public function change_category_status($status,$categoryDetailsID){
+
+     $data['category_status']=$status;
+     $this->db->where('category_id',$categoryDetailsID)
+               ->update('tbl_category',$data);
+
+
+    }
+
+
 
 }

@@ -84,8 +84,11 @@
                  <!--   <li><a href="<?php base_url('admin-registration_test')?>"><i class="icon-envelope"></i><span class="hidden-tablet"> Register Admin</span></a></li> -->
                     <!--<li><a href="admin-form"><i class="icon-envelope"></i><span class="hidden-tablet"> Register Admin</span></a></li>-->
                     <li><a href="admin-form_test"><i class="icon-envelope"></i><span class="hidden-tablet">Admin Registration</span></a></li>
-                    <li><a href="product-add"><i class="icon-tasks"></i><span class="hidden-tablet">Add Product</span></a></li>
-                    <li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
+
+                    <li><a href="product-add"><i class="icon-tasks"></i><span class="hidden-tablet">Add  Category</span></a></li>
+
+                    <li><a href="manage-category"><i class="icon-eye-open"></i><span class="hidden-tablet">Manage Category</span></a></li>
+
                     <li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
                     <li>
 
@@ -105,7 +108,8 @@
                     <li><a href="calendar.html"><i class="icon-calendar"></i><span class="hidden-tablet"> Calendar</span></a></li>
                     <li><a href="file-manager.html"><i class="icon-folder-open"></i><span class="hidden-tablet"> File Manager</span></a></li>
                     <li><a href="icon.html"><i class="icon-star"></i><span class="hidden-tablet"> Icons</span></a></li>
-                    <li><a href="login.html"><i class="icon-lock"></i><span class="hidden-tablet"> Login Page</span></a></li>
+                  <!--  <li><a href="admin-login"><i class="icon-lock"></i><span class="hidden-tablet">Login</span></a></li> -->
+
                 </ul>
             </div>
         </div>
@@ -130,19 +134,16 @@
                     <i class="icon-angle-right"></i>
                 </li>
                 <li><a href="#">Dashboard</a></li>
-
+            </ul>
 
 
 
 <div class="clearfix">
 
-
-
-
-
-
-
 </div>
+
+
+            <?php echo $form_test;?>
 
 <footer>
 

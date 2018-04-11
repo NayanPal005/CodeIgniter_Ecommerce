@@ -28,12 +28,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         redirect('category-show');
 
      }
-     public function get_category(){
+     public function get_category(){   //This is show all category
 
          $categoryDetails['categoryDetails']= $this->products_model->get_category_details();
          //echo '<pre>';
          //print_r($categoryDetails);
-         $this->load->view('pages/category_list_show',$categoryDetails);
+        // $this->load->view('pages/category_list_show',$categoryDetails);
 
          $data['form_test']= $this->load->view('pages/category_list_show',$categoryDetails,True);
          $this->load->view('admin/admin_dashboard',$data);
@@ -41,8 +41,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
      }
+     public function change_category_status($status,$categoryDetailsID){
+         //echo $status;
+         //echo $categoryDetailsID;
+
+       $this->products_model->change_category_status($status,$categoryDetailsID);
+     $this->get_category();
+
+     }
 
 
 
 
  }
+
+
+
+

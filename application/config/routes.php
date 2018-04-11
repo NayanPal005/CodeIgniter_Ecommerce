@@ -62,8 +62,20 @@ $route['category-add']='product/add_category'; /*==============for add category=
 
 $route['category-show']='product/get_category';
 
+$route['manage-category']='product/get_category'; /* just take the added view page with extra field action so that we can manage */
+
 /*============================product related routes end=================================== */
 
+/*====================================active or inactive related start====================*/
+
+$route['change-category-status/(.+)/(.+)']='product/change_category_status/$1/$2';/*passes a value that
+2 in href with routing this (.+) represents that passed variable(2) and in R.H.S $1 means this is a variable that
+whice value is 2 which was passed */
+/* ekane jehutu ami array theke variable baniye pass kortesi like ($categoryDetailsID=$categoryDetails['category_id'])
+tai (.+) ekta dibo,,kintu jdi ami evabe kortam base_url("change-category-status/$categoryDetails->category_id/2") mane object akare tahole amake
+$route['change-category-status/(.+)/(.+)'] dite hoito,,mane arekta append korte hoito */
+
+/*====================================active or inactive related end====================*/
 
 $route['admin-logout']='admin_login/logout';
 //$route['admin-registration']='admin/admin_registration_form';
