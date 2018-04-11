@@ -46,7 +46,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          //echo $categoryDetailsID;
 
        $this->products_model->change_category_status($status,$categoryDetailsID);
-     $this->get_category();
+
+       $this->get_category();
+
+     }
+
+     public function edit_category($categoryDetails){
+             print_r($categoryDetails);
+
 
      }
 

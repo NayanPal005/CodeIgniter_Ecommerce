@@ -68,6 +68,8 @@ $route['manage-category']='product/get_category'; /* just take the added view pa
 
 /*====================================active or inactive related start====================*/
 
+$route['edit-category/(.+)']='product/edit_category/$1';
+
 $route['change-category-status/(.+)/(.+)']='product/change_category_status/$1/$2';/*passes a value that
 2 in href with routing this (.+) represents that passed variable(2) and in R.H.S $1 means this is a variable that
 whice value is 2 which was passed */
