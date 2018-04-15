@@ -56,7 +56,13 @@ $route['dashboard']='admin/show_dashboard';
 $route['admin-dashboard']='admin/show_dashboard';
 
 /*===========================product related routes start======================================= */
-$route['product-add']='product/add_product';
+$route['product-add']='product/add_product'; //This is Actually Add Category
+$route['add-product']='product/product_add'; //This is product add form
+$route['save-add-product-form']='product/save_product';
+$route['product-show']='product/get_product_details';
+
+
+/*===========================product related routes end======================================= */
 
 $route['category-add']='product/add_category'; /*==============for add category======*/
 
@@ -69,6 +75,7 @@ $route['manage-category']='product/get_category'; /* just take the added view pa
 /*====================================active or inactive related start====================*/
 
 $route['edit-category/(.+)']='product/edit_category/$1';
+$route['edited-category']='product/edited_category';/* when we edit a form and press it for edit */
 
 $route['change-category-status/(.+)/(.+)']='product/change_category_status/$1/$2';/*passes a value that
 2 in href with routing this (.+) represents that passed variable(2) and in R.H.S $1 means this is a variable that

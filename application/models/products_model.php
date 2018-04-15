@@ -15,6 +15,7 @@ class Products_model extends CI_Model{
 
     }
     public function get_category_details(){
+        /*
 
         $categoryDetails=$this->db->select('*')
                            ->from('tbl_category')
@@ -22,31 +23,81 @@ class Products_model extends CI_Model{
 
         return $categoryDetails->result_array();
 
-
-
-//
-        //echo '<pre>';
-      // print_r($categoryDetails);
-    }
-    /*
-    public function get_category_details(){
-
-
+       */
         $categoryDetails=$this->db->select('*')
             ->from('tbl_category')
             ->get();
 
-        return $categoryDetails;
+        return $categoryDetails->result();
 
 
     }
 
-*/
     public function change_category_status($status,$categoryDetailsID){
 
      $data['category_status']=$status;
+
+
      $this->db->where('category_id',$categoryDetailsID)
                ->update('tbl_category',$data);
+
+
+    }
+    public function get_category_details_by_id($categoryDetailsID){
+
+     //  echo $categoryDetailsID;
+
+
+   $result=$this->db->select('*')
+                 ->from('tbl_category')
+                 ->where('category_id',$categoryDetailsID)
+                 ->get()
+                 ->row();
+   return $result;
+
+
+/*
+        $result=$this->db->select('*')
+            ->from('tbl_category')
+            ->where('category_id',$categoryDetailsID)
+            ->get()
+            ->row_array();
+        return $result;
+
+*/
+
+
+    }
+    public function get_all_active_category_info(){
+
+        $result=$this->db->select('*')
+            ->from('tbl_category')
+            ->where('category_status',1)
+            ->get()
+            ->result();
+
+        return $result;
+
+    }
+    public function save_product_model()
+    {
+
+        $data['product_name'] = $this->input->post('product_name', True);
+        $data['product_long_description'] = $this->input->post('product_long_description', True);
+        $data['product_short_description'] = $this->input->post('product_short_description', True);
+        $data['product_category'] = $this->input->post('product_category', True);
+        $data['product_quantity'] = $this->input->post('product_quantity', True);
+        $this->db->insert('tbl_product', $data);
+
+    }
+    public function get_product_details_model(){
+        $result=$this->db
+            ->select('*')
+            ->from('tbl_product')
+            ->get();
+
+
+        return $result->result();
 
 
     }

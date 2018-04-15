@@ -1,3 +1,9 @@
+<?php
+
+print_r($categoryDetailsById);
+
+
+?>
 
 
 <!--======================= this is actually the add category form=============================-->
@@ -5,22 +11,30 @@
 
 <?php echo validation_errors() ; ?>
 <div class="box-content">
-    <form action="category-add" method="post" style="border:1px solid #ccc; align-self: center;">
+    <form action="edited-category" method="post" style="border:1px solid #ccc; align-self: center;">
         <div class="container">
-            <h1 style="text-align: center">Add Product Category</h1>
+            <h1 style="text-align: center">Update Product Category</h1>
 
             <hr>
 
             <label for="name"><b>Category Name</b></label>
-            <input type="text" placeholder="Enter Category Name" name="category_name"  required>
+
+            <input type="text" placeholder="Enter Category Name" name="category_name" value="<?php echo  $categoryDetailsById->category_name?>"  required>
 
 
 
             <label for="description"><b>category Long Description</b></label>
-            <input type="text" placeholder="Enter Category Long Description "  name="category_long_description" required>
+
+           <input type="text" placeholder="Enter Category Long Description "  name="category_long_description" value="<?php echo  $categoryDetailsById->category_short_description?>" required>
+
+
 
             <label for="description"><b>category Short Description</b></label>
-            <input type="text" placeholder="Enter Category Short Description "  name="category_short_description" required>
+
+          <input type="text" placeholder="Enter Category Short Description "  name="category_short_description" value="<?php echo $categoryDetailsById->category_long_description ?>" required>
+
+
+
 
 
 
@@ -29,7 +43,7 @@
 
             <div class="clearfix">
                 <button type="button" class="cancelbtn">Cancel</button>
-                <button type="submit" class="signupbtn">ADD</button>
+                <button type="submit" class="signupbtn">Update</button>
             </div>
         </div>
     </form>

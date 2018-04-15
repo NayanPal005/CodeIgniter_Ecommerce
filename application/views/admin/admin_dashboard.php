@@ -89,7 +89,7 @@
 
                     <li><a href="manage-category"><i class="icon-eye-open"></i><span class="hidden-tablet">Manage Category</span></a></li>
 
-                    <li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
+                    <li><a href="add-product"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add Product</span></a></li>
                     <li>
 
                         <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Dropdown</span><span class="label label-important"> 3 </span></a>
