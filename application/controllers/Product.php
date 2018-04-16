@@ -74,7 +74,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      public function product_add()
      {
 
-         // echo "This  is save  product" ;
 
          $get_all_active_category['get_all_active_category'] = $this->products_model->get_all_active_category_info();
          $data['form_test'] = $this->load->view('pages/add_product_form', $get_all_active_category, True);
@@ -84,12 +83,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
      }
      public function save_product(){
-         //echo "Hello";
 
+        // echo '<pre>';
         // $info=$this->input->post(NULL,True);
-        // print_r($info);
-        //exit();
-       $this->products_model->save_product_model();
+        // print_r($_FILES);
+
+         $this->products_model->save_product_model();
 
        $this->session->set_userdata('message','Product Save Successfully');
 

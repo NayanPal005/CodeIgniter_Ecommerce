@@ -170,6 +170,7 @@
                 <div class="left-sidebar">
                     <h2>Category</h2>
                     <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                        <!--
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
@@ -190,7 +191,8 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
@@ -218,6 +220,7 @@
                             </div>
                         </div>
 
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
@@ -239,11 +242,30 @@
                                 </div>
                             </div>
                         </div>
+
+                        -->
+                    <?php
+                    //$this->load->model('products_model');
+                    //autoload e products_model ta laod korate hbe front end e kaj korte
+
+                    $get_category_for_publish =  $this->products_model->get_published_category();/* ei front-end e ami direct model
+                             theke niye aschi
+..                           front-end e eta kora valo */
+
+                    foreach ($get_category_for_publish as $get_category_for_publish ){
+
+                    ?>
+
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Kids</a></h4>
+                                <h4 class="panel-title"><a href="#">
+                                        <?php echo $get_category_for_publish->category_name ?>
+                                    </a></h4>
                             </div>
                         </div>
+                        <?php }?>
+                        <!--
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title"><a href="#">Fashion</a></h4>
@@ -274,6 +296,7 @@
                                 <h4 class="panel-title"><a href="#">Shoes</a></h4>
                             </div>
                         </div>
+                        -->
                     </div><!--/category-products-->
 
                     <div class="brands_products"><!--brands_products-->

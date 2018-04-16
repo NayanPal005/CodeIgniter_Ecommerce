@@ -65,8 +65,6 @@ class Products_model extends CI_Model{
         return $result;
 
 */
-
-
     }
     public function get_all_active_category_info(){
 
@@ -75,21 +73,44 @@ class Products_model extends CI_Model{
             ->where('category_status',1)
             ->get()
             ->result();
-
         return $result;
+    }
 
+    public function upload_product_image(){
+
+        $config['upload_path']          = './images/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 1000;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 7680;
+
+        $this->load->library('upload',$config);
+
+        if ($this->upload->do_upload('product_image')){
+
+            $productImage=$this->upload->data();
+           // echo '<pre>';
+           // print_r($productImage);
+           // exit();
+            $imagePath="images/$productImage[file_name]";
+            return $imagePath;
+        }
+        else{
+            $error=$this->upload->display_errors();
+            echo $error;
+        }
     }
     public function save_product_model()
     {
-
+        $data['product_image']=$this->upload_product_image();
         $data['product_name'] = $this->input->post('product_name', True);
         $data['product_long_description'] = $this->input->post('product_long_description', True);
         $data['product_short_description'] = $this->input->post('product_short_description', True);
         $data['product_category'] = $this->input->post('product_category', True);
         $data['product_quantity'] = $this->input->post('product_quantity', True);
-        $this->db->insert('tbl_product', $data);
-
+         $this->db->insert('tbl_product', $data);
     }
+
     public function get_product_details_model(){
         $result=$this->db
             ->select('*')
@@ -101,6 +122,20 @@ class Products_model extends CI_Model{
 
 
     }
+
+  public  function get_published_category(){
+
+        $result=$this->db
+
+                ->select('*')
+                ->from('tbl_category')
+                ->where('category_status',1)
+                ->get();
+
+        return $result->result();
+
+
+  }
 
 
 
