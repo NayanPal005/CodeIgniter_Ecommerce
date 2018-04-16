@@ -108,7 +108,8 @@ class Products_model extends CI_Model{
         $data['product_short_description'] = $this->input->post('product_short_description', True);
         $data['product_category'] = $this->input->post('product_category', True);
         $data['product_quantity'] = $this->input->post('product_quantity', True);
-         $this->db->insert('tbl_product', $data);
+
+        $this->db->insert('tbl_product', $data);
     }
 
     public function get_product_details_model(){

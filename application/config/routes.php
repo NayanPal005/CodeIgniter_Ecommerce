@@ -84,7 +84,8 @@ whice value is 2 which was passed */
 tai (.+) ekta dibo,,kintu jdi ami evabe kortam base_url("change-category-status/$categoryDetails->category_id/2") mane object akare tahole amake
 $route['change-category-status/(.+)/(.+)'] dite hoito,,mane arekta append korte hoito */
 
-/*====================================active or inactive related end====================*/
+
+/*====================================active or inactive related end========================================*/
 
 $route['admin-logout']='admin_login/logout';
 //$route['admin-registration']='admin/admin_registration_form';
@@ -92,6 +93,19 @@ $route['admin-form_test']='admin/form_test'; /* This is dynamic linking */
 
 $route['admin-login']='admin_login/index';
 $route['admin-check'] = 'admin_login/checkAdminLogin';
+
+
+
+
+/*=======================================Manufacturer related start =========================================*/
+$route['add-manufacturer']='manufacturer/add_manufacturer';
+$route['save-add-manufacturer-form']='manufacturer/save_manufacturer';
+$route['manufacturer-show']='manufacturer/get_manufacturer';/*view of manufacturer from database */
+/*===========================================manufacturer end=================================================*/
+
+
+
+
 
 $route['default_controller'] = 'welcome';
 $route['home-page'] = 'Home';

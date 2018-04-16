@@ -255,15 +255,14 @@
                     foreach ($get_category_for_publish as $get_category_for_publish ){
 
                     ?>
-
-
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title"><a href="#">
-                                        <?php echo $get_category_for_publish->category_name ?>
+                       <?php echo $get_category_for_publish->category_name ?>
                                     </a></h4>
                             </div>
                         </div>
+
                         <?php }?>
                         <!--
                         <div class="panel panel-default">

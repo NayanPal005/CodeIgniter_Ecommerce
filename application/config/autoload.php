@@ -1,5 +1,7 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 /*
 | -------------------------------------------------------------------
@@ -103,6 +105,7 @@ $autoload['helper'] = array('url','file','form');
 | config files.  Otherwise, leave it blank.
 |
 */
+
 $autoload['config'] = array();
 
 /*
@@ -117,6 +120,7 @@ $autoload['config'] = array();
 | "codeigniter_lang.php" would be referenced as array('codeigniter');
 |
 */
+
 $autoload['language'] = array();
 
 /*
@@ -132,4 +136,7 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
+
+
+
 $autoload['model'] = array('products_model');

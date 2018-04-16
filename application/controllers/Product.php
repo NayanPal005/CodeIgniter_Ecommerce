@@ -90,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
          $this->products_model->save_product_model();
 
-       $this->session->set_userdata('message','Product Save Successfully');
+          $this->session->set_userdata('message','Product Save Successfully');
 
 
        redirect('product-show');

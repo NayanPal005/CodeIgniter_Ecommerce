@@ -30,23 +30,25 @@ if (isset($message)){
     <tr>
 
 
-          <td><?php echo  $product_details->product_id; ?></td>
+        <td><?php echo  $product_details->product_id; ?></td>
         <td><?php echo  $product_details->product_name; ?></td>
         <td><?php echo  $product_details->product_long_description; ?></td>
         <td><?php echo  $product_details->product_short_description; ?></td>
         <td><?php echo  $product_details->product_quantity; ?></td>
         <td><?php echo  $product_details->product_category; ?></td>
 
+
+
+
         <td>
             <a class="btn btn-success">Update</a>
             <a class="btn btn-danger">Delete</a>
 
         </td>
+
         <?php } ?>
 
-
     </tr>
-
 
     </tbody>
 
