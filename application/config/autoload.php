@@ -139,4 +139,4 @@ $autoload['language'] = array();
 
 
 
-$autoload['model'] = array('products_model');
+$autoload['model'] = array('products_model','manufacturers_model');

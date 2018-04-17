@@ -11,7 +11,7 @@ print_r($categoryDetailsById);
 
 <?php echo validation_errors() ; ?>
 <div class="box-content">
-    <form action="edited-category" method="post" style="border:1px solid #ccc; align-self: center;">
+    <form action="<?php echo base_url('product/edited_category')?>" method="post" style="border:1px solid #ccc; align-self: center;">
         <div class="container">
             <h1 style="text-align: center">Update Product Category</h1>
 

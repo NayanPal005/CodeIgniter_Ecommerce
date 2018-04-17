@@ -117,24 +117,18 @@ class Products_model extends CI_Model{
             ->select('*')
             ->from('tbl_product')
             ->get();
-
-
         return $result->result();
-
-
     }
 
   public  function get_published_category(){
 
         $result=$this->db
-
                 ->select('*')
                 ->from('tbl_category')
                 ->where('category_status',1)
                 ->get();
 
         return $result->result();
-
 
   }
 

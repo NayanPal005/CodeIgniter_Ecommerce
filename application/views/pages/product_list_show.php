@@ -31,7 +31,8 @@ if (isset($message)){
 
 
     <?php foreach ($product_details as $product_details){ ?>
-    <tr>
+
+ <tr>
         <td><?php echo  $product_details->product_id; ?></td>
         <td><?php echo  $product_details->product_name; ?></td>
         <td><?php echo  $product_details->product_long_description; ?></td>
@@ -45,7 +46,7 @@ if (isset($message)){
         </td>
         <?php } ?>
 
-    </tr>
+ </tr>
 
     </tbody>
 

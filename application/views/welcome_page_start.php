@@ -246,7 +246,9 @@
                         -->
                     <?php
                     //$this->load->model('products_model');
-                    //autoload e products_model ta laod korate hbe front end e kaj korte
+                    //=================================================very iMportant Notice nicher ta
+
+                    //autoload e products_model ta load korate hbe front end e kaj korte
 
                     $get_category_for_publish =  $this->products_model->get_published_category();/* ei front-end e ami direct model
                              theke niye aschi
@@ -264,54 +266,32 @@
                         </div>
 
                         <?php }?>
-                        <!--
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Fashion</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Households</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Interiors</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Clothing</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Bags</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Shoes</a></h4>
-                            </div>
-                        </div>
-                        -->
-                    </div><!--/category-products-->
 
+                    </div><!--/category-products-->
                     <div class="brands_products"><!--brands_products-->
                         <h2>Brands</h2>
+                 <?php
+                  $this->load->model('manufacturers_model');
+                 $get_manufacturer_for_publish=$this->manufacturers_model->get_manufacturer_model();//autoload er model ta add na korle front e ei model kaj korbe na..
+                 //so must be autoloaded
+              /*  print_r($get_manufacturer_for_publish); */
+                   foreach ($get_manufacturer_for_publish as $get_manufacturer_for_publish){
+                  ?>
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-                                <li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-                                <li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-                                <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-                                <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-                                <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-                                <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+                                <li><a href="#"> </span>
+                                   <?php echo $get_manufacturer_for_publish->manufacturer_name ?>
+
+                                    </a></li>
+
                             </ul>
+
                         </div>
+
+                        <?php }?>
+
                     </div><!--/brands_products-->
+
 
                     <div class="price-range"><!--price-range-->
                         <h2>Price Range</h2>

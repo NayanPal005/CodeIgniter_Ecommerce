@@ -5,6 +5,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 class Manufacturers_model extends CI_Model{
+    public function __construct()
+
+    {
+        parent::__construct();
+
+    }
+
 
     public function save_manufacturer_model(){
 
@@ -34,7 +41,7 @@ class Manufacturers_model extends CI_Model{
             ->from('tbl_manufacturer')
             ->where('manufacturer_id',$manufacturerId)
             ->get();
-      return $manufacturerDetailsbyId->result();
+      return $manufacturerDetailsbyId->row();
 
     }
 
