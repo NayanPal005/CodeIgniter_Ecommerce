@@ -41,7 +41,7 @@
 
 
 
-                <a class="btn btn-info" href="#">
+                <a class="btn btn-info" href="<?php echo base_url("edit-manufacturer/$manufacturer_details->manufacturer_id")?>">
                     <i class="halflings-icon icon-edit"></i>Update
                 </a>
 

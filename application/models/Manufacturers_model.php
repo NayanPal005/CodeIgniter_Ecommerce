@@ -27,7 +27,14 @@ class Manufacturers_model extends CI_Model{
 
         return $result->result();
 
+    }
+    public function edit_manufacturer_model($manufacturerId){
 
+      $manufacturerDetailsbyId= $this->db->select('*')
+            ->from('tbl_manufacturer')
+            ->where('manufacturer_id',$manufacturerId)
+            ->get();
+      return $manufacturerDetailsbyId->result();
 
     }
 

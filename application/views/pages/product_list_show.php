@@ -1,4 +1,8 @@
 
+
+
+
+
 <?php
 $message=$this->session->message;
 if (isset($message)){
@@ -19,6 +23,7 @@ if (isset($message)){
         <th style="color: firebrick">Product Short DeS</th>
         <th style="color: indigo">Product Quantity</th>
         <th style="color: orangered">Product Category</th>
+        <th style="color: orangered">Manufacturer</th>
         <th style="color: mediumseagreen">Action</th>
     </tr>
     </thead>
@@ -26,26 +31,18 @@ if (isset($message)){
 
 
     <?php foreach ($product_details as $product_details){ ?>
-
     <tr>
-
-
         <td><?php echo  $product_details->product_id; ?></td>
         <td><?php echo  $product_details->product_name; ?></td>
         <td><?php echo  $product_details->product_long_description; ?></td>
         <td><?php echo  $product_details->product_short_description; ?></td>
         <td><?php echo  $product_details->product_quantity; ?></td>
         <td><?php echo  $product_details->product_category; ?></td>
-
-
-
-
+        <td><?php echo  $product_details->product_manufacturer; ?></td>
         <td>
             <a class="btn btn-success">Update</a>
             <a class="btn btn-danger">Delete</a>
-
         </td>
-
         <?php } ?>
 
     </tr>

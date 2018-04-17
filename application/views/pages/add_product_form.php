@@ -1,7 +1,13 @@
-
 <!--
 <?php
+print_r($getManufacturerDetails);
+?>
+-->
+<!--
+<?php
+
 print_r($get_all_active_category);
+
 ?>
 -->
 <?php echo validation_errors() ; ?>
@@ -32,7 +38,18 @@ print_r($get_all_active_category);
             </select>
             </div>
           </div>
+            <div class="control-group">
+                <label class="control-label" for="selectError3">Product Manufacturer</label>
+                <div class="controls">
+                    <select name="product_manufacturer" id="selectError3">
+                        <?php foreach ($getManufacturerDetails as $getManufacturerDetails){ ?>
 
+                            <option value="<?php echo $getManufacturerDetails->manufacturer_id ?>">
+                                <?php echo $getManufacturerDetails ->manufacturer_name; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
             <label for="description"><b>Product Image</b></label>
             <input type="file" placeholder="Choose Image  "  name="product_image" required>
 

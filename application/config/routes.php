@@ -101,6 +101,10 @@ $route['admin-check'] = 'admin_login/checkAdminLogin';
 $route['add-manufacturer']='manufacturer/add_manufacturer';
 $route['save-add-manufacturer-form']='manufacturer/save_manufacturer';
 $route['manufacturer-show']='manufacturer/get_manufacturer';/*view of manufacturer from database */
+$route['edit-manufacturer/(.+)']='manufacturer/edit_manufacturer/$1';
+$route['manage-manufacturer']='manufacturer/get_manufacturer';
+
+
 /*===========================================manufacturer end=================================================*/
 
 

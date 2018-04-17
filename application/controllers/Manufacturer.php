@@ -3,7 +3,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Manufacturer extends CI_Controller{
+class Manufacturer extends CI_Controller
+{
 
     public function __construct()
     {
@@ -12,15 +13,17 @@ class Manufacturer extends CI_Controller{
         $this->load->model('manufacturers_model');
 
     }
-    public function add_manufacturer(){
 
-        $data['form_test']= $this->load->view('pages/add_manufacturer_form','',True);
+    public function add_manufacturer()
+    {
 
-        $this->load->view('admin/admin_dashboard',$data);
+        $data['form_test'] = $this->load->view('pages/add_manufacturer_form', '', True);
 
+        $this->load->view('admin/admin_dashboard', $data);
 
 
     }
+
     public function save_manufacturer()
     {
         // $data=$this->input->post('manufacturer_name');
@@ -33,17 +36,38 @@ class Manufacturer extends CI_Controller{
 
         redirect('manufacturer-show');
     }
-    public function get_manufacturer(){
 
-       $manufacturer_details['manufacturer_details']= $this->manufacturers_model->get_manufacturer_model();
+    public function get_manufacturer()
+    {
 
-      // $this->load->view('pages/manufacturer_list_show');
+        $manufacturer_details['manufacturer_details'] = $this->manufacturers_model->get_manufacturer_model();
 
-      $data['form_test']=$this->load->view('pages/manufacturer_list_show',$manufacturer_details,True);
+        // $this->load->view('pages/manufacturer_list_show');
 
-     $this->load->view('admin/admin_dashboard',$data);
+        $data['form_test'] = $this->load->view('pages/manufacturer_list_show', $manufacturer_details, True);
+
+        $this->load->view('admin/admin_dashboard', $data);
+    }
+
+    public function edit_manufacturer($manufacturerId)
+    {
+
+        //  echo $manufacturerId;
+
+        $manufacturerDetails['manufacturerDetailsById'] = $this->manufacturers_model->edit_manufacturer_model($manufacturerId);
+
+      // echo '<pre>';
+       //print_r($manufacturerDetails);
+
+       $data['form_test']=$this->load->view('pages/edit_manufacturer_form', $manufacturerDetails, True);
+
+       $this->load->view('admin/admin_dashboard',$data);
 
     }
+
+
+
+
 
 
 }

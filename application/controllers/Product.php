@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             parent::__construct();
             $this->load->model('products_model');
+            $this->load->model('manufacturers_model');
      }
 
      public function add_product(){
@@ -75,8 +76,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      {
 
 
+         //$getManufacturer['getManufacturerDetails']= $this->manufacturers_model->get_manufacturer_model();
+        // $data['form_test']=   $this->load->view('pages/add_product_form', $getManufacturer, True);
+         //$this->load->view('admin/admin_dashboard',$data);
+
+
+
          $get_all_active_category['get_all_active_category'] = $this->products_model->get_all_active_category_info();
+         $getManufacturer['getManufacturerDetails']= $this->manufacturers_model->get_manufacturer_model();
+
          $data['form_test'] = $this->load->view('pages/add_product_form', $get_all_active_category, True);
+         $data['form_test'] = $this->load->view('pages/add_product_form', $getManufacturer, True); //add manufacturer ta db th
 
          $this->load->view('admin/admin_dashboard', $data);
 
@@ -91,12 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $this->products_model->save_product_model();
 
           $this->session->set_userdata('message','Product Save Successfully');
-
-
        redirect('product-show');
-
-
-
      }
 
      public function get_product_details(){
@@ -106,8 +111,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $data['form_test'] = $this->load->view('pages/product_list_show',$product_details,True);
 
           $this->load->view('admin/admin_dashboard',$data);
-
-
 
      }
 
