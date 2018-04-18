@@ -22,28 +22,44 @@ class Manufacturers_model extends CI_Model{
         $data['manufacturer_long_description']=  $this->input->post('manufacturer_long_description');
 
         $this->db->insert('tbl_manufacturer',$data);
-
     }
     public function get_manufacturer_model(){
-
        $result= $this->db->select('*')
-
              ->from('tbl_manufacturer')
-
             ->get();
-
         return $result->result();
-
     }
+
+
     public function edit_manufacturer_model($manufacturerId){
 
-      $manufacturerDetailsbyId= $this->db->select('*')
+       $manufacturerDetailsbyId= $this->db->select('*')
+
             ->from('tbl_manufacturer')
+
             ->where('manufacturer_id',$manufacturerId)
+
             ->get();
-      return $manufacturerDetailsbyId->row();
+
+       return $manufacturerDetailsbyId->row();
 
     }
+  public function  update_manufacturer($grabbedID, Array $updateDetails){
+
+        $updateDetailsResult=$this->db
+
+                             ->where('manufacturer_id',$grabbedID)
+
+                             ->update('tbl_manufacturer',$updateDetails);
+
+        return $updateDetailsResult;
+
+        redirect('manufacturer-show');
+
+
+  }
+
+
 
 
 }

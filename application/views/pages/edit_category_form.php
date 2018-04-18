@@ -1,17 +1,25 @@
+
+<!--
 <?php
-
 print_r($categoryDetailsById);
-
-
 ?>
-
+-->
 
 <!--======================= this is actually the add category form=============================-->
-
-
+<!--
+  <?php
+$grabbedId=$categoryDetailsById->category_id;
+echo $grabbedId;
+?>
+-->
 <?php echo validation_errors() ; ?>
 <div class="box-content">
-    <form action="<?php echo base_url('product/edited_category')?>" method="post" style="border:1px solid #ccc; align-self: center;">
+   <form action="<?php echo base_url('product/edited_category')?>"  method="post" style="border:1px solid #ccc; align-self: center;">
+
+        <?php echo form_hidden('category_id',$grabbedId)?>
+
+
+
         <div class="container">
             <h1 style="text-align: center">Update Product Category</h1>
 
@@ -32,13 +40,6 @@ print_r($categoryDetailsById);
             <label for="description"><b>category Short Description</b></label>
 
           <input type="text" placeholder="Enter Category Short Description "  name="category_short_description" value="<?php echo $categoryDetailsById->category_long_description ?>" required>
-
-
-
-
-
-
-
 
 
             <div class="clearfix">

@@ -14,6 +14,24 @@ class Products_model extends CI_Model{
         $this->db->insert('tbl_category', $data);
 
     }
+    public function update_category($grabbedId, Array $updateDe){
+
+        //echo $grabbedId;
+
+      //  echo 'Hello, This is update Category';
+
+        $updateDetails=$this->db
+
+                    ->where('category_id',$grabbedId)
+
+                    ->update('tbl_category',$updateDe);
+
+        return $updateDetails;
+
+
+
+
+    }
     public function get_category_details(){
         /*
 

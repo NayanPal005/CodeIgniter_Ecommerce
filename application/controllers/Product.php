@@ -2,7 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
  class Product extends CI_Controller{
 
     public function __construct()
@@ -70,8 +69,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      
      public function edited_category(){
 
-         echo "HI,I AM EDITED CATEGORY";
+         $grabbedId= $this->input->post('category_id');//je id ta hidden pataisi seta receive korlam
+
+         $updateDe['category_name']=$this->input->post('category_name');
+
+         $updateDe['category_long_description']=$this->input->post('category_long_description');
+
+         $updateDe['category_short_description']=$this->input->post('category_short_description');
+
+
+        // print_r($updateDe);
+        // echo $grabbedId;
+
+        // echo "HI,I AM EDITED CATEGORY";
+
+         $this->load->model('products_model');
+
+         $this->products_model->update_category($grabbedId, $updateDe);
+
+         redirect('category-show');
+
      }
+
      public function product_add()
      {
 
@@ -79,9 +98,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          //$getManufacturer['getManufacturerDetails']= $this->manufacturers_model->get_manufacturer_model();
         // $data['form_test']=   $this->load->view('pages/add_product_form', $getManufacturer, True);
          //$this->load->view('admin/admin_dashboard',$data);
-
-
-
          $get_all_active_category['get_all_active_category'] = $this->products_model->get_all_active_category_info();
          $getManufacturer['getManufacturerDetails']= $this->manufacturers_model->get_manufacturer_model();
 

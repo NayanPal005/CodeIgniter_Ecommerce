@@ -51,17 +51,40 @@ class Manufacturer extends CI_Controller
 
     public function edit_manufacturer($manufacturerId)
     {
-
         //  echo $manufacturerId;
 
         $manufacturerDetails['manufacturerDetailsById'] = $this->manufacturers_model->edit_manufacturer_model($manufacturerId);
-
-      // echo '<pre>';
+       //echo '<pre>';
        //print_r($manufacturerDetails);
 
        $data['form_test']=$this->load->view('pages/edit_manufacturer_form', $manufacturerDetails, True);
-
        $this->load->view('admin/admin_dashboard',$data);
+    }
+
+    public function edited_manufacturer(){ //edited  value gulo niye ekane asbe update er jonno
+
+       // echo "Hi,This is Edited Manufacturer";
+
+        $grabbedID=$this->input->post('manufacturer_id');
+
+      //  echo $grabbedID;
+
+        //updateDetails hocche form er updatedValue k nisi
+
+         $updateDetails['manufacturer_name']=$this->input->post('manufacturer_name');
+
+         $updateDetails['manufacturer_long_description']=$this->input->post('manufacturer_long_description');
+
+         $updateDetails['manufacturer_short_description']=$this->input->post('manufacturer_short_description');
+
+        // print_r($updateDetails);
+
+        $this->load->model('manufacturers_model');
+
+        $this->manufacturers_model->update_manufacturer($grabbedID, $updateDetails);
+
+        redirect('manufacturer-show');
+
 
     }
 
