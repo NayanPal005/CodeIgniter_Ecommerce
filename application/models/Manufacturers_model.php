@@ -58,6 +58,18 @@ class Manufacturers_model extends CI_Model{
 
 
   }
+  public function delete_manufacturer_model($grabbedID){
+
+      //echo $grabbedID;
+
+      $result=$this->db
+               ->where('manufacturer_id',$grabbedID)
+               ->delete('tbl_manufacturer');
+
+      return $result;
+
+
+  }
 
 
 

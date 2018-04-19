@@ -62,7 +62,7 @@ $route['save-add-product-form']='product/save_product';
 $route['product-show']='product/get_product_details';
 $route['manage-product']='product/get_product_details';
 $route['edit-product/(.+)']='product/edit_product/$1';
-
+$route['delete-product/(.+)']='product/delete_product/$1';
 
 /*===========================product related routes end======================================= */
 
@@ -107,6 +107,7 @@ $route['save-add-manufacturer-form']='manufacturer/save_manufacturer';
 $route['manufacturer-show']='manufacturer/get_manufacturer';/*view of manufacturer from database */
 $route['edit-manufacturer/(.+)']='manufacturer/edit_manufacturer/$1';
 $route['manage-manufacturer']='manufacturer/get_manufacturer';
+$route['delete-manufacturer/(.+)']='manufacturer/delete_manufacturer/$1';
 
 
 /*===========================================manufacturer end=================================================*/

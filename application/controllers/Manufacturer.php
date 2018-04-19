@@ -87,6 +87,14 @@ class Manufacturer extends CI_Controller
 
 
     }
+    public function delete_manufacturer($grabbedID){
+
+        //echo $grabbedID;
+        $this->manufacturers_model->delete_manufacturer_model($grabbedID);
+        redirect('manufacturer-show');
+
+
+    }
 
 
 

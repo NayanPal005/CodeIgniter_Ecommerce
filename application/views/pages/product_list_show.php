@@ -42,7 +42,7 @@ if (isset($message)){
         <td><?php echo  $product_details->product_manufacturer; ?></td>
         <td>
             <a class="btn btn-success" href="<?php echo base_url("edit-product/$product_details->product_id") ?>">Update</a>
-            <a class="btn btn-danger">Delete</a>
+            <a class="btn btn-danger" href="<?php echo base_url("delete-product/$product_details->product_id") ?>">Delete</a>
         </td>
         <?php } ?>
 

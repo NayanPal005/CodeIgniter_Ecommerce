@@ -36,7 +36,7 @@
                     <i class="halflings-icon icon-edit"></i>Update
                 </a>
 
-                    <a class="btn btn-danger"  href="#" title="Delete">
+                    <a class="btn btn-danger"  href="<?php echo base_url("delete-manufacturer/$manufacturer_details->manufacturer_id") ?>" title="Delete">
                         <i class="halflings-icon white trash"></i>Delete
                     </a>
 

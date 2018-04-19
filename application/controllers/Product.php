@@ -157,6 +157,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         // exit();
      }
 
+     public function delete_product($grabbedID){
+
+       //  echo $grabbedID;
+
+         $this->products_model->delete_product_model($grabbedID);
+         redirect('product-show');
+
+     }
+
 
 
 

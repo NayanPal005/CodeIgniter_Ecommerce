@@ -174,6 +174,15 @@ class Products_model extends CI_Model{
       return $result;
 
  }
+ public function delete_product_model($grabbedID){
+     echo $grabbedID;
+
+     $result=$this->db
+                   ->where('product_id',$grabbedID)
+                   ->delete('tbl_product');
+     return $result;
+
+ }
 
 
 
