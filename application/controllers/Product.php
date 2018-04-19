@@ -129,6 +129,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $this->load->view('admin/admin_dashboard',$data);
 
      }
+     public function edit_product($productID){
+
+
+         $this->load->model('products_model');
+        $getDetailsById['getDetailsById']= $this->products_model->edit_product_model($productID);
+         $data['form_test']=$this->load->view('pages/edit_product_form',$getDetailsById,True);
+         $this->load->view('admin/admin_dashboard',$data);
+
+
+     }
+     public function edited_product_details(){
+
+         $grabbedID=$this->input->post('product_id');
+        // echo $grabbedID;
+         $details['product_name']=$this->input->post('product_name');
+         $details['product_short_description']=$this->input->post('product_short_description');
+         $details['product_long_description']=$this->input->post('product_long_description');
+         $details['product_quantity']=$this->input->post('product_quantity');
+
+         $this->products_model->edited_products_model($grabbedID, $details);
+
+         redirect('manage-product');
+
+
+        // print_r($details);
+        // exit();
+     }
 
 
 

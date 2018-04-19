@@ -150,6 +150,31 @@ class Products_model extends CI_Model{
 
   }
 
+  public function edit_product_model($productID){//id dhore data anar jonno
+
+     // echo $productID;
+
+      $result=$this->db
+          ->select('*')
+          ->from('tbl_product')
+          ->where('product_id',$productID)
+          ->get()
+          ->row();
+
+      return $result;
+
+
+  }
+ public function  edited_products_model($grabbedID, Array $details){
+
+      $result=$this->db
+             ->where('product_id',$grabbedID)
+          ->update('tbl_product',$details);
+
+      return $result;
+
+ }
+
 
 
 }

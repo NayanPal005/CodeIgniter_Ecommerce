@@ -60,6 +60,8 @@ $route['product-add']='product/add_product'; //This is Actually Add Category
 $route['add-product']='product/product_add'; //This is product add form
 $route['save-add-product-form']='product/save_product';
 $route['product-show']='product/get_product_details';
+$route['manage-product']='product/get_product_details';
+$route['edit-product/(.+)']='product/edit_product/$1';
 
 
 /*===========================product related routes end======================================= */
@@ -69,6 +71,8 @@ $route['category-add']='product/add_category'; /*==============for add category=
 $route['category-show']='product/get_category';
 
 $route['manage-category']='product/get_category'; /* just take the added view page with extra field action so that we can manage */
+
+
 
 /*============================product related routes end=================================== */
 

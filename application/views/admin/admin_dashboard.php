@@ -90,15 +90,9 @@
                     <li><a href="manage-category"><i class="icon-eye-open"></i><span class="hidden-tablet">Manage Category</span></a></li>
 
                     <li><a href="add-product"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add Product</span></a></li>
-                    <li>
 
-                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Dropdown</span><span class="label label-important"> 3 </span></a>
-                        <ul>
-                            <li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 1</span></a></li>
-                            <li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
-                            <li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
-                        </ul>
-                    </li>
+                    <li><a href="manage-product"><i class="icon-dashboard"></i><span class="hidden-tablet"> Manage Product</span></a></li>
+
 
                     <li><a href="add-manufacturer"><i class="icon-edit"></i><span class="hidden-tablet"> Add Manufacturer</span></a></li>
                     <li><a href="manage-manufacturer"><i class="icon-list-alt"></i><span class="hidden-tablet">Manage Manufacturer</span></a></li>
