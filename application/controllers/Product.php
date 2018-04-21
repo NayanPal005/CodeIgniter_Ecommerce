@@ -91,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
      }
 
-     public function product_add()
+     public function product_add() //THis actually ADD_CATEGORY
      {
 
 
@@ -165,6 +165,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          redirect('product-show');
 
      }
+
+
+     public function change_product_status($status,$productID){
+
+       //  echo $status,$productID;
+
+         $this->products_model->change_product_status_model($status,$productID);
+
+         $this->get_product_details();
+
+ }
 
 
 

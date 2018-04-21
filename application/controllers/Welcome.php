@@ -24,6 +24,7 @@ class Welcome extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('welcome_model');
 
 
     }
@@ -72,7 +73,15 @@ class Welcome extends CI_Controller
 
         $data['slider']=$this->load->view('pages/slider','',true);
 
-        $data['featured_item']=$this->load->view('pages/featured_item','',true);
+        $data['all_active_product']=$this->welcome_model->all_active_product();
+
+        $data['featured_item']=$this->load->view('pages/featured_item',$data,true);
+
+
+
+        //$data['all_active_product']= $this->load->view('pages/featured_item',$data,true);
+
+
 
         $this->load->view('welcome_page_start',$data);
 

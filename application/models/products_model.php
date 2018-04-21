@@ -8,10 +8,9 @@ class Products_model extends CI_Model{
         /* $data er vitorer quotation ta table er fiels name */
         $data['category_name'] = $this->input->post('category_name', TRUE);
         $data['category_long_description'] = $this->input->post('category_long_description', TRUE);
-        $data['category_short_description'] = $this->input->post('category_short_description', TRUE);
-        $data['category_status'] = 1;
+        $data['category_short_description'] = $this->input->post('category_short_description', TRUE);$data['category_status'] = 1;
 
-        $this->db->insert('tbl_category', $data);
+       $this->db->insert('tbl_category', $data);
 
     }
     public function update_category($grabbedId, Array $updateDe){
@@ -61,6 +60,19 @@ class Products_model extends CI_Model{
 
 
     }
+    public function change_product_status_model($status,$productID){
+
+        $data['product_status']=$status;//data array er product status field er value hbe $status er value
+
+        $this->db
+
+            ->where('product_id',$productID)
+            ->update('tbl_product',$data);
+
+
+
+
+    }
     public function get_category_details_by_id($categoryDetailsID){
 
      //  echo $categoryDetailsID;
@@ -98,9 +110,9 @@ class Products_model extends CI_Model{
 
         $config['upload_path']          = './images/';
         $config['allowed_types']        = 'gif|jpg|png|jpeg';
-        $config['max_size']             = 1000;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 7680;
+        $config['max_size']             = 20000;
+        $config['max_width']            = 10240;
+        $config['max_height']           = 76800;
 
         $this->load->library('upload',$config);
 

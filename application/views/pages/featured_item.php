@@ -1,19 +1,22 @@
 <div class="features_items"><!--features_items-->
 
     <h2 class="title text-center">Features Items</h2>
+
+    <?php  foreach ($all_active_product as $all_active_product) : ?>
     <div class="col-sm-4">
         <div class="product-image-wrapper">
             <div class="single-products">
                 <div class="productinfo text-center">
-                    <img src="Assets/images/home/product1.jpg" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
+                    <img src="<?php echo base_url().$all_active_product->product_image?>" alt="" />
+
+                    <h2>Price</h2>
+                    <p><?php echo $all_active_product->product_short_description ?></p>
                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                 </div>
                 <div class="product-overlay">
                     <div class="overlay-content">
-                        <h2>$56</h2>
-                        <p>Easy Polo Black Edition</p>
+                        <h2>Price</h2>
+                        <p><?php echo $all_active_product->product_short_description ?></p>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                     </div>
                 </div>
@@ -26,6 +29,8 @@
             </div>
         </div>
     </div>
+    <?php endforeach; ?>
+    <!--   no need this commenet section
     <div class="col-sm-4">
         <div class="product-image-wrapper">
             <div class="single-products">
@@ -153,5 +158,6 @@
             </div>
         </div>
     </div>
+    -->
 
 </div><!--features_items-->
