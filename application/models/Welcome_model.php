@@ -23,6 +23,21 @@ class Welcome_model extends CI_Model
 
 
     }
+    public function get_all_top_product(){
+
+        $result=$this->db
+
+            ->select('*')
+
+            ->from('tbl_product')
+
+            ->where('top_product',1)
+
+            ->get();
+
+        return $result->result();
+
+    }
 
 
 }

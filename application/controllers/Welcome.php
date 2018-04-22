@@ -31,7 +31,7 @@ class Welcome extends CI_Controller
 
     public function index()
     {
-        /*->loa
+        /*
         $this->load->helper('form');
         $validation=array(
             array('field'=>'data_name[]','rules'=>'required') ,
@@ -71,9 +71,15 @@ class Welcome extends CI_Controller
 
         $data['title']='Home';
 
-        $data['slider']=$this->load->view('pages/slider','',true);
+        $data['all_top_product']=$this->welcome_model->get_all_top_product();
 
-        $data['all_active_product']=$this->welcome_model->all_active_product();
+       // print_r($data);
+       // exit();
+
+
+        $data['slider']=$this->load->view('pages/slider',$data,true);
+
+       $data['all_active_product']=$this->welcome_model->all_active_product();
 
         $data['featured_item']=$this->load->view('pages/featured_item',$data,true);
 

@@ -108,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
      }
-     public function save_product(){
+     public function save_product(){ //This is from Add _Product form
 
         // echo '<pre>';
         // $info=$this->input->post(NULL,True);
@@ -134,39 +134,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
          $this->load->model('products_model');
         $getDetailsById['getDetailsById']= $this->products_model->edit_product_model($productID);
+        /* now i need category and manufacturer list in the edit form fot edit.so below i grab those */
+         $get_all_active_category['get_all_active_category'] = $this->products_model->get_all_active_category_info();
+         $getManufacturer['getManufacturerDetails']= $this->manufacturers_model->get_manufacturer_model();
+
          $data['form_test']=$this->load->view('pages/edit_product_form',$getDetailsById,True);
+         $data['form_test']=$this->load->view('pages/edit_product_form',$get_all_active_category,True);
+         $data['form_test']=$this->load->view('pages/edit_product_form',$getManufacturer,True);
          $this->load->view('admin/admin_dashboard',$data);
 
 
      }
      public function edited_product_details(){
 
+         echo '<pre>';
+
+        print_r($_FILES);
+        
+         exit();
+
          $grabbedID=$this->input->post('product_id');
-        // echo $grabbedID;
+         // echo $grabbedID;
          $details['product_name']=$this->input->post('product_name');
+         $details['product_price']=$this->input->post('product_price');
          $details['product_short_description']=$this->input->post('product_short_description');
          $details['product_long_description']=$this->input->post('product_long_description');
          $details['product_quantity']=$this->input->post('product_quantity');
-
          $this->products_model->edited_products_model($grabbedID, $details);
-
          redirect('manage-product');
-
-
         // print_r($details);
         // exit();
      }
-
      public function delete_product($grabbedID){
 
-       //  echo $grabbedID;
+          // echo $grabbedID;
 
          $this->products_model->delete_product_model($grabbedID);
          redirect('product-show');
 
      }
-
-
      public function change_product_status($status,$productID){
 
        //  echo $status,$productID;

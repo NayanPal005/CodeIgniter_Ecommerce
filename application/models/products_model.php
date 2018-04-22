@@ -130,15 +130,29 @@ class Products_model extends CI_Model{
             echo $error;
         }
     }
+
     public function save_product_model()
     {
+        $top_product=$this->input->post('top_product',True);
+              if ($top_product==NULL){
+
+                  $data['top_product']=0;
+
+                 }
+        if ($top_product=='on'){
+
+            $data['top_product']=1;
+
+        }
+
         $data['product_image']=$this->upload_product_image();
         $data['product_name'] = $this->input->post('product_name', True);
+        $data['product_price'] = $this->input->post('product_price', True);
         $data['product_long_description'] = $this->input->post('product_long_description', True);
         $data['product_short_description'] = $this->input->post('product_short_description', True);
-        $data['product_category'] = $this->input->post('product_category', True);
+        $data['category_id'] = $this->input->post('category_id', True);
         $data['product_quantity'] = $this->input->post('product_quantity', True);
-        $data['product_manufacturer'] = $this->input->post('product_manufacturer', True);
+        $data['manufacturer_id'] = $this->input->post('manufacturer_id', True);
         $this->db->insert('tbl_product', $data);
     }
 
@@ -149,6 +163,8 @@ class Products_model extends CI_Model{
             ->get();
         return $result->result();
     }
+
+
 
   public  function get_published_category(){
 

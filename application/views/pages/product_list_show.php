@@ -20,6 +20,7 @@ if (isset($message)){
     <tr>
         <th style="color: #97310e">Product ID</th>
         <th style="color: blue">Product Name</th>
+        <th style="color: black">Product Price</th>
         <th style="color: dimgrey">Product Image</th>
        <!-- <th style="color: palegreen">Product Long Des</th> -->
      <!--   <th style="color: firebrick">Product Short DeS</th> -->
@@ -38,6 +39,7 @@ if (isset($message)){
  <tr>
         <td><?php echo  $product_details->product_id; ?></td>
         <td><?php echo  $product_details->product_name; ?></td>
+     <td><?php echo  $product_details->product_price; ?></td>
        <td>
            <img src="<?php echo base_url().$product_details->product_image?>" height="100" width="100">
 
@@ -47,9 +49,9 @@ if (isset($message)){
      <!--  <td><?php echo  $product_details->product_long_description; ?></td> -->
    <!--   <td><?php echo  $product_details->product_short_description; ?></td> -->
     <!--    <td><?php echo  $product_details->product_quantity; ?></td> -->
-    <!--    <td><?php echo  $product_details->product_category; ?></td> -->
+    <!--    <td><?php echo  $product_details->category_id; ?></td> -->
 
-        <td><?php echo  $product_details->product_manufacturer; ?></td>
+        <td><?php echo  $product_details->manufacturer_id; ?></td>
       <!--   <td><?php echo  $product_details->product_status; ?></td> -->
         <td>
 
@@ -64,9 +66,6 @@ if (isset($message)){
                 echo 'Deleted';
 
             ?>
-
-
-
 
 
         </td>
@@ -94,9 +93,7 @@ if (isset($message)){
             <a class="btn btn-danger" title="Delete" href="<?php echo base_url("delete-product/$product_details->product_id") ?>">Delete</a>
         </td>
         <?php } ?>
-
  </tr>
-
     </tbody>
 
 </table>

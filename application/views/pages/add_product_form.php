@@ -1,6 +1,9 @@
 <!--
+
 <?php
+
 print_r($getManufacturerDetails);
+
 ?>
 -->
 <!--
@@ -18,8 +21,12 @@ print_r($get_all_active_category);
             <hr>
             <label for="name"><b>Product Name</b></label>
             <input type="text" placeholder="Enter Product Name" name="product_name"  required>
+
+            <label for="name"><b>Product Price</b></label>
+            <input type="text" placeholder="Enter Product Price" name="product_price"  required>
+
             <label for="description"><b>Product Long Description</b></label>
-            <input type="text" placeholder="Enter Product Long Description "  name="product_long_description" required>
+            <input type="text" placeholder="Enter Product Long Description "  name="product_long_description" >
 
             <label for="description"><b>Product Short Description</b></label>
             <input type="text" placeholder="Enter Product Short Description "  name="product_short_description" required>
@@ -29,7 +36,7 @@ print_r($get_all_active_category);
             <div class="control-group">
                 <label class="control-label" for="selectError3">Product Category</label>
                     <div class="controls">
-            <select name="product_category" id="selectError3">
+            <select name="category_id" id="selectError3">
                 <?php foreach ($get_all_active_category as $get_all_active_category){ ?>
 
                 <option value="<?php echo $get_all_active_category->category_id ?>">
@@ -41,7 +48,7 @@ print_r($get_all_active_category);
             <div class="control-group">
                 <label class="control-label" for="selectError3">Product Manufacturer</label>
                 <div class="controls">
-                    <select name="product_manufacturer" id="selectError3">
+                    <select name="manufacturer_id" id="selectError3">
                         <?php foreach ($getManufacturerDetails as $getManufacturerDetails){ ?>
 
                             <option value="<?php echo $getManufacturerDetails->manufacturer_id ?>">
@@ -51,14 +58,14 @@ print_r($get_all_active_category);
                 </div>
             </div>
             <label for="description"><b>Product Image</b></label>
-            <input type="file" placeholder="Choose Image  "  name="product_image" required>
+            <input type="file" placeholder="Choose Image  "  name="product_image" >
 
+            <label for="description"><b>Top Product</b></label>
+            <input type="checkbox"  name="top_product" >
             <div class="clearfix">
                 <button type="button" class="cancelbtn">Cancel</button>
                 <button type="submit" class="signupbtn">ADD</button>
             </div>
-
         </div>
     </form>
-
 </div>
