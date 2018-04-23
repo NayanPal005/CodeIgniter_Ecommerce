@@ -89,7 +89,9 @@ if (isset($message)){
                      <i class="halflings-icon white trash"></i>
                  </a>
             <?php } ?>
-     <a class="btn btn-success" title="Update" href="<?php echo base_url("edit-product/$product_details->product_id") ?>"><i class="halflings-icon icon-edit"></i></a>
+     <a class="btn btn-success" title="Update" href="<?php echo base_url("edit-product/$product_details->product_id") ?>"> <!-- This is  update -->
+         <i class="halflings-icon icon-edit"></i></a>
+
             <a class="btn btn-danger" title="Delete" href="<?php echo base_url("delete-product/$product_details->product_id") ?>">Delete</a>
         </td>
         <?php } ?>

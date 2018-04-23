@@ -113,8 +113,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         // echo '<pre>';
         // $info=$this->input->post(NULL,True);
         // print_r($_FILES);
+         $productImage=$this->upload_product_image();
 
-         $this->products_model->save_product_model();
+         $this->products_model->save_product_model($productImage);
 
           $this->session->set_userdata('message','Product Save Successfully');
        redirect('product-show');
@@ -145,26 +146,86 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
      }
-     public function edited_product_details(){
+     public function edited_product_details()
 
-         echo '<pre>';
+     {
 
-        print_r($_FILES);
-        
-         exit();
+              /*
+                  echo '<pre>';
+                 print_r($_FILES);
 
-         $grabbedID=$this->input->post('product_id');
+                  exit();
+            */
+
+                  if ($_FILES['product_image']['name']=='' || $_FILES['product_image']['size']==0){
+
+                      $details['product_image']=$this->input->post('productOld_image',True);
+                     // $this->products_model->edited_products_model($details);
+                      unlink($this->input->post('productOld_image',True));
+                  }
+
+                  else{
+                     $details['product_image']=$this->upload_product_image();
+                     // $this->products_model->edited_products_model( $details);
+                      unlink($this->input->post('productOld_image',True));
+                  }
+
+                  $grabbedID=$this->input->post('product_id');
+                  // echo $grabbedID;
+                  $details['product_name']=$this->input->post('product_name');
+                  $details['product_price']=$this->input->post('product_price');
+                  $details['product_short_description']=$this->input->post('product_short_description');
+                  $details['product_long_description']=$this->input->post('product_long_description');
+                  $details['product_quantity']=$this->input->post('product_quantity');
+
+                  $this->products_model->edited_products_model($grabbedID, $details);
+                  redirect('manage-product');
+
+         // print_r($details);
+         // exit();
+         /*
+
+
+         if ($_FILES['product_image']['name'] == '' || $_FILES['product_image']['size'] == 0) {
+
+             $productImage = $this->input->post('productOld_image', True);
+            // $this->products_model->edited_products_model($productImage);
+
+         } else {
+
+             $productImage = $this->upload_product_image();
+          //   $this->products_model->edited_products_model($productImage);
+         }
+
+         $grabbedID = $this->input->post('product_id');
+
          // echo $grabbedID;
-         $details['product_name']=$this->input->post('product_name');
-         $details['product_price']=$this->input->post('product_price');
-         $details['product_short_description']=$this->input->post('product_short_description');
-         $details['product_long_description']=$this->input->post('product_long_description');
-         $details['product_quantity']=$this->input->post('product_quantity');
-         $this->products_model->edited_products_model($grabbedID, $details);
-         redirect('manage-product');
-        // print_r($details);
-        // exit();
+
+         $details['product_name'] = $this->input->post('product_name');
+         $details['product_price'] = $this->input->post('product_price');
+         $details['product_short_description'] = $this->input->post('product_short_description');
+         $details['product_long_description'] = $this->input->post('product_long_description');
+         $details['product_quantity'] = $this->input->post('product_quantity');
+         $details['product_image'] = $productImage;
+         // $details['top_product']=$this->input->post('top_product');
+         $top_product = $this->input->post('top_product', True);
+
+         if ($top_product == NULL) {
+
+             $details['top_product'] = 0;
+
+         }
+         if ($top_product == 'on') {
+
+             $details['top_product'] = 1;
+
+             $this->products_model->edited_products_model($grabbedID, $details);
+             redirect('manage-product');
+         }
+         */
+
      }
+
      public function delete_product($grabbedID){
 
           // echo $grabbedID;
@@ -182,9 +243,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $this->get_product_details();
 
  }
+     private function upload_product_image(){
 
+         $config['upload_path']          = './images/';
+         $config['allowed_types']        = 'gif|jpg|png|jpeg';
+         $config['max_size']             = 20000;
+         $config['max_width']            = 10240;
+         $config['max_height']           = 76800;
 
+         $this->load->library('upload',$config);
 
+         if ($this->upload->do_upload('product_image')){
+
+             $productImage=$this->upload->data();
+             // echo '<pre>';
+             // print_r($productImage);
+             // exit();
+             $imagePath="images/$productImage[file_name]";
+             return $imagePath;
+         }
+         else{
+             $error=$this->upload->display_errors();
+             echo $error;
+         }
+     }
 
  }
 

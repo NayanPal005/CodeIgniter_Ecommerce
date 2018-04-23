@@ -38,6 +38,14 @@ class Welcome_model extends CI_Model
         return $result->result();
 
     }
+    public function product_details_model($productID){
+     $result= $this->db
+             ->select('*')
+             ->from('tbl_product')
+             ->where('product_id',$productID)
+             ->get();
+     return $result->row();
+    }
 
 
 }

@@ -710,7 +710,9 @@
                 <div class="col-sm-2">
                     <div class="companyinfo">
                         <h2><span>e</span>-shopper</h2>
+
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+
                     </div>
                 </div>
                 <div class="col-sm-7">
@@ -859,8 +861,9 @@
         </div>
     </div>
 
-</footer><!--/Footer-->
 
+
+</footer><!--/Footer-->
 
 
 <script src="<?php echo base_url()?>Assets/js/jquery.js"></script>
@@ -869,5 +872,7 @@
 <script src="<?php echo base_url()?>Assets/js/price-range.js"></script>
 <script src="<?php echo base_url()?>Assets/js/jquery.prettyPhoto.js"></script>
 <script src="<?php echo base_url()?>Assets/js/main.js"></script>
+
+
 </body>
 </html>

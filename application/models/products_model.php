@@ -105,7 +105,7 @@ class Products_model extends CI_Model{
             ->result();
         return $result;
     }
-
+/*
     public function upload_product_image(){
 
         $config['upload_path']          = './images/';
@@ -130,8 +130,8 @@ class Products_model extends CI_Model{
             echo $error;
         }
     }
-
-    public function save_product_model()
+*/
+    public function save_product_model($productImage)
     {
         $top_product=$this->input->post('top_product',True);
               if ($top_product==NULL){
@@ -145,7 +145,7 @@ class Products_model extends CI_Model{
 
         }
 
-        $data['product_image']=$this->upload_product_image();
+        $data['product_image']=$productImage;
         $data['product_name'] = $this->input->post('product_name', True);
         $data['product_price'] = $this->input->post('product_price', True);
         $data['product_long_description'] = $this->input->post('product_long_description', True);

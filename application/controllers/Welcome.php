@@ -83,12 +83,7 @@ class Welcome extends CI_Controller
 
         $data['featured_item']=$this->load->view('pages/featured_item',$data,true);
 
-
-
         //$data['all_active_product']= $this->load->view('pages/featured_item',$data,true);
-
-
-
         $this->load->view('welcome_page_start',$data);
 
     }
@@ -104,5 +99,22 @@ class Welcome extends CI_Controller
         $data['featured_item']="<h1 align='center'>Accounts content</h1>";
 
         $this->load->view('welcome_page_start',$data);
+    }
+
+
+    public function product_details($productID){
+
+      //  echo $productID;
+
+       $productDetails['product_details']= $this->welcome_model->product_details_model($productID);
+
+       echo '<pre>';
+
+      // print_r($productDetails);
+
+      $this->load->view('pages/product_details',$productDetails,True);
+
+
+
     }
 }

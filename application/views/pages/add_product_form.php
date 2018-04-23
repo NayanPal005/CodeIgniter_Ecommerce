@@ -57,11 +57,13 @@ print_r($get_all_active_category);
                     </select>
                 </div>
             </div>
+
             <label for="description"><b>Product Image</b></label>
             <input type="file" placeholder="Choose Image  "  name="product_image" >
 
             <label for="description"><b>Top Product</b></label>
             <input type="checkbox"  name="top_product" >
+
             <div class="clearfix">
                 <button type="button" class="cancelbtn">Cancel</button>
                 <button type="submit" class="signupbtn">ADD</button>

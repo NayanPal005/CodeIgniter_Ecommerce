@@ -64,6 +64,7 @@ $route['manage-product']='product/get_product_details';
 $route['edit-product/(.+)']='product/edit_product/$1';
 $route['delete-product/(.+)']='product/delete_product/$1';
 $route['change-product-status/(.+)/(.+)']='product/change_product_status/$1/$2';
+$route['product-details/(.+)']='welcome/product_details/$1'; //Details e click korar por ekane asbe
 
 /*===========================product related routes end======================================= */
 
