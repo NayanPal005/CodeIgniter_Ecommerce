@@ -79,7 +79,7 @@ class Welcome extends CI_Controller
 
         $data['slider']=$this->load->view('pages/slider',$data,true);
 
-       $data['all_active_product']=$this->welcome_model->all_active_product();
+        $data['all_active_product']=$this->welcome_model->all_active_product();
 
         $data['featured_item']=$this->load->view('pages/featured_item',$data,true);
 
@@ -105,14 +105,28 @@ class Welcome extends CI_Controller
     public function product_details($productID){
 
       //  echo $productID;
-
-       $productDetails['product_details']= $this->welcome_model->product_details_model($productID);
+/*
+       $data['product_details']= $this->welcome_model->product_details_model($productID);
 
        echo '<pre>';
 
       // print_r($productDetails);
 
-      $this->load->view('pages/product_details',$productDetails,True);
+     $data['featured_item']=$this->load->view('pages/product_details',$data,True);
+     $data['slider']='';
+     $data['title']='';
+     $data['all_active_product']='';
+     $data['all_top_product']='';
+
+     $this->load->view('welcome_page_start',$data);
+*/
+        $data['slider']='';
+        $data['title']='Accounts';
+        $data['all_active_product']='';
+        $data['all_top_product']='';
+        $data['product_details']= $this->welcome_model->product_details_model($productID);
+        $data['featured_item']=$this->load->view('pages/product_details',$data,true);
+        $this->load->view('welcome_page_start',$data);
 
 
 

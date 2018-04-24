@@ -313,6 +313,7 @@
 
                <?php echo $featured_item;?>
 
+
                 <div class="category-tab"><!--category-tab-->
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs">
