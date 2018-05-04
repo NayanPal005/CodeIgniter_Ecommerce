@@ -147,16 +147,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
      }
      public function edited_product_details()
-
      {
 
               /*
+               *
                   echo '<pre>';
-                 print_r($_FILES);
-
+                  print_r($_FILES);
                   exit();
-            */
 
+              */
                   if ($_FILES['product_image']['name']=='' || $_FILES['product_image']['size']==0){
 
                       $details['product_image']=$this->input->post('productOld_image',True);

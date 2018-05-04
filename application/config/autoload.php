@@ -60,7 +60,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('form_validation','database','session');
+$autoload['libraries'] = array('form_validation','database','session','cart');
 
 /*
 | -------------------------------------------------------------------
@@ -139,4 +139,4 @@ $autoload['language'] = array();
 
 
 
-$autoload['model'] = array('products_model','manufacturers_model','welcome_model');
+$autoload['model'] = array('products_model','manufacturers_model','welcome_model','cart_model');

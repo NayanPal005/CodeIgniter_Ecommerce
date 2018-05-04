@@ -79,6 +79,9 @@ class Welcome extends CI_Controller
 
         $data['slider']=$this->load->view('pages/slider',$data,true);
 
+        $data['recom_item']=$this->load->view('pages/recom_item',$data,true);
+        $data['category_item']=$this->load->view('pages/category_item',$data,true);
+
         $data['all_active_product']=$this->welcome_model->all_active_product();
 
         $data['featured_item']=$this->load->view('pages/featured_item',$data,true);
@@ -95,6 +98,8 @@ class Welcome extends CI_Controller
         $data['slider']='';
 
         $data['title']='Accounts';
+        $data['recom_item']='';
+        $data['category_item']='';
 
         $data['featured_item']="<h1 align='center'>Accounts content</h1>";
 
@@ -122,6 +127,8 @@ class Welcome extends CI_Controller
 */
         $data['slider']='';
         $data['title']='Accounts';
+        $data['recom_item']='';
+        $data['category_item']='';
         $data['all_active_product']='';
         $data['all_top_product']='';
         $data['product_details']= $this->welcome_model->product_details_model($productID);

@@ -110,9 +110,15 @@ $route['manufacturer-show']='manufacturer/get_manufacturer';/*view of manufactur
 $route['edit-manufacturer/(.+)']='manufacturer/edit_manufacturer/$1';
 $route['manage-manufacturer']='manufacturer/get_manufacturer';
 $route['delete-manufacturer/(.+)']='manufacturer/delete_manufacturer/$1';
-
-
 /*===========================================manufacturer end=================================================*/
+/*===========================================Start Cart=================================================*/
+
+$route['add-to-cart']='cart/add_to_cart';
+
+
+/*===========================================End Cart=================================================*/
+
+
 
 
 

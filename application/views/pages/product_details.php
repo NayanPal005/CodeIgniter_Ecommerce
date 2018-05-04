@@ -53,12 +53,20 @@
            <!-- <img src="images/product-details/rating.png" alt="" /> -->
             <span>
                 <span>BDT <?php echo $product_details->product_price?></span>
-                <label>Product Quantity</label>
-                <input type="text" value="<?php echo $product_details->product_quantity?>"/>
-                <button type="button" class="btn btn-fefault cart">
+                 <form action="<?php echo base_url()?>add-to-cart/" method="post">
+                     <label>Product Quantity></label>
+
+                <input type="text" name="product_quantity" value="<?php echo $product_details->product_quantity?>">
+
+                <input type="hidden" name="product_id" value="<?php echo $product_details->product_id?>">
+
+
+                <button type="submit" class="btn btn-fefault cart">
+
                     <i class="fa fa-shopping-cart"></i>
                     Add to cart
                 </button>
+               </form>
             </span>
             <p><b>Availability:</b>
                 <?php if ($product_details->product_quantity >0){ ?>
