@@ -37,9 +37,16 @@
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
+                                    <form action="<?php echo base_url('update-cart-product-quantity')?>" method="post">
+
 									<input class="cart_quantity_input" type="text" name="qty" value="<?php echo $items['qty'];?>" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+
+									<input type="hidden" name="rowid" value="<?php echo $items['rowid'];?>" autocomplete="off" size="2">
+
+                                        <input class="btn btn-warning" type="submit" value="update">
+
+                                    </form>
+
 								</div>
 							</td>
 							<td class="cart_total">

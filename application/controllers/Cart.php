@@ -72,11 +72,13 @@ class Cart extends CI_Controller{
 
     }
 
-    public function delete_to_cart($cartID){
+    public function delete_to_cart($cartID)
+    {
+        //echo $cartID;
 
         $data = array(
-            'rowid'  => $cartID,
-            'qty'    => 0,
+            'rowid' => $cartID,
+            'qty' => 0,
 
         );
 
@@ -84,7 +86,25 @@ class Cart extends CI_Controller{
 
         redirect('cart/show_cart');
 
-//echo $cartID;
+    }
+    public function update_cart_product_quantity(){
+
+     // $allData=$this->input->post();
+      $productQuantity=$this->input->post('qty');
+      $rowId=$this->input->post('rowid');
+     //echo $productQuantity;
+    // echo $rowId;
+        $data = array(
+            'rowid' => $rowId,
+            'qty' => $productQuantity,
+
+        );
+
+        $this->cart->update($data);
+
+        redirect('cart/show_cart');
+
+
 
     }
 

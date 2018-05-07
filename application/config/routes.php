@@ -115,6 +115,7 @@ $route['delete-manufacturer/(.+)']='manufacturer/delete_manufacturer/$1';
 
 $route['add-to-cart']='cart/add_to_cart';
 $route['delete-to-cart/(.+)']='cart/delete_to_cart/$1';
+$route['update-cart-product-quantity']='cart/update_cart_product_quantity';
 
 
 /*===========================================End Cart=================================================*/
