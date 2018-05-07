@@ -70,12 +70,35 @@ class Cart extends CI_Controller{
         $this->load->view('welcome_page_start',$data);
 
 
+    }
 
+    public function delete_to_cart($cartID){
 
+        $data = array(
+            'rowid'  => $cartID,
+            'qty'    => 0,
 
+        );
 
+        $this->cart->update($data);
+
+        redirect('cart/show_cart');
+
+//echo $cartID;
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

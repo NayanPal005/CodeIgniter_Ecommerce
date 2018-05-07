@@ -46,7 +46,7 @@
 								<p class="cart_total_price"><?php echo 'BDT'. "\n". $items['subtotal'];?></p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="<?php echo base_url(); ?>delete-to-cart/<?php echo $items['rowid'];?>"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 
@@ -120,10 +120,27 @@
             <div class="col-sm-6">
                 <div class="total_area">
                     <ul>
-                        <li>Cart Sub Total <span>$59</span></li>
-                        <li>Eco Tax <span>$2</span></li>
-                        <li>Shipping Cost <span>Free</span></li>
-                        <li>Total <span>$61</span></li>
+                        <li>Cart Sub Total <span><?php echo 'BDT'. "\n". $this->cart->total();?></span></li>
+                        <!-- This is the build in function of cart for overall total products cart price -->
+                        <li>VAT 5% <span>
+                                <?php $vat=($this->cart->total()*5)/100;
+                                    echo "BDT"."\n".$vat;
+                                ?>
+
+
+                            </span></li>
+                        <li>Shipping Cost <span><?php
+                                $shippingCost=100;
+                                echo "BDT"."\n".$shippingCost;
+
+                                ?></span></li>
+                        <li>Total <span>
+
+                                <?php $grandTotal=$this->cart->total()+$vat+$shippingCost;
+                                echo  "BDT"."\n".$grandTotal;
+                                ?>
+
+                            </span></li>
                     </ul>
                     <a class="btn btn-default update" href="">Update</a>
                     <a class="btn btn-default check_out" href="">Check Out</a>
