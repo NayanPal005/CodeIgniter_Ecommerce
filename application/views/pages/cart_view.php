@@ -15,13 +15,13 @@
 
                     <?php
                    // echo '<pre>';
-                 //   print_r($dataCART);
+                 //  print_r($dataCART);
                    // exit(); //EKANE EXIT DIYE DILE R WELCOME_PAGE_SHOW KORBE NA
 
                   //  $contents=$this->cart->contents();
                    // print_r($contents);
                     //foreach ($contents as $contents) :?>
-                    <?php foreach ($this->cart->contents() as $items): ?>
+                    <?php foreach ($dataCART as $items): ?>
 
                <!--     <?php echo form_hidden($i.'[rowid]', $items['rowid']); ?> -->
 						<tr>
@@ -38,12 +38,12 @@
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
 									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+									<input class="cart_quantity_input" type="text" name="qty" value="<?php echo $items['qty'];?>" autocomplete="off" size="2">
 									<a class="cart_quantity_down" href=""> - </a>
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price"><?php echo 'BDT'. "\n". $items['price'];?></p>
+								<p class="cart_total_price"><?php echo 'BDT'. "\n". $items['subtotal'];?></p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
