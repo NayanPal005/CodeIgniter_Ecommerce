@@ -3,6 +3,7 @@
 $grabbedID=$getDetailsById->product_id;
 
 //echo $grabbedID;
+
 ?>
 <div class="box-content">
     <form action="<?php echo base_url('product/edited_product_details') ?>" name="edit_product_form" enctype="multipart/form-data" method="post" style="border:1px solid #ccc; align-self: center;">
@@ -122,6 +123,7 @@ $grabbedID=$getDetailsById->product_id;
 </div>
 
 <!--
+//eta javascript diye selection kora jeta same billing_info te kora hoyeche
 <script>
 
     document.forms['edit_product_form'].elements['category_id'].value="<?php echo $get_all_active_category->category_id ?>"

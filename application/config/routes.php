@@ -125,8 +125,14 @@ $route['update-cart-product-quantity']='cart/update_cart_product_quantity';
 /*===========================================End Cart=================================================*/
 
 $route['checkout']='checkout/index';
-
-
+$route['customer-registration']='checkout/registration';
+$route['userLogout']='checkout/userLogout';
+$route['userLogin']='checkout/userLogin';
+/*==========================================Billing Related Route=================================================*/
+$route['billing']='checkout/billing';
+$route['update-billing']='checkout/updated_billing';
+$route['shipping/(.+)']='checkout/shipping/$1';
+//$route['shipping']='checkout/shipping';
 
 
 

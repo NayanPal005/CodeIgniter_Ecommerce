@@ -91,19 +91,39 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href="<?php echo base_url();?>welcome/accounts.html "><i class="fa fa-user"></i> Account</a></li>
-                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+
+
+                          <!--  <li><a href="checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
+
                             <li><a href="<?php base_url() ?>show-cart"><i class="fa fa-shopping-cart"></i> Cart(<?php echo $this->cart->total_items();?>)</a></li>
+
                             <li><a href='<?php echo base_url();?>admin_login/index'><i class="fa fa-lock"></i> Login</a></li>
+
+                           <!-- <li><a href='<?php echo base_url();?>admin_login/index'><i class="fa fa-lock"></i>User Login</a></li> -->
+
+                           <!-- <li><a href='<?php echo base_url();?>admin_login/index'><i class="fa fa-lock"></i> Login</a></li> -->
+
+                            <?php
+                            $customer_id=$this->session->userdata('customer_id');
+                            $customer_name=$this->session->userdata('customer_name');
+                            echo $customer_name;
+                          /*  echo $customer_id; */
+
+                            if ($customer_id){
+                                ?>
+                                <li><a href='<?php echo base_url();?>admin_login/index'><i class="fa fa-lock"></i>User Logout</a></li>
+
+                            <?php } else { ?>
+
+                                <li><a href='<?php echo base_url();?>admin_login/index'><i class="fa fa-lock"></i>User Login</a></li>
+
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
-    </div><!--/header-middle-->
+    </div>
 
     <div class="header-bottom"><!--header-bottom-->
         <div class="container">
@@ -180,9 +200,9 @@
 
                     //autoload e products_model ta load korate hbe front end e kaj korte
 
-                    $get_category_for_publish =  $this->products_model->get_published_category();/* ei front-end e ami direct model
-                             theke niye aschi
-..                           front-end e eta kora valo */
+                    $get_category_for_publish =  $this->products_model->get_published_category();
+
+                    /* ei front-end e ami direct model theke niye aschi front-end e eta kora valo */
 
                     foreach ($get_category_for_publish as $get_category_for_publish ){
 

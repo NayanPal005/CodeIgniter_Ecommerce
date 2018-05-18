@@ -14,21 +14,20 @@
         </div>
         <div class="checkout-options">
           <!--  <h3>Create New User</h3> -->
-
-
         </div>
         <div class="shopper-informations"> <!--This is Actually step one not shoper info -->
             <div class="row">
                 <div class="col-sm-6">
                     <div class="shopper-info">
-        <form>
+                        <p>If You are new please register here or Login Directly </p>
+        <form action="<?php echo base_url('customer-registration')?>" method="post">
 
             <input type="text" name="customer_name" placeholder="Customer Name">
             <input type="text" name="customer_email" placeholder="Email Address">
             <input type="password" name="customer_password" placeholder="Password">
             <input type="password" placeholder="Confirm password">
             <p style="text-align: center">
-            <a class="btn btn-primary" href="">Register</a>
+                <button  type="submit" name="register" class="btn btn-warning" >Register</button>
             </p>
         </form>
                     </div>

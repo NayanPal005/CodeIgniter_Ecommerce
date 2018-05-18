@@ -1,14 +1,15 @@
-<div class="register-req">
-    <p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
-</div><!--/register-req-->
+
+
+
 <div class="step-one">
-    <h2 class="heading">Step2</h2>
+    <h2 class="heading">Step2 : </h2>
 </div>
 <div class="shopper-informations">
     <div class="row">
+        <!--
         <div class="col-sm-3">
             <div class="shopper-info">
-                <p>Shopper Information</p>
+                <p>Billing $ Shopping Information</p>
                 <form>
                     <input type="text" placeholder="Display Name">
                     <input type="text" placeholder="User Name">
@@ -19,24 +20,44 @@
                 <a class="btn btn-primary" href="">Continue</a>
             </div>
         </div>
-        <div class="col-sm-5 clearfix">
+        -->
+
+        <div class="col-sm-8 clearfix"><!-- eta sm-5 ciloami 8 korsi -->
             <div class="bill-to">
-                <p>Bill To</p>
+
+                <p>Billing & Shopping Information</p>
+
                 <div class="form-one">
-                    <form>
-                        <input type="text" placeholder="Company Name">
-                        <input type="text" placeholder="Email*">
-                        <input type="text" placeholder="Title">
-                        <input type="text" placeholder="First Name *">
-                        <input type="text" placeholder="Middle Name">
-                        <input type="text" placeholder="Last Name *">
-                        <input type="text" placeholder="Address 1 *">
-                        <input type="text" placeholder="Address 2">
+
+                    <form action="<?php echo base_url('update-billing')?>" method="post" name="billing_info_form">
+                        <input type="hidden"  name="customer_id" value="<?php echo $customer_info->customer_id;?>">
+                        <input type="text" placeholder="Company Name" name="customer_name" value="<?php echo $customer_info->customer_name;?>">
+                        <input type="email" placeholder="Email*" name="customer_email" value="<?php echo $customer_info->customer_email;?>">
+                        <input type="number" placeholder="Mobile" name="customer_number" value="<?php echo $customer_info->customer_name;?>">
+                        <input type="text" placeholder="Address" name="customer_address" value="<?php echo $customer_info->customer_address;?>">
+                        <input type="text" placeholder=" City" name="customer_city" value="<?php echo $customer_info->customer_city;?>">
+                        <select name="customer_country">
+                            <option> -- Country -- </option>
+                            <option value="united_states">United States</option>
+                            <option value="bangladesh">Bangladesh</option>
+                            <option value="uk">UK</option>
+                            <option value="india">India</option>
+                            <option value="pakistan">Pakistan</option>
+                            <option value="canada">Canada</option>
+                        </select>
+                        <br/>
+                        <br/>
+                        <input type="text" placeholder="Zip Code *" value="<?php echo $customer_info->zip_code;?>" name="zip_code" >
+                        <button class="btn btn-warning" name="submit">Save & Continue</button>
                     </form>
+
                 </div>
+                <!--
+
                 <div class="form-two">
                     <form>
                         <input type="text" placeholder="Zip / Postal Code *">
+
                         <select>
                             <option>-- Country --</option>
                             <option>United States</option>
@@ -48,6 +69,7 @@
                             <option>Canada</option>
                             <option>Dubai</option>
                         </select>
+
                         <select>
                             <option>-- State / Province / Region --</option>
                             <option>United States</option>
@@ -65,8 +87,11 @@
                         <input type="text" placeholder="Fax">
                     </form>
                 </div>
+                -->
+
             </div>
         </div>
+        <!--
         <div class="col-sm-4">
             <div class="order-message">
                 <p>Shipping Order</p>
@@ -74,130 +99,10 @@
                 <label><input type="checkbox"> Shipping to bill address</label>
             </div>
         </div>
+        -->
     </div>
 </div>
-<div class="step-one">
-    <h2 class="heading">Step3</h2>
-</div>
-<div class="review-payment">
-    <h2>Review & Payment</h2>
-</div>
-
-<div class="table-responsive cart_info">
-    <table class="table table-condensed">
-        <thead>
-        <tr class="cart_menu">
-            <td class="image">Item</td>
-            <td class="description"></td>
-            <td class="price">Price</td>
-            <td class="quantity">Quantity</td>
-            <td class="total">Total</td>
-            <td></td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="cart_product">
-                <a href=""><img src="images/cart/one.png" alt=""></a>
-            </td>
-            <td class="cart_description">
-                <h4><a href="">Colorblock Scuba</a></h4>
-                <p>Web ID: 1089772</p>
-            </td>
-            <td class="cart_price">
-                <p>$59</p>
-            </td>
-            <td class="cart_quantity">
-                <div class="cart_quantity_button">
-                    <a class="cart_quantity_up" href=""> + </a>
-                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                    <a class="cart_quantity_down" href=""> - </a>
-                </div>
-            </td>
-            <td class="cart_total">
-                <p class="cart_total_price">$59</p>
-            </td>
-            <td class="cart_delete">
-                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-            </td>
-        </tr>
-
-        <tr>
-            <td class="cart_product">
-                <a href=""><img src="images/cart/two.png" alt=""></a>
-            </td>
-            <td class="cart_description">
-                <h4><a href="">Colorblock Scuba</a></h4>
-                <p>Web ID: 1089772</p>
-            </td>
-            <td class="cart_price">
-                <p>$59</p>
-            </td>
-            <td class="cart_quantity">
-                <div class="cart_quantity_button">
-                    <a class="cart_quantity_up" href=""> + </a>
-                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                    <a class="cart_quantity_down" href=""> - </a>
-                </div>
-            </td>
-            <td class="cart_total">
-                <p class="cart_total_price">$59</p>
-            </td>
-            <td class="cart_delete">
-                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="cart_product">
-                <a href=""><img src="images/cart/three.png" alt=""></a>
-            </td>
-            <td class="cart_description">
-                <h4><a href="">Colorblock Scuba</a></h4>
-                <p>Web ID: 1089772</p>
-            </td>
-            <td class="cart_price">
-                <p>$59</p>
-            </td>
-            <td class="cart_quantity">
-                <div class="cart_quantity_button">
-                    <a class="cart_quantity_up" href=""> + </a>
-                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                    <a class="cart_quantity_down" href=""> - </a>
-                </div>
-            </td>
-            <td class="cart_total">
-                <p class="cart_total_price">$59</p>
-            </td>
-            <td class="cart_delete">
-                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4">&nbsp;</td>
-            <td colspan="2">
-                <table class="table table-condensed total-result">
-                    <tr>
-                        <td>Cart Sub Total</td>
-                        <td>$59</td>
-                    </tr>
-                    <tr>
-                        <td>Exo Tax</td>
-                        <td>$2</td>
-                    </tr>
-                    <tr class="shipping-cost">
-                        <td>Shipping Cost</td>
-                        <td>Free</td>
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td><span>$61</span></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<!--
 <div class="step-one">
     <h2 class="heading">Step4</h2>
 </div>
@@ -212,7 +117,14 @@
 						<label><input type="checkbox"> Paypal</label>
 					</span>
 </div>
+
 <p style="text-align: center;">
     <a class="btn btn-primary" style="" href="">Place Bid</a>
 </p>
+-->
 </div>
+<script>
+     //Selection process of country done by javascript
+    document.forms['billing_info_form'].elements['country'].value="<?php echo $customer_info->country?>"
+
+</script>
