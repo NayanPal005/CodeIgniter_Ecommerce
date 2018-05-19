@@ -48,6 +48,7 @@
                         <br/>
                         <br/>
                         <input type="text" placeholder="Zip Code *" value="<?php echo $customer_info->zip_code;?>" name="zip_code" >
+                        <input type="checkbox" name="shipping_status"><span>Shipping Same As Billing</span>
                         <button class="btn btn-warning" name="submit">Save & Continue</button>
                     </form>
 

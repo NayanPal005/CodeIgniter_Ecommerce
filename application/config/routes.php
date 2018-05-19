@@ -131,8 +131,8 @@ $route['userLogin']='checkout/userLogin';
 /*==========================================Billing Related Route=================================================*/
 $route['billing']='checkout/billing';
 $route['update-billing']='checkout/updated_billing';
-$route['shipping/(.+)']='checkout/shipping/$1';
-//$route['shipping']='checkout/shipping';
+//$route['shipping/(.+)']='checkout/shipping/$1';
+$route['shipping']='checkout/shipping';
 
 
 
