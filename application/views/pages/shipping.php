@@ -3,7 +3,7 @@
 </div>
 <?php
 
-//echo '<pre>';
+echo '<pre>';
 //print_r($customer_shipping_info);
 //exit();
 
@@ -18,12 +18,14 @@
 
             <form action="<?php echo base_url('save-shipping')?>" method="post" name="shipping_info_form">
                 <input type="hidden"  name="customer_id" >
-                <input type="text" placeholder="Company Name" name="customer_name" >
-                <input type="email" placeholder="Email*" name="customer_email" >
-                <input type="number" placeholder="Mobile" name="customer_number" >
-                <input type="text" placeholder="Address" name="customer_address" >
-                <input type="text" placeholder=" City" name="customer_city" >
-                <select name="customer_country">
+              <!--  <input type="hidden"  name="shipping_id" > -->
+                <input type="text" placeholder="Company Name" name="customer_name" value="<?php echo $customer_shipping_info->customer_name?>" >
+                <input type="email" placeholder="Email*" name="customer_email" value="<?php echo $customer_shipping_info->customer_email?>">
+                <input type="number" placeholder="Mobile" name="customer_number" value="<?php echo $customer_shipping_info->customer_number?>">
+                <input type="number" placeholder="Fax" name="customer_fax" >
+                <input type="text" placeholder="Address" name="customer_address" value="<?php echo $customer_shipping_info->customer_address?>">
+                <input type="text" placeholder=" City" name="customer_city" value="<?php echo $customer_shipping_info->customer_city?>" >
+                <select name="customer_country" value="<?php echo $customer_shipping_info->customer_name?>">
                     <option> -- Country -- </option>
                     <option value="united_states">United States</option>
                     <option value="bangladesh">Bangladesh</option>
@@ -34,9 +36,9 @@
                 </select>
                 <br/>
                 <br/>
-                <input type="text" placeholder="Zip Code *" name="zip_code" >
+                <input type="text" placeholder="Zip Code *" name="zip_code" value="<?php echo $customer_shipping_info->zip_code?>" >
 
-                <button class="btn btn-warning" name="submit">Save & Continue</button>
+                <button class="btn btn-warning" name="submit"> Continue</button>
             </form>
 
         </div>

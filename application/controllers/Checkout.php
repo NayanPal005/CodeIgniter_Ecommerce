@@ -78,11 +78,15 @@ public function updated_billing(){
   //  exit();
    $this->checkout_model->update_billing_info();
 
-    echo "Hello,This is updated billing information";
+   $shipping_id=$this->session->userdata('shipping_id');
+   if ($shipping_id!=NULL){
 
-   // redirect('shipping',$updatedbillingDATA);
-   redirect('shipping');
-  //  redirect(base_url("checkout/shipping/".$updatedbillingDATA));
+       redirect('payment');
+
+   }
+    else {
+        redirect('shipping');
+    }
 
 }
 public function shipping(){
@@ -102,13 +106,21 @@ public function shipping(){
 
     $this->load->view('welcome_page_start',$data);
 
-   //= echo 'This is shipping';
-   // $this->load->view('pages/shipping');
-   // echo '<pre>';
-  //  $updatedbillingDATA = $this->uri->segment(3);
-   // print_r($updatedbillingDATA);
-  //  exit();
+
     
+}
+public function save_shipping(){
+    echo "Shipping Save here";
+    $shipping_id=$this->session->userdata('shipping_id');
+  //  $shipping_id=$this->input->post('shipping_id');
+    echo $shipping_id;
+
+    $this->checkout_model->save_shipping_model($shipping_id);
+    redirect('payment');
+}
+public function payment(){
+    echo "We Will Use payment API :)";
+
 }
 
 }

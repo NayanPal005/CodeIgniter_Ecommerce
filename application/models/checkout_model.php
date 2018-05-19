@@ -52,15 +52,24 @@ class checkout_model extends CI_Model{
 
          $data['customer_country']=$this->input->post('customer_country');
         $shipping_status=$this->input->post('shipping_status');
+
+
+
         if ($shipping_status=='on') {
             $this->db->where('customer_id', $customer_id)
                 ->update('tbl_customer', $data);
             $this->db->insert('tbl_shipping',$data);
+            $shipping_id=$this->db->insert_id();
+            $sdata=array();
+            $sdata['shipping_id']=$shipping_id;
+            $this->session->set_userdata($sdata);
 
         }
         else{
             $this->db->where('customer_id', $customer_id)
                 ->update('tbl_customer', $data);
+
+            redirect('shipping');
 
 
         }
@@ -76,6 +85,23 @@ class checkout_model extends CI_Model{
             ->row();
 
         return $customer_info;
+
+
+    }
+    public function save_shipping_model($shipping_id){
+        $data=array();
+        $data['customer_name']=$this->input->post('customer_name');
+      //  $data['customer_id']=$this->input->post('customer_id');
+       // $data['shipping_id']=$shipping_id;
+      //  $customer_id=$this->input->post('customer_id');
+        $data['customer_address']=$this->input->post('customer_address');
+        $data['customer_fax']=$this->input->post('customer_fax');
+        $data['customer_email']=$this->input->post('customer_email');
+        $data['customer_city']=$this->input->post('customer_city');
+        $data['customer_number']=$this->input->post('customer_number');
+        $data['zip_code']=$this->input->post('zip_code');
+        $data['customer_country']=$this->input->post('customer_country');
+      $this->db->insert('tbl_shipping',$data);
 
 
     }
