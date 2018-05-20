@@ -1,13 +1,7 @@
 <?php
 //session_start();
 
-define("STORE_ID","testbox");
 
-define("STORE_PASSWORD","qwerty");
-
-define("SSLCZ_REDIRECT_URL"," https://sandbox.sslcommerz.com/gwprocess/v3/api.php");
-
-define("SSLCZ_VALIDATION_API"," https://sandbox.sslcommerz.com/validator/api/validationserverAPI.php");
 ?>
 <?php
 
@@ -75,28 +69,3 @@ define("SSLCZ_VALIDATION_API"," https://sandbox.sslcommerz.com/validator/api/val
     */
 
 ?>
-<fieldset style="border: 5px blue">
-<form action="<?php echo base_url('ssl-payment')?>" method="post">
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-    </div>
-    <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-    </div>
-    <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-    </div>
-    <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-    </div>
-    <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
-</fieldset>

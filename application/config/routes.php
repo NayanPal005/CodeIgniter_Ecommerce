@@ -134,9 +134,14 @@ $route['update-billing']='checkout/updated_billing';
 //$route['shipping/(.+)']='checkout/shipping/$1';
 $route['shipping']='checkout/shipping';
 $route['save-shipping']='checkout/save_shipping';
+/*==============================payment gateway related============================================================*/
+
 $route['payment']='checkout/payment';
 $route['place-order']='checkout/place_order';
 $route['ssl-payment']='checkout/ssl_payment';
+$route['success']='checkout/success';
+$route['fail']='checkout/fail';
+$route['cancel']='checkout/cancel';
 
 
 

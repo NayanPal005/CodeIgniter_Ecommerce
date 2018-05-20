@@ -138,108 +138,162 @@ public function payment(){
    // $this->load->view('pages/payment');
 
 }
-public function place_order(){
-    $data['title']='payment';
+    public function place_order()
+    {
+        $payment_type=$this->input->post('payment_type');
 
-    $data['slider']='';
+        /*
+         * Start Order information Save
+         */
 
-    $data['recom_item']='';
-
-    $data['category_item']='';
-
-
-
- //   $data['featured_item']= $this->load->view('pages/payment',$data,True);
-
-   // $this->load->view('welcome_page_start',$data);
+       // $this->checkout_model->save_order_related_info();
 
 
-    $payment_type=$this->input->post('payment_type',true);
-    //echo $payment_type;
-    if ($payment_type=='ssl_commerz'){
-        $data['featured_item']= $this->load->view('pages/sslcommerz_payment',$data,True);
 
-         $this->load->view('welcome_page_start',$data);
+        /*
+         * End Order information Save
+         */
+        if($payment_type == 'cash_on_delivery')
+        {
 
+        }
+        if($payment_type == 'ssl_commerz')
+        {
+            $this->ssl_comerz_payment();
+        }
+        if($payment_type == 'paypal')
+        {
+
+        }
     }
-    if ($payment_type=='payment'){
-        $data['featured_item']= $this->load->view('pages/payment',$data,True);
-         $this->load->view('welcome_page_start',$data);
+    public function ssl_comerz_payment()
+    {
+        define("STORE_ID", "testbox");
 
-    }
-    if ($payment_type=='paypal'){
-        $data['featured_item']= $this->load->view('pages/payment',$data,True);
+        define("STORE_PASSWORD", "qwerty");
 
-         $this->load->view('welcome_page_start',$data);
+        define("SSLCZ_REDIRECT_URL", "https://sandbox.sslcommerz.com/gwprocess/v3/api.php");
 
-    }
-}
-public function ssl_payment()
-{
+        define("SSLCZ_VALIDATION_API", "https://sandbox.sslcommerz.com/validator/api/validationserverAPI.php");
 
-    define("STORE_ID", "testbox");
 
-    define("STORE_PASSWORD", "qwerty");
+        # COMMUNICATE NECESSARY INFO
 
-    define("SSLCZ_REDIRECT_URL", " https://sandbox.sslcommerz.com/gwprocess/v3/api.php");
-
-    define("SSLCZ_VALIDATION_API", " https://sandbox.sslcommerz.com/validator/api/validationserverAPI.php");
-
-    /* communicate necessary info */
-    //if (isset($_POST['donate_now_please'])) {
         $post_data = array();
 
         $post_data['store_id'] = STORE_ID;
+
         $post_data['store_passwd'] = STORE_PASSWORD;
-        $post_data['currency'] = $_POST['currency'];
-        $post_data['total_amount'] = str_replace(',', '', $_POST['amount']);
+
+        $post_data['currency'] = 'BDT';
+
+        $post_data['total_amount'] = str_replace(',', '', 8000);
+
         $_SESSION['SSLCZ_TRX_ID'] = $post_data['tran_id'] = "SSLCZ_TEST_" . uniqid();
-        $post_data['success_url'] = "http://localhost/hysawa/?page_id=847";
-        $post_data['fail_url'] = "http://localhost/hysawa/?page_id=847";
-        $post_data['cancel_url'] = "http://localhost/hysawa/?page_id=847";
-        /* customer info */
-        $_SESSION['CUS_HISTORY']['CUS_NAME'] = $post_data['cus_name'] = $_POST['cus_name1'];
-        $_SESSION['CUS_HISTORY']['CUS_NAME2'] = $post_data['cus_name2'] = $_POST['cus_name2'];
-        $_SESSION['CUS_HISTORY']['CUS_EMAIL'] = $post_data['cus_email'] = $_POST['cus_email'];
-        $_SESSION['CUS_HISTORY']['CUS_ADD'] = $post_data['cus_add1'] = $_POST['cus_add1'];
-        $_SESSION['CUS_HISTORY']['CUS_COUNTRY'] = $post_data['cus_country'] = $_POST['cus_country'];
+
+        $post_data['success_url'] = "http://localhost/CodeIgniter_Ecommerce/success"; //project er name
+
+        $post_data['fail_url'] = "http://localhost/CodeIgniter_Ecommerce/fail";//project er name
+
+        $post_data['cancel_url'] = "http://localhost/CodeIgniter_Ecommerce/cancel";//project er name
+
+        # CUSTOMER INFORMATION
+
+        $_SESSION['CUS_HISTORY']['CUS_NAME'] = $post_data['cus_name'] = 'Saahil Alam';
+        $_SESSION['CUS_HISTORY']['CUS_NAME2'] = $post_data['cus_name2'] = '';
+
+        $_SESSION['CUS_HISTORY']['CUS_EMAIL'] = $post_data['cus_email'] = 'saahil@yahoo.com';
+
+        $_SESSION['CUS_HISTORY']['CUS_ADD'] = $post_data['cus_add1'] = 'Dhaka';
+        //$_SESSION['CUS_HISTORY']['CUS_COUNTRY'] = 'bangladesh' = 'Bangladesh';
+
+        #$post_data['cus_city'] = "Dhaka";
+        #$post_data['cus_state'] = "Dhaka";
+        #$post_data['cus_postcode'] = "1000";
+
+        #$post_data['cus_fax'] = "01711111111";
+        # SHIPMENT INFORMATION
+        #$post_data['ship_name'] = "Store Test";
+        #$post_data['ship_add1 '] = "Dhaka";
+        #$post_data['ship_add2'] = "Dhaka";
+        #$post_data['ship_city'] = "Dhaka";
+        #$post_data['ship_state'] = "Dhaka";
+        #$post_data['ship_postcode'] = "1000";
+        #$post_data['ship_country'] = "Bangladesh";
+        # OPTIONAL PARAMETERS
+        #$post_data['value_a'] = "ref001";
+        #$post_data['value_b '] = "ref002";
+        #$post_data['value_c'] = "ref003";
+        #$post_data['value_d'] = "ref004";
+        # REQUEST SEND TO SSLCOMMERZ
 
         $handle = curl_init();
+
         curl_setopt($handle, CURLOPT_URL, SSLCZ_REDIRECT_URL);
-        curl_setopt($handle, CURLOPT_POST);
+
+        curl_setopt($handle, CURLOPT_POST, 1);
+
         curl_setopt($handle, CURLOPT_POSTFIELDS, $post_data);
+
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-        /*---------------------------bellow two line for localhost-----*/
+
+        /* ---------- **Below two lines only for Localhost ----------- */
         curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, 0);
 
+
         $content = curl_exec($handle);
+
         $code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
 
-        if ($code == 200 && !(curl_errno($handle))) {
+
+        if ($code == 200 && !( curl_errno($handle))) {
+
             curl_close($handle);
 
             $sslcommerzResponse = $content;
-            #PARSE THE JSON RESPONSE
+
+            # PARSE THE JSON RESPONSE
+
             $sslcz = json_decode($sslcommerzResponse, true);
+
             if (isset($sslcz['status']) && $sslcz['status'] == 'SUCCESS') {
+
                 if (isset($sslcz['GatewayPageURL']) && $sslcz['GatewayPageURL'] != '') {
-                    echo '<meta http-equiv="refresh" content="0;url=' . $sslcz['GatewayPageURL'];
-                    #header("Location:".$sslcz['GatewayPageURL']);
-                    exit();
+
+                    echo '<meta http-equiv="refresh" content="0; url=' . $sslcz['GatewayPageURL'] . '" />';
+
+                    #header("Location: " . $sslcz['GatewayPageURL']);
+
+                    exit;
                 } else {
-                    echo "No Redirect URL Found";
+
+                    echo "No redirect URL found!";
                 }
             } else {
-                echo "Invalid Credential";
-            }
 
+                echo "Invalid Credential!";
+            }
         } else {
+
             curl_close($handle);
-            echo "Failed To Connect With SSLCOMMERZ API";
-            exit();
+
+            echo "FAILED TO CONNECT WITH SSLCOMMERZ API";
+
+            exit;
         }
     }
- //}
+    public function success()
+    {
+        echo "In success";
+    }
+    public function fail()
+    {
+        echo "In fail order";
+    }
+    public function cancel()
+    {
+        echo "order Cancel";
+    }
 
 }
