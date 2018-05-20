@@ -66,6 +66,7 @@ class Cart extends CI_Controller{
         //Adopted value of cart catch here and pass it to the cart_view page  in the next line
         
         $data['featured_item']=$this->load->view('pages/cart_view',$data,True);
+        $data['featured_item']=$this->load->view('pages/payment',$data,True);//eta hocche payemnt page e dekhanor jonno jehutu final step
 
         $this->load->view('welcome_page_start',$data);
 

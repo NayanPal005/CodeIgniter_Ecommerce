@@ -88,10 +88,10 @@ class checkout_model extends CI_Model{
 
 
     }
-    public function save_shipping_model($shipping_id){
+    public function save_shipping_model($shipping_id,$customer_id){
         $data=array();
         $data['customer_name']=$this->input->post('customer_name');
-      //  $data['customer_id']=$this->input->post('customer_id');
+        $data['customer_id']=$customer_id;
        // $data['shipping_id']=$shipping_id;
       //  $customer_id=$this->input->post('customer_id');
         $data['customer_address']=$this->input->post('customer_address');
@@ -101,7 +101,7 @@ class checkout_model extends CI_Model{
         $data['customer_number']=$this->input->post('customer_number');
         $data['zip_code']=$this->input->post('zip_code');
         $data['customer_country']=$this->input->post('customer_country');
-      $this->db->insert('tbl_shipping',$data);
+        $this->db->insert('tbl_shipping',$data);
 
 
     }

@@ -135,6 +135,8 @@ $route['update-billing']='checkout/updated_billing';
 $route['shipping']='checkout/shipping';
 $route['save-shipping']='checkout/save_shipping';
 $route['payment']='checkout/payment';
+$route['place-order']='checkout/place_order';
+$route['ssl-payment']='checkout/ssl_payment';
 
 
 
