@@ -45,12 +45,17 @@
     </div>
     <div class="col-sm-7">
         <div class="product-information"><!--/product-information-->
+
             <img src="images/product-details/new.jpg" class="newarrival" alt="" />
+
             <h2><?php echo $product_details->product_name?></h2>
+
             <p><?php echo 'Web ID: 102'. $product_details->product_id?></p>
+
             <p><?php echo $product_details->product_short_description?></p>
             
            <!-- <img src="images/product-details/rating.png" alt="" /> -->
+
             <span>
                 <span>BDT <?php echo $product_details->product_price?></span>
                  <form action="<?php echo base_url()?>add-to-cart/" method="post">

@@ -4,8 +4,11 @@
 <div class="step-one">
     <h2 class="heading">Step2 : </h2>
 </div>
+
 <div class="shopper-informations">
+
     <div class="row">
+
         <!--
         <div class="col-sm-3">
             <div class="shopper-info">
@@ -21,6 +24,8 @@
             </div>
         </div>
         -->
+
+
 
         <div class="col-sm-8 clearfix"><!-- eta sm-5 ciloami 8 korsi -->
             <div class="bill-to">

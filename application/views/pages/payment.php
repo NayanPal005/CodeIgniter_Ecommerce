@@ -62,7 +62,6 @@
 
             <?php
         endforeach; ?>
-
         </tbody>
     </table>
 </div>
@@ -75,10 +74,19 @@
 
 
             <div class="col-sm-12">
+
                 <div class="total_area">
+
                     <ul>
-                        <li>Cart Sub Total <span><?php echo 'BDT'. "\n". $this->cart->total();?></span></li>
+
+                        <?php $myAmount= $this->cart->total(); ?>
+
+                     <!--  <li>Cart Sub Total <span><?php echo 'BDT'. "\n". $this->cart->total();?></span></li>  -->
+
+                        <li>Cart Sub Total <span><?php echo 'BDT'. "\n". $myAmount;?></span></li>
+
                         <!-- This is the build in function of cart for overall total products cart price -->
+
                         <li>VAT 5% <span>
                                 <?php $vat=($this->cart->total()*5)/100;
                                 echo "BDT"."\n".$vat;
@@ -114,9 +122,13 @@
         <div class="radio">
             <label><input type="radio" name="payment_type" value="ssl_commerz">SSL COMMERZ</label>
         </div>
-        <div class="radio disabled">
-            <label><input type="radio" name="payment_type" value="cash_on" >CASH ON/BIKASH</label>
+
+        <div class="radio ">
+            <label><input type="radio" name="payment_type"  value="cash_on" >CASH ON/BIKASH</label>
         </div>
+
+
+
     </div>
 
                 <p style="text-align: center">

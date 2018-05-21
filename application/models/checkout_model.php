@@ -75,6 +75,7 @@ class checkout_model extends CI_Model{
         }
 
     }
+
     public function customer_shipping_info_by_id($customer_id){
        // echo $customer_id;
         $customer_info=$this->db
@@ -102,6 +103,29 @@ class checkout_model extends CI_Model{
         $data['zip_code']=$this->input->post('zip_code');
         $data['customer_country']=$this->input->post('customer_country');
         $this->db->insert('tbl_shipping',$data);
+
+
+    }
+    public function save_payment_info_model($data){
+
+     //  echo $payment_type;
+
+
+
+     $this->db->insert('tbl_payment',$data);
+
+      $payment_id=$this->db->insert_id(); //last id jeta ache input disi seta k nilam
+
+      return $payment_id;
+
+
+
+    }
+    public function save_order_info($odata){
+
+        $this->db->insert('tbl_order',$odata);
+        $order_id=$this->db->insert_id();
+        return$order_id;
 
 
     }

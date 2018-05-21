@@ -142,10 +142,24 @@
                                 echo "BDT"."\n".$shippingCost;
 
                                 ?></span></li>
+
                         <li>Total <span>
 
                                 <?php $grandTotal=$this->cart->total()+$vat+$shippingCost;
-                                echo  "BDT"."\n".$grandTotal;
+
+                                 $a= $grandTotal;
+                                 echo  "BDT"."\n".$a;
+
+                                $sdata=array();
+
+                                $sdata['total']=$a;
+
+                                $this->session->set_userdata($sdata);//invoice e use korar jonno sesssion e nilam total k
+                           /*
+                                echo '<pre>';
+                                print_r($sdata);
+                                exit();
+                             */
                                 ?>
                             </span></li>
                     </ul>

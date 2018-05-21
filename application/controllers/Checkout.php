@@ -1,9 +1,6 @@
 <?php
 class Checkout extends CI_Controller{
 
-
-
-
 public function index(){
 
     $data['title']='';
@@ -20,25 +17,41 @@ public function index(){
 
 
 }
+
 public function userLogin(){
 
     echo "Hello user";
 
 }
+
 public function userLogout(){
 
     echo "You Are Logged Out";
 
 }
+
 public function registration(){
 
     $this->load->model('checkout_model');
 
     $customer_id=$this->checkout_model->save_customer_info();
+    /*save_customer_info te ami insert_id niye seta k return kore ekane niche
+    set kore disi jate invoice use korte pari
+    */
+
+    /*============================
+    model er function e insert_id use kore last inserted id gulo dre  return kore
+    model e ene setake session e set kore disi
+
+
+    */
 
     $customer_name=$this->input->post('customer_name');
 
     $sdata=array();
+
+    ///////////////======================================//set of customer_id in session====================================//////
+
 
     $sdata['customer_id']=$customer_id;
 
@@ -50,7 +63,7 @@ public function registration(){
 
 }
 
-public function billing(){
+    public function billing(){
 
     $data['title']='billing';
 
@@ -68,17 +81,20 @@ public function billing(){
 
     $this->load->view('welcome_page_start',$data);
 
-}
-public function updated_billing(){
+   }
 
-  //  $updatedbillingDATA=$this->checkout_model->update_billing_info();
+    public function updated_billing(){
+
+
     $shipping_status=$this->input->post('shipping_status');
 
    // echo "===================".$shipping_status;
   //  exit();
-   $this->checkout_model->update_billing_info();
+
+        $this->checkout_model->update_billing_info();
 
    $shipping_id=$this->session->userdata('shipping_id');
+
    if ($shipping_id!=NULL){
 
        redirect('payment');
@@ -88,8 +104,10 @@ public function updated_billing(){
         redirect('shipping');
     }
 
-}
-public function shipping(){
+   }
+
+    public function shipping(){
+
     $data['title']='shipping';
 
     $data['slider']='';
@@ -100,26 +118,38 @@ public function shipping(){
 
     $customer_id=$this->session->userdata('customer_id');
 
+
     $data['customer_shipping_info']=$customer_shipping_info=$this->checkout_model->customer_shipping_info_by_id($customer_id);
 
     $data['featured_item']= $this->load->view('pages/shipping',$data,True);
 
     $this->load->view('welcome_page_start',$data);
 
+    }
 
-    
-}
-public function save_shipping(){
-    echo "Shipping Save here";
+
+
+   public function save_shipping(){
+
+   // echo "Shipping Save here";
+
     $shipping_id=$this->session->userdata('shipping_id');
+
+
     $customer_id=$this->session->userdata('customer_id');
-  //  $shipping_id=$this->input->post('shipping_id');
+
+   //$shipping_id=$this->input->post('shipping_id');
+
     echo $shipping_id;
 
     $this->checkout_model->save_shipping_model($shipping_id,$customer_id);
+
     redirect('payment');
-}
-public function payment(){
+
+   }
+
+    public function payment(){
+
     $data['title']='payment';
 
     $data['slider']='';
@@ -128,46 +158,116 @@ public function payment(){
 
     $data['category_item']='';
 
-
-
     $data['featured_item']= $this->load->view('pages/payment',$data,True);
 
     $this->load->view('welcome_page_start',$data);
 
-    echo "We Will Use payment API :)";
+ //   echo "We Will Use payment API :)";
+
    // $this->load->view('pages/payment');
 
-}
-    public function place_order()
+   }
+   public function save_payment_info(){
+   /*
+    $payment_type=$this->input->post('payment_type');
+    // echo $payment_type;
+    $shipping_id=$this->session->userdata('shipping_id');
+    echo $shipping_id;
+    $customer_id=$this->session->userdata('customer_id');
+    echo $customer_id;
+  */
+
+
+
+   $data=array();
+
+   $data['payment_type']=$this->input->post('payment_type',True);
+
+   $payment_id=$this->checkout_model->save_payment_info_model($data);
+
+   $sdata=array();
+
+   $sdata['payment_id']=$payment_id;
+
+   $this->session->set_userdata($sdata);
+
+  // $paymentID=$this->session->set_userdata('payment_id');
+
+
+   $odata['customer_id']=$this->session->userdata('customer_id');
+   $odata['shipping_id']=$this->session->userdata('shipping_id');
+   $odata['payment_id']=$this->session->userdata('payment_id');
+   $odata['order_total']=$this->session->userdata('total');
+
+   $order_id=$this->checkout_model->save_order_info($odata);
+
+   $sdata['order_id']=$order_id;
+
+   $this->session->set_userdata($sdata);
+
+
+   /*
+   echo '<br>';
+   echo $customer_id;
+   echo '<br>';
+   echo $shipping_id;
+
+   echo '<br>';
+       echo $payment_id;
+       echo '<br>';
+       echo $order_total;
+   exit();
+  */
+
+   redirect('checkout/confirm');
+
+   } //save_payment_info end here
+
+
+/*
+    public function confirm()
+    {
+
+    $this->load->view('pages/confirm');
+
+   }
+*/
+
+   public function place_order()
     {
         $payment_type=$this->input->post('payment_type');
 
-        /*
-         * Start Order information Save
-         */
+
+
 
        // $this->checkout_model->save_order_related_info();
 
 
+        /*place order e click korle ekoi sate ami api te patabo and
+         save_payment_info te save korbo jate payment info gulo ami invoice e use korte pari
+        */
 
-        /*
-         * End Order information Save
-         */
-        if($payment_type == 'cash_on_delivery')
+        if($payment_type == 'cash_on')
         {
-
+            $this->save_payment_info();
         }
+
         if($payment_type == 'ssl_commerz')
         {
+            $this->save_payment_info();
             $this->ssl_comerz_payment();
-        }
-        if($payment_type == 'paypal')
-        {
 
         }
+
+        if($payment_type == 'paypal')
+        {
+            $this->save_payment_info();
+        }
+
     }
     public function ssl_comerz_payment()
     {
+       // echo $payment_type;
         define("STORE_ID", "testbox");
 
         define("STORE_PASSWORD", "qwerty");

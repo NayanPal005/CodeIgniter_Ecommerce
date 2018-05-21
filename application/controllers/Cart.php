@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Cart extends CI_Controller{
 
+
     public function __construct()
     {
         parent::__construct();
@@ -10,7 +11,10 @@ class Cart extends CI_Controller{
         $this->load->model('cart_model');
 
         $this->load->library('cart');
+
     }
+
+
 
     public function add_to_cart(){
 
@@ -43,20 +47,20 @@ class Cart extends CI_Controller{
 
        // print_r($data);
 
-      //  echo 'hdddddddddddddddddd';
-      //  exit();
+       //  echo 'hdddddddddddddddddd';
+       //  exit();
+
         $this->cart->insert($data);
 
        return redirect('cart/show_cart');
 
     }
+
     public function show_cart(){
 
 
        // echo "Hello! This is cart";
         $data=array();
-
-
         $data['title']='';
         $data['slider']='';
         $data['recom_item']='';
@@ -105,20 +109,7 @@ class Cart extends CI_Controller{
 
         redirect('cart/show_cart');
 
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
