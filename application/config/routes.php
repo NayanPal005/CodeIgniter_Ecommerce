@@ -142,8 +142,9 @@ $route['ssl-payment']='checkout/ssl_payment';
 $route['success']='checkout/success';
 $route['fail']='checkout/fail';
 $route['cancel']='checkout/cancel';
+/*==============================Invoice related============================================================*/
 
-
+$route['manage-invoice']='invoice/manage_invoice';
 
 $route['default_controller'] = 'welcome';
 $route['home-page'] = 'Home';

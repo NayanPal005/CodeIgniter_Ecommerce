@@ -93,7 +93,7 @@ class checkout_model extends CI_Model{
         $data=array();
         $data['customer_name']=$this->input->post('customer_name');
         $data['customer_id']=$customer_id;
-       // $data['shipping_id']=$shipping_id;
+        $data['shipping_id']=$shipping_id;
       //  $customer_id=$this->input->post('customer_id');
         $data['customer_address']=$this->input->post('customer_address');
         $data['customer_fax']=$this->input->post('customer_fax');
@@ -127,6 +127,13 @@ class checkout_model extends CI_Model{
         $order_id=$this->db->insert_id();
         return$order_id;
 
+
+    }
+    public function save_order_details_info($oDedata){
+
+        $this->db->insert('tbl_order_details',$oDedata);
+        $order_details_id=$this->db->insert_id();
+        return $order_details_id;
 
     }
 

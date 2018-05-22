@@ -192,6 +192,11 @@ public function registration(){
    $this->session->set_userdata($sdata);
 
   // $paymentID=$this->session->set_userdata('payment_id');
+  // $customerID=$this->session->set_userdata('customer_id');
+
+ //  $shippingID=$this->session->set_userdata('shipping_id');
+
+  // echo $shippingID;
 
 
    $odata['customer_id']=$this->session->userdata('customer_id');
@@ -199,11 +204,32 @@ public function registration(){
    $odata['payment_id']=$this->session->userdata('payment_id');
    $odata['order_total']=$this->session->userdata('total');
 
+
+
    $order_id=$this->checkout_model->save_order_info($odata);
 
    $sdata['order_id']=$order_id;
 
    $this->session->set_userdata($sdata);
+
+   $contents=$this->cart->contents();
+
+  foreach ($contents as $contents){
+
+
+      $oDedata['order_id']=$order_id;
+      $oDedata['product_id']=$contents['id'];
+      $oDedata['product_name']=$contents['name'];
+      $oDedata['product_price']=$contents['price'];
+
+      $oDedata['product_sales_quantity']=$contents['qty'];
+      $order_details_id=  $this->checkout_model->save_order_details_info($oDedata);
+
+  }
+
+
+       $this->session->set_userdata($order_details_id);
+
 
 
    /*
@@ -224,14 +250,14 @@ public function registration(){
    } //save_payment_info end here
 
 
-/*
+
     public function confirm()
     {
 
     $this->load->view('pages/confirm');
 
    }
-*/
+
 
    public function place_order()
     {

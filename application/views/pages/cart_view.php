@@ -148,7 +148,7 @@
                                 <?php $grandTotal=$this->cart->total()+$vat+$shippingCost;
 
                                  $a= $grandTotal;
-                                 echo  "BDT"."\n".$a;
+                                 echo  "BDT"."\n".$a; //jate database e $a er man ta duke tikmto tai bdt alada kore add korsi in order table
 
                                 $sdata=array();
 
