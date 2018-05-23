@@ -51,6 +51,7 @@
     </div><!--/span-->
     <!--=====================================First Table end======================================-->
     <!--=====================================Second table START======================================-->
+
     <div class="box span6">
         <div class="box-header">
             <h2><i class="halflings-icon align-justify"></i><span class="break"></span>Shipping Information</h2>
@@ -60,57 +61,25 @@
                 <a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
             </div>
         </div>
+
         <div class="box-content">
             <table class="table table-condensed">
                 <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>Date registered</th>
-                    <th>Role</th>
-                    <th>Status</th>
+                    <th>Shipping ID</th>
+                    <th> Customer Name</th>
+                    <th>Shipping Address</th>
+                    <th>Zip Code</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>Dennis Ji</td>
-                    <td class="center">2012/01/01</td>
-                    <td class="center">Member</td>
+                    <td><?php echo $shipping_info->shipping_id;?></td>
+                    <td class="center"><?php echo $shipping_info->customer_name;?></td>
+                    <td class="center"><?php echo $shipping_info->customer_address;?></td>
                     <td class="center">
-                        <span class="label label-success">Active</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Dennis Ji</td>
-                    <td class="center">2012/02/01</td>
-                    <td class="center">Staff</td>
-                    <td class="center">
-                        <span class="label label-important">Banned</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Dennis Ji</td>
-                    <td class="center">2012/02/01</td>
-                    <td class="center">Admin</td>
-                    <td class="center">
-                        <span class="label">Inactive</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Dennis Ji</td>
-                    <td class="center">2012/03/01</td>
-                    <td class="center">Member</td>
-                    <td class="center">
-                        <span class="label label-warning">Pending</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Dennis Ji</td>
-                    <td class="center">2012/01/21</td>
-                    <td class="center">Staff</td>
-                    <td class="center">
-                        <span class="label label-success">Active</span>
-                    </td>
-                </tr>
+                        <span class="label label-success"><?php echo $shipping_info->zip_code;?></span>
+
                 </tbody>
             </table>
             <div class="pagination pagination-centered">
@@ -154,34 +123,30 @@
             <table class="table table-striped table-bordered bootstrap-datatable datatable">
                 <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>Date registered</th>
-                    <th>Role</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th>Customer Name</th>
+                    <th>Customer Number</th>
+                    <th>Customer Email</th>
+                    <th>Customer Fax</th>
+                    <th>Shipping ID</th>
+                    <th>Order Status</th>
+                    <th>Total Cost</th>
+                    <th>Order Registered</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 <tr>
-                    <td>Dennis Ji</td>
-                    <td class="center">2012/03/01</td>
-                    <td class="center">Member</td>
-                    <td class="center">
-                        <span class="label label-warning">Pending</span>
-                    </td>
-                    <td class="center">
-                        <a class="btn btn-success" href="#">
-                            <i class="halflings-icon white zoom-in"></i>
-                        </a>
-                        <a class="btn btn-info" href="#">
-                            <i class="halflings-icon white edit"></i>
-                        </a>
-                        <a class="btn btn-danger" href="#">
-                            <i class="halflings-icon white trash"></i>
+                    <td><?php echo $shipping_info->customer_name;?></td>
+                    <td class="center"><?php echo $shipping_info->customer_number;?></td>
+                    <td class="center"><?php echo $shipping_info->customer_email;?></td>
+                    <td class="center"><?php echo $shipping_info->customer_fax;?></td>
 
-                        </a>
-                    </td>
+                    <td><?php echo $shipping_info->shipping_id;?></td>
+                    <td><?php echo $order_info->order_status;?></td>
+                    <td><?php echo $order_info->order_total;?></td>
+                    <td><?php echo $order_info->order_date_time;?></td>
+
+
                 </tr>
 
                 </tbody>
@@ -190,3 +155,4 @@
     </div><!--/span-->
 
 </div><!--/row-->
+<a class="btn btn-success" style="text-align: center">Print</a>

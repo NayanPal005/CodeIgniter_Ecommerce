@@ -25,6 +25,37 @@ class Invoice_model extends CI_Model{
 
 
     }
+    /*
+    public function shipping_info_by_id($shipping_id){
+
+     return $this->db->select('*')
+          ->from('tbl_shipping')
+          ->where('shipping_id',$shipping_id)
+          ->get()
+          ->row();
+
+
+
+    }
+    */
+    public function customer_info_by_id($customer_id){
+
+       // echo $customer_id;
+        return  $this->db->select('*')
+            ->from('tbl_customer')
+            ->where('customer_id',$customer_id)
+            ->get()
+            ->row();
+
+    }
+    public function shipping_info_by_id($shipping_id){
+        return  $this->db->select('*')
+            ->from('tbl_shipping')
+            ->where('shipping_id',$shipping_id)
+            ->get()
+            ->row();
+
+    }
 
 
 
