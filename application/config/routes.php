@@ -146,6 +146,8 @@ $route['cancel']='checkout/cancel';
 
 $route['manage-invoice']='invoice/manage_invoice';
 
+$route['view-invoice/(.+)']='invoice/view_invoice/$1';
+
 $route['default_controller'] = 'welcome';
 $route['home-page'] = 'Home';
 

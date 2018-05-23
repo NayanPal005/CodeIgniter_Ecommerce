@@ -17,11 +17,13 @@ public function manage_invoice(){
 
     $this->load->view('admin/admin_dashboard',$data);
 
+}
+public function view_invoice($order_id){
 
+   $order_info['order_info']= $this->invoice_model->order_info_by_id($order_id);
 
-
-
-
+    $data['form_test']=$this->load->view('pages/invoice_details',$order_info,True);
+    $this->load->view('admin/admin_dashboard',$data);
 }
 
 

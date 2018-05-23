@@ -90,6 +90,9 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
+
+                            <li><a href="<?php echo base_url('welcome/index');?>"><i class="fa fa-home"></i> Home</li>
+
                             <li><a href="<?php echo base_url();?>welcome/accounts.html "><i class="fa fa-user"></i> Account</a></li>
 
 
@@ -111,7 +114,7 @@
 
                             if ($customer_id){
                                 ?>
-                                <li><a href='<?php echo base_url();?>admin_login/index'><i class="fa fa-lock"></i>User Logout</a></li>
+                                <li><a href='<?php echo base_url();?>admin_login/user_logout'><i class="fa fa-lock"></i>User Logout</a></li>
 
                             <?php } else { ?>
 

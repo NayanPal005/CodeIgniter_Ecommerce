@@ -11,6 +11,7 @@
         <th style="color: firebrick">Shipping id</th>
         <th style="color: firebrick">Order Status</th>
         <th style="color: red">Order Total</th>
+        <th style="color: red">View Invoice</th>
 
         <th style="color: greenyellow">Action</th>
 
@@ -20,6 +21,7 @@
 
       <?php foreach ($all_invoice as $all_invoice){?>
         <tr>
+          <?php   $order_id=$all_invoice->order_id; ?>
             <td style="color: #0e90d2"><?php echo $all_invoice->order_id; ?></td>
 
             <td style="color: #0e90d2"><?php echo $all_invoice->customer_name;  ?></td>
@@ -34,6 +36,9 @@
             <td style="color: slateblue"><?php echo $all_invoice->order_status;  ?></td>
 
             <td style="color: #0e90d2"><?php echo $all_invoice->order_total;  ?></td>
+
+
+            <td style="color: orangered"> <a class="btn btn-hover" href="<?php echo base_url("view-invoice/$order_id")?>">Details</a></td>
 
 
             <td>

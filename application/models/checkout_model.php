@@ -125,7 +125,7 @@ class checkout_model extends CI_Model{
 
         $this->db->insert('tbl_order',$odata);
         $order_id=$this->db->insert_id();
-        return$order_id;
+        return $order_id;
 
 
     }

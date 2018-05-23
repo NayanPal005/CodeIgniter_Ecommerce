@@ -81,6 +81,12 @@ class Admin_login extends CI_Controller
         redirect('admin-login');
 
     }
+    public function user_logout(){
+        $this->session->sess_destroy();
+
+        redirect('welcome');
+
+    }
 
 
 

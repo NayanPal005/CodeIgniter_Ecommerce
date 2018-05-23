@@ -24,48 +24,6 @@
         //  $contents=$this->cart->contents();
         // print_r($contents);
         //foreach ($contents as $contents) :?>
-        <?php foreach ($dataCART as $items): ?>
-
-
-            <tr>
-                <td class="cart_product">
-                    <a href=""><img src="<?php echo base_url().$items['options']['image'];?>" width="100" alt=""></a>
-                </td>
-                <td class="cart_description">
-                    <h4><a href=""><?php echo $items['name'];?></a></h4>
-                    <p>Web ID: <?php echo $items['id'];?></p>
-                </td>
-                <td class="cart_price">
-                    <p><?php echo 'BDT'. "\n". $items['price'];?></p>
-                </td>
-                <td class="cart_quantity">
-                    <div class="cart_quantity_button">
-                        <form action="<?php echo base_url('update-cart-product-quantity')?>" method="post">
-
-                            <input class="cart_quantity_input" type="text" name="qty" value="<?php echo $items['qty'];?>" autocomplete="off" size="2">
-
-                            <input type="hidden" name="rowid" value="<?php echo $items['rowid'];?>" autocomplete="off" size="2">
-
-                            <input class="btn btn-warning" type="submit" value="update">
-
-                        </form>
-
-                    </div>
-                </td>
-                <td class="cart_total">
-                    <p class="cart_total_price"><?php echo 'BDT'. "\n". $items['subtotal'];?></p>
-                </td>
-                <td class="cart_delete">
-                    <a class="cart_quantity_delete" href="<?php echo base_url(); ?>delete-to-cart/<?php echo $items['rowid'];?>"><i class="fa fa-times"></i></a>
-                </td>
-            </tr>
-
-            <?php
-        endforeach; ?>
-        </tbody>
-    </table>
-</div>
-</div>
 
 
 <section id="do_action">

@@ -131,16 +131,16 @@ public function registration(){
 
    public function save_shipping(){
 
-   // echo "Shipping Save here";
 
-    $shipping_id=$this->session->userdata('shipping_id');
+
+   // $shipping_id=$this->session->userdata('shipping_id');
 
 
     $customer_id=$this->session->userdata('customer_id');
 
    //$shipping_id=$this->input->post('shipping_id');
 
-    echo $shipping_id;
+    //echo $shipping_id;
 
     $this->checkout_model->save_shipping_model($shipping_id,$customer_id);
 
@@ -161,10 +161,6 @@ public function registration(){
     $data['featured_item']= $this->load->view('pages/payment',$data,True);
 
     $this->load->view('welcome_page_start',$data);
-
- //   echo "We Will Use payment API :)";
-
-   // $this->load->view('pages/payment');
 
    }
    public function save_payment_info(){
@@ -194,15 +190,19 @@ public function registration(){
   // $paymentID=$this->session->set_userdata('payment_id');
   // $customerID=$this->session->set_userdata('customer_id');
 
- //  $shippingID=$this->session->set_userdata('shipping_id');
+  // $shippingID=$this->session->set_userdata('shipping_id');
 
-  // echo $shippingID;
+   //echo $shippingID;
 
-
+  $odata=array();
    $odata['customer_id']=$this->session->userdata('customer_id');
    $odata['shipping_id']=$this->session->userdata('shipping_id');
    $odata['payment_id']=$this->session->userdata('payment_id');
    $odata['order_total']=$this->session->userdata('total');
+
+  // echo '<pre>';
+  // print_r($odata);
+  // exit();
 
 
 
@@ -245,6 +245,7 @@ public function registration(){
    exit();
   */
 
+       $this->cart->destroy();
    redirect('checkout/confirm');
 
    } //save_payment_info end here
@@ -253,8 +254,17 @@ public function registration(){
 
     public function confirm()
     {
+        $data['title']='confirm';
 
-    $this->load->view('pages/confirm');
+        $data['slider']='';
+
+        $data['recom_item']='';
+
+        $data['category_item']='';
+
+    $data['featured_item']=$this->load->view('pages/confirm','',True);
+        $this->load->view('welcome_page_start',$data);
+
 
    }
 
