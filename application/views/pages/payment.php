@@ -71,29 +71,44 @@
             <div class="col-sm-6">
 
 <div class="payment-options">
+
     <form action="<?php echo base_url('place-order')?>" method="post">
+
+        <?php echo $grandTotal;?>
+
     <p><b>Please select your preferred contact method:</b></p>
-    <div>
+
+     <div>
         <div class="radio">
             <label><input type="radio" name="payment_type" value="paypal">PAYPAL</label>
         </div>
+
+
+
         <div class="radio">
             <label><input type="radio" name="payment_type" value="ssl_commerz">SSL COMMERZ</label>
         </div>
+
+
 
         <div class="radio ">
             <label><input type="radio" name="payment_type"  value="cash_on" >CASH ON/BIKASH</label>
         </div>
 
-
-
-    </div>
-
+      </div>
                 <p style="text-align: center">
+
        <input type="submit"  class="btn btn-warning" value="Place Order">
+
+
                 </p>
-    </form>
+     </form>
+
+
 </div>
+
+
+
     </div>
     </div>
     </div>

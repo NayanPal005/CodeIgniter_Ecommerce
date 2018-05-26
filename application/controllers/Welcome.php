@@ -138,4 +138,19 @@ class Welcome extends CI_Controller
 
 
     }
+    public function search_view(){
+
+        $data['slider']='';
+        $data['title']='Accounts';
+        $data['recom_item']='';
+        $data['category_item']='';
+        $data['featured_item']='';
+        $data['all_active_product']='';
+        $data['all_top_product']='';
+        $data['product_details']= $this->welcome_model->product_details_model($productID);
+        $data['featured_item']=$this->load->view('pages/product_details',$data,true);
+        $this->load->view('welcome_page_start',$data);
+
+
+    }
 }

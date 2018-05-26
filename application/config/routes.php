@@ -138,15 +138,22 @@ $route['save-shipping']='checkout/save_shipping';
 
 $route['payment']='checkout/payment';
 $route['place-order']='checkout/place_order';
+//$route['place-order/(.+)']='checkout/place_order/$1';
 $route['ssl-payment']='checkout/ssl_payment';
 $route['success']='checkout/success';
 $route['fail']='checkout/fail';
 $route['cancel']='checkout/cancel';
+
 /*==============================Invoice related============================================================*/
 
 $route['manage-invoice']='invoice/manage_invoice';
 
 $route['view-invoice/(.+)']='invoice/view_invoice/$1';
+
+/*==============================Invoice related============================================================*/
+
+$route['search']='search/search_data';
+
 
 $route['default_controller'] = 'welcome';
 $route['home-page'] = 'Home';

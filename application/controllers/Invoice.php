@@ -42,6 +42,7 @@ public function view_invoice($order_id){
   //  echo '<pre>';
   //  print_r($order_info);
   //  exit();
+
     $data['order_info']= $this->invoice_model->order_info_by_id($order_id);
     $data['customer_info']= $this->invoice_model->customer_info_by_id($customer_id);
     $data['shipping_info']= $this->invoice_model->shipping_info_by_id($shipping_id);

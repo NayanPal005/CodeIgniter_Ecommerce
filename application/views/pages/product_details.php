@@ -59,7 +59,7 @@
             <span>
                 <span>BDT <?php echo $product_details->product_price?></span>
                  <form action="<?php echo base_url()?>add-to-cart/" method="post">
-                     <label>Product Quantity></label>
+                     <label>Product Quantity</label>
 
                 <input type="text" name="product_quantity" value="<?php echo $product_details->product_quantity?>">
 

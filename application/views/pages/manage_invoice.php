@@ -41,17 +41,6 @@
             <td style="color: orangered"> <a class="btn btn-hover" href="<?php echo base_url("view-invoice/$order_id")?>">Details</a></td>
 
 
-            <td>
-                <a class="btn btn-info" href="">
-                    <i class="halflings-icon icon-edit"></i>Update
-                </a>
-
-                <a class="btn btn-danger"  href="" title="Delete">
-                    <i class="halflings-icon white trash"></i>Delete
-                </a>
-
-            </td>
-
         </tr>
     <?php } ?>
 

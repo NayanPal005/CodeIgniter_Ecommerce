@@ -290,7 +290,7 @@ public function registration(){
 
         if($payment_type == 'ssl_commerz')
         {
-            $this->save_payment_info();
+           // $this->save_payment_info();
             $this->ssl_comerz_payment();
 
         }
@@ -323,7 +323,7 @@ public function registration(){
 
         $post_data['currency'] = 'BDT';
 
-        $post_data['total_amount'] = str_replace(',', '', 8000);
+        $post_data['total_amount'] = str_replace(',', '', 80000);
 
         $_SESSION['SSLCZ_TRX_ID'] = $post_data['tran_id'] = "SSLCZ_TEST_" . uniqid();
 

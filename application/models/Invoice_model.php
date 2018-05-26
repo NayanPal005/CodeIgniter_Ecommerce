@@ -6,7 +6,7 @@ class Invoice_model extends CI_Model{
       return  $this->db->select('*')
 
             ->from('tbl_order')
-             ->join('tbl_customer','tbl_customer.customer_id=tbl_order.customer_id')
+            ->join('tbl_customer','tbl_customer.customer_id=tbl_order.customer_id')
             ->join('tbl_shipping','tbl_shipping.shipping_id=tbl_order.shipping_id')
             ->get()
             ->result();
@@ -48,6 +48,7 @@ class Invoice_model extends CI_Model{
             ->row();
 
     }
+
     public function shipping_info_by_id($shipping_id){
         return  $this->db->select('*')
             ->from('tbl_shipping')

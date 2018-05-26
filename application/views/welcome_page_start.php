@@ -164,14 +164,28 @@
                             -->
                             <li><a href="404.html">404</a></li>
                             <li><a href="contact-us.html">Contact</a></li>
+
                         </ul>
+
                     </div>
+
                 </div>
+
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
-                        <input type="text" placeholder="Search"/>
+                        <?= form_open('search',['class'=>'navbar-form navbar-text','role'=>'search'])?>
+                        <div class="form-group">
+                            <input type="text" name="search"  class="form-control" placeholder="Search Product">
+
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Search</button>
+
+                        <?=  form_close();?>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -427,8 +441,8 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-                <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+                <p class="pull-left">E-Commerece.Nayan pal.Dept. of CSE,IIUC.</p>
+                <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Nayan</a></span></p>
             </div>
         </div>
     </div>

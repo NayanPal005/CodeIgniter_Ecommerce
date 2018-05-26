@@ -25,6 +25,7 @@ echo '<pre>';
                 <input type="number" placeholder="Fax" name="customer_fax" >
                 <input type="text" placeholder="Address" name="customer_address" value="<?php echo $customer_shipping_info->customer_address?>">
                 <input type="text" placeholder=" City" name="customer_city" value="<?php echo $customer_shipping_info->customer_city?>" >
+
                 <select name="customer_country" value="<?php echo $customer_shipping_info->customer_name?>">
                     <option> -- Country -- </option>
                     <option value="united_states">United States</option>
@@ -34,6 +35,7 @@ echo '<pre>';
                     <option value="pakistan">Pakistan</option>
                     <option value="canada">Canada</option>
                 </select>
+
                 <br/>
                 <br/>
                 <input type="text" placeholder="Zip Code *" name="zip_code" value="<?php echo $customer_shipping_info->zip_code?>" >
