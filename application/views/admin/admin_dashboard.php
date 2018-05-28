@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- end: Mobile Specific -->
     <!-- start: CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link id="bootstrap-style" href="<?php echo base_url()?>Assets/admin_Assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url()?>Assets/admin_Assets/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link id="base-style" href="<?php echo base_url()?>Assets/admin_Assets/css/style.css" rel="stylesheet">
@@ -47,10 +48,6 @@
 
             <div class="nav-no-collapse header-nav">
                 <ul class="nav pull-right">
-
-
-
-
                     <!-- start: User Dropdown -->
                     <li class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -61,7 +58,7 @@
                             <li class="dropdown-menu-title">
                                 <span>Account Settings</span>
                             </li>
-                            <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+                            <li><a href="<?php  echo base_url('admin-profile')?>"><i class="halflings-icon user"></i> Profile</a></li>
                             <li><a href="admin-logout"><i class="halflings-icon off"></i> Logout</a></li>
                         </ul>
                     </li>
@@ -73,6 +70,7 @@
         </div>
     </div>
 </div>
+
 <!-- start: Header -->
 
 <div class="container-fluid-full">
@@ -82,7 +80,7 @@
         <div id="sidebar-left" class="span2">
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
-                    <li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+                    <li><a href="<?php  echo base_url('admin-dashboard')?>"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
                  <!--   <li><a href="<?php base_url('admin-registration_test')?>"><i class="icon-envelope"></i><span class="hidden-tablet"> Register Admin</span></a></li> -->
                     <!--<li><a href="admin-form"><i class="icon-envelope"></i><span class="hidden-tablet"> Register Admin</span></a></li>-->
                     <li><a href="admin-form_test"><i class="icon-envelope"></i><span class="hidden-tablet">Admin Registration</span></a></li>

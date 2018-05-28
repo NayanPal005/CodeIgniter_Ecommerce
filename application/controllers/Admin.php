@@ -13,14 +13,18 @@ class Admin extends CI_Controller
 
             redirect('admin-login');
         }
-
         $this->load->model('admin_model');
     }
 
 
     public function show_dashboard()
     {
-        $this->load->view('admin/admin_dashboard');
+
+        $data=array();
+
+        $data['form_test']=$this->load->view('pages/dashboard_chart','',True);
+
+        $this->load->view('admin/admin_dashboard',$data);
 
     }
 
@@ -37,6 +41,7 @@ class Admin extends CI_Controller
         $this->load->view('admin/adminRegi_formDash',$data);
 
     }
+
 
     public function form(){
         $this->load->view('admin/form');
@@ -107,10 +112,19 @@ exit();
         }
 
         else{
-
            redirect('admin-form_test');
 
         }
+
+
+    }
+    public function admin_profile(){
+        $data=array();
+
+        $data['form_test']=$this->load->view('admin/admin_profile','',True);
+
+        $this->load->view('admin/admin_dashboard',$data);
+
 
 
     }

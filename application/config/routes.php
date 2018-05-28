@@ -59,6 +59,7 @@ $route['admin-registration']='admin/admin_registration';
 $route['dashboard']='admin/show_dashboard';
 $route['admin-dashboard']='admin/show_dashboard';
 $route['404']='admin/error_404';
+$route['admin-profile']='admin/admin_profile';
 
 /*===========================product related routes start======================================= */
 
