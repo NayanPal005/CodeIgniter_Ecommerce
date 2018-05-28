@@ -2,7 +2,9 @@
 
 
 <div class="row-fluid sortable">
+
     <div class="box span6">
+
         <div class="box-header">
             <h2><i class="halflings-icon align-justify"></i><span class="break"></span>Order Information</h2>
             <div class="box-icon">
@@ -11,29 +13,30 @@
                 <a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
             </div>
         </div>
+
         <div class="box-content">
             <table class="table table-condensed">
                 <thead>
                 <tr>
                     <th>Order ID</th>
-                    <th> Order registered</th>
+                    <th>Order registered</th>
                     <th>Total</th>
                     <th>Status</th>
                 </tr>
                 </thead>
+
                 <tbody>
 
                 <tr>
-                    <td><?php echo $order_info->order_id;?></td>
-                    <td class="center"><?php echo $order_info->order_date_time;?></td>
-                    <td class="center"><?php echo $order_info->order_total;?></td>
-                    <td class="center">
+                      <td><?php echo $order_info->order_id;?></td>
+                      <td class="center"><?php echo $order_info->order_date_time;?></td>
+                      <td class="center"><?php echo $order_info->order_total;?></td>
+                      <td class="center">
                         <span class="label"><?php echo $order_info->order_status;?></span>
-                    </td>
+                      </td>
                 </tr>
-
-
                 </tbody>
+
             </table>
             <div class="pagination pagination-centered">
                 <ul>
@@ -48,9 +51,9 @@
                 </ul>
             </div>
         </div>
-    </div><!--/span-->
-    <!--=====================================First Table end======================================-->
-    <!--=====================================Second table START======================================-->
+    </div>
+    <!--=========================================================First Table end======================================-->
+    <!--========================================================Second table START======================================-->
 
     <div class="box span6">
         <div class="box-header">
@@ -67,7 +70,7 @@
                 <thead>
                 <tr>
                     <th>Shipping ID</th>
-                    <th> Customer Name</th>
+                    <th>Customer Name</th>
                     <th>Shipping Address</th>
                     <th>Zip Code</th>
                 </tr>
@@ -75,11 +78,13 @@
                 <tbody>
                 <tr>
                     <td><?php echo $shipping_info->shipping_id;?></td>
+
                     <td class="center"><?php echo $shipping_info->customer_name;?></td>
+
                     <td class="center"><?php echo $shipping_info->customer_address;?></td>
+
                     <td class="center">
                         <span class="label label-success"><?php echo $shipping_info->zip_code;?></span>
-
                 </tbody>
             </table>
             <div class="pagination pagination-centered">

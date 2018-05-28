@@ -1,5 +1,7 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 /*
 | -------------------------------------------------------------------------
@@ -48,19 +50,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
+
 */
+
 $route['admin-form']='admin/form';/* This is manually linking */
 $route['admin-registration']='admin/admin_registration';
 
 $route['dashboard']='admin/show_dashboard';
 $route['admin-dashboard']='admin/show_dashboard';
+$route['404']='admin/error_404';
 
 /*===========================product related routes start======================================= */
+
 $route['product-add']='product/add_product'; //This is Actually Add Category
+
 $route['add-product']='product/product_add'; //This is product add form
+
 $route['save-add-product-form']='product/save_product';
+
 $route['product-show']='product/get_product_details';
+
 $route['manage-product']='product/get_product_details';
+
 $route['edit-product/(.+)']='product/edit_product/$1';
 $route['delete-product/(.+)']='product/delete_product/$1';
 $route['change-product-status/(.+)/(.+)']='product/change_product_status/$1/$2';
@@ -111,7 +122,8 @@ $route['edit-manufacturer/(.+)']='manufacturer/edit_manufacturer/$1';
 $route['manage-manufacturer']='manufacturer/get_manufacturer';
 $route['delete-manufacturer/(.+)']='manufacturer/delete_manufacturer/$1';
 /*===========================================manufacturer end=================================================*/
-/*===========================================Start Cart=================================================*/
+
+/*=================================================Start Cart=================================================*/
 
 $route['add-to-cart']='cart/add_to_cart';
 $route['show-cart']='cart/show_cart';
@@ -128,12 +140,18 @@ $route['checkout']='checkout/index';
 $route['customer-registration']='checkout/registration';
 $route['userLogout']='checkout/userLogout';
 $route['userLogin']='checkout/userLogin';
+$route['404']='home/error_404';
+$route['contact']='home/contact';
+$route['pDetails']='home/frontpage_productdetails';
+$route['frontpage_products']='home/frontpage_products';
+
 /*==========================================Billing Related Route=================================================*/
 $route['billing']='checkout/billing';
 $route['update-billing']='checkout/updated_billing';
 //$route['shipping/(.+)']='checkout/shipping/$1';
 $route['shipping']='checkout/shipping';
 $route['save-shipping']='checkout/save_shipping';
+
 /*==============================payment gateway related============================================================*/
 
 $route['payment']='checkout/payment';
@@ -144,18 +162,17 @@ $route['success']='checkout/success';
 $route['fail']='checkout/fail';
 $route['cancel']='checkout/cancel';
 
-/*==============================Invoice related============================================================*/
+/*====================================Invoice related============================================================*/
 
 $route['manage-invoice']='invoice/manage_invoice';
-
 $route['view-invoice/(.+)']='invoice/view_invoice/$1';
 
-/*==============================Invoice related============================================================*/
+/*====================================Invoice related============================================================*/
+
+
 
 $route['search']='search/search_data';
-
-
-$route['default_controller'] = 'welcome';
+$route['welcome'] = 'welcome';
 $route['home-page'] = 'Home';
 
 $route['404_override'] = '';

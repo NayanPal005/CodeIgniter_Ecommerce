@@ -6,12 +6,17 @@ class Admin_login extends CI_Controller
 
     public function __construct()
     {
+
         parent::__construct();
+
         $this->load->model('admin_model');
+
     }
 
     public function index(){
+
          /*
+
         if (isset($this->session->user_email)){
             redirect('admin-dashboard');
         }
@@ -19,9 +24,11 @@ class Admin_login extends CI_Controller
             $this->load->view('admin/admin_login');
         }
          */
+
         $this->load->view('admin/admin_login');
 
     }
+
     public function checkAdminLogin(){
 
        $userEmail= $this->input->post('user_email',TRUE);

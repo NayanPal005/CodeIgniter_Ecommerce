@@ -26,6 +26,7 @@ class Manufacturer extends CI_Controller
 
     public function save_manufacturer()
     {
+
         // $data=$this->input->post('manufacturer_name');
         //$this->load->model('manufacturers_model');
 

@@ -4,17 +4,23 @@ class Search extends CI_Controller{
 
     public function search_data(){
 
-      //  echo "Hello search";
+      // echo "Hello search";
+
         $data['slider']='';
+
         $data['title']='Search';
-     //  $data['recom_item']='';
-      //  $data['category_item']='';
+        // $data['recom_item']='';
+
+       // $data['category_item']='';
+
         //$data['featured_item']='';
+
         $data['all_active_product']='';
         $data['all_top_product']='';
         $data['all_top_product']=$this->welcome_model->get_all_top_product();
 
         // print_r($data);
+
         // exit();
 
 
@@ -24,20 +30,21 @@ class Search extends CI_Controller{
 
         $data['category_item']=$this->load->view('pages/category_item',$data,true);
 
-
         $searchData=$this->input->post('search');
 
-      //  echo $searchData;
+        //  echo $searchData;
 
-        $getSearchData['getSearchData']=$this->search_model->search_data_model($searchData);
+         $getSearchData['getSearchData']=$this->search_model->search_data_model($searchData);
 
          $data['featured_item']=$this->load->view('pages/search_list',$getSearchData,True);
+
          $this->load->view('welcome_page_start',$data);
 
         //echo '<pre>';
 
-     //   print_r($getSearchData);
-      //  exit();
+        //   print_r($getSearchData);
+
+        //  exit();
 
 
     }

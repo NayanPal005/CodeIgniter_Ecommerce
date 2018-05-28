@@ -24,7 +24,7 @@ class Cart extends CI_Controller{
 
         $productQuantity=$this->input->post('product_quantity',True);
 
-     //  echo $productID;
+      //  echo $productID;
         
       // echo $productQuantity;
 
@@ -43,16 +43,19 @@ class Cart extends CI_Controller{
         );
 
 
-       // echo '<pre>';
+          // echo '<pre>';
 
-       // print_r($data);
+          // print_r($data);
 
-       //  echo 'hdddddddddddddddddd';
-       //  exit();
+          //  echo 'hdddddddddddddddddd';
+
+          //  exit();
 
         $this->cart->insert($data);
 
        return redirect('cart/show_cart');
+
+
 
     }
 
@@ -60,6 +63,7 @@ class Cart extends CI_Controller{
 
 
        // echo "Hello! This is cart";
+
         $data=array();
         $data['title']='';
         $data['slider']='';
@@ -67,10 +71,12 @@ class Cart extends CI_Controller{
         $data['category_item']='';
 
         $data['dataCART']=$this->cart->contents();
+
         //Adopted value of cart catch here and pass it to the cart_view page  in the next line
         
         $data['featured_item']=$this->load->view('pages/cart_view',$data,True);
-       // $data['featured_item']=$this->load->view('pages/payment',$data,True);//eta hocche payemnt page e dekhanor jonno jehutu final step
+
+       // $data['featured_item']=$this->load->view('pages/payment',$data,True);//a hocche payemnt page e dekhanor jonno jehutu final step
 
         $this->load->view('welcome_page_start',$data);
 
@@ -92,15 +98,23 @@ class Cart extends CI_Controller{
         redirect('cart/show_cart');
 
     }
+
     public function update_cart_product_quantity(){
 
      // $allData=$this->input->post();
+
       $productQuantity=$this->input->post('qty');
+
       $rowId=$this->input->post('rowid');
+
      //echo $productQuantity;
+
     // echo $rowId;
+
         $data = array(
+
             'rowid' => $rowId,
+
             'qty' => $productQuantity,
 
         );

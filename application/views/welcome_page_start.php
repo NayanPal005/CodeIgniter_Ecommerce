@@ -93,9 +93,8 @@
 
                             <li><a href="<?php echo base_url('welcome/index');?>"><i class="fa fa-home"></i> Home</li>
 
-                            <li><a href="<?php echo base_url();?>welcome/accounts.html "><i class="fa fa-user"></i> Account</a></li>
-
-
+                         <!--   <li><a href="<?php echo base_url();?>welcome/accounts.html "><i class="fa fa-user"></i> Account</a></li> -->
+                          <!--  <li><a href="checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
                           <!--  <li><a href="checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
 
                             <li><a href="<?php base_url() ?>show-cart"><i class="fa fa-shopping-cart"></i> Cart(<?php echo $this->cart->total_items();?>)</a></li>
@@ -107,10 +106,14 @@
                            <!-- <li><a href='<?php echo base_url();?>admin_login/index'><i class="fa fa-lock"></i> Login</a></li> -->
 
                             <?php
+
                             $customer_id=$this->session->userdata('customer_id');
+
                             $customer_name=$this->session->userdata('customer_name');
-                            echo $customer_name;
-                          /*  echo $customer_id; */
+
+                            ?>
+                            <li><a href="" ><?php echo $customer_name; ?></a></li>
+                            <?php
 
                             if ($customer_id){
                                 ?>
@@ -128,7 +131,7 @@
         </div>
     </div>
 
-    <div class="header-bottom"><!--header-bottom-->
+    <div class="header-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-sm-9">
@@ -144,16 +147,17 @@
 
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="index.html" class="active">Home</a></li>
+                            <li><a href="<?php echo base_url('welcome')?>" class="active">Home</a></li>
                             <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="">Products</a>li>
-                                    <li><a href="product-details.html">Product Details</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="admin.html">Login</a></li>
+                                    <li><a href="<?php echo base_url('frontpage_products')?>">Products</a>li>
+                                    <li><a href="<?php echo base_url('pDetails')?>">Product Details</a></li>
+
+
+
                                 </ul>
                             </li>
+
                             <!--
                             <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
@@ -162,8 +166,10 @@
                                 </ul>
                             </li>
                             -->
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="contact-us.html">Contact</a></li>
+
+                            <li><a href="<?php echo base_url('404')?>">404</a></li>
+
+                            <li><a href="<?php echo base_url('contact')?>">Contact</a></li>
 
                         </ul>
 
@@ -172,9 +178,13 @@
                 </div>
 
                 <div class="col-sm-3">
+
                     <div class="search_box pull-right">
+
                         <?= form_open('search',['class'=>'navbar-form navbar-text','role'=>'search'])?>
+
                         <div class="form-group">
+
                             <input type="text" name="search"  class="form-control" placeholder="Search Product">
 
                         </div>
@@ -216,6 +226,7 @@
 
                     <?php
                     //$this->load->model('products_model');
+
                     //=================================================very iMportant Notice nicher ta
 
                     //autoload e products_model ta load korate hbe front end e kaj korte
@@ -245,6 +256,7 @@
                  $get_manufacturer_for_publish=$this->manufacturers_model->get_manufacturer_model();//autoload er model ta add na korle front e ei model kaj korbe na..
                  //so must be autoloaded
               /*  print_r($get_manufacturer_for_publish); */
+
                    foreach ($get_manufacturer_for_publish as $get_manufacturer_for_publish){
                   ?>
                         <div class="brands-name">
@@ -265,14 +277,18 @@
                             <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
                             <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
                         </div>
-                    </div><!--/price-range-->
+                    </div>
 
-                    <div class="shipping text-center"><!--shipping-->
+                    <div class="shipping text-center">
+
                         <img src="<?php echo base_url()?>Assets/images/home/shipping.jpg" alt="" />
-                    </div><!--/shipping-->
+
+                    </div>
 
                 </div>
+
             </div>
+
             <?php } ?>
 
             <div class="col-sm-9 padding-right">

@@ -19,18 +19,24 @@ class Welcome extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+
     var $data = array();
 
+
     public function __construct()
+
     {
         parent::__construct();
+
         $this->load->model('welcome_model');
+
 
 
     }
 
     public function index()
     {
+
         /*
         $this->load->helper('form');
         $validation=array(
@@ -74,12 +80,16 @@ class Welcome extends CI_Controller
         $data['all_top_product']=$this->welcome_model->get_all_top_product();
 
        // print_r($data);
+
        // exit();
+
+
 
 
         $data['slider']=$this->load->view('pages/slider',$data,true);
 
         $data['recom_item']=$this->load->view('pages/recom_item',$data,true);
+
         $data['category_item']=$this->load->view('pages/category_item',$data,true);
 
         $data['all_active_product']=$this->welcome_model->all_active_product();
@@ -87,6 +97,7 @@ class Welcome extends CI_Controller
         $data['featured_item']=$this->load->view('pages/featured_item',$data,true);
 
         //$data['all_active_product']= $this->load->view('pages/featured_item',$data,true);
+
         $this->load->view('welcome_page_start',$data);
 
     }

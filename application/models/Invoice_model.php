@@ -11,33 +11,28 @@ class Invoice_model extends CI_Model{
             ->get()
             ->result();
     }
+
+
     public function order_info_by_id($order_id){
-
       //  echo $order_id;
-
       return  $this->db->select('*')
             ->from('tbl_order')
             ->where('order_id',$order_id)
             ->get()
             ->row();
 
-
-
-
     }
+
     /*
     public function shipping_info_by_id($shipping_id){
-
      return $this->db->select('*')
           ->from('tbl_shipping')
           ->where('shipping_id',$shipping_id)
           ->get()
           ->row();
-
-
-
     }
     */
+
     public function customer_info_by_id($customer_id){
 
        // echo $customer_id;
@@ -46,7 +41,6 @@ class Invoice_model extends CI_Model{
             ->where('customer_id',$customer_id)
             ->get()
             ->row();
-
     }
 
     public function shipping_info_by_id($shipping_id){
