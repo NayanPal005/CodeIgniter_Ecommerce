@@ -1,3 +1,8 @@
+
+
+
+
+
 <div class="card">
     <img src="images/admin.JPG" alt="John" style="width:10000px;height: 500px">
     <h1>Nayan Pal</h1>

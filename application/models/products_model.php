@@ -6,20 +6,25 @@ class Products_model extends CI_Model{
     public function add_category_model()
     {
         /* $data er vitorer quotation ta table er fiels name */
+
         $data['category_name'] = $this->input->post('category_name', TRUE);
+
         $data['category_long_description'] = $this->input->post('category_long_description', TRUE);
+
         $data['category_short_description'] = $this->input->post('category_short_description', TRUE);$data['category_status'] = 1;
 
-       $this->db->insert('tbl_category', $data);
+        $this->db->insert('tbl_category', $data);
 
     }
     public function update_category($grabbedId, Array $updateDe){
 
         //echo $grabbedId;
 
-      //  echo 'Hello, This is update Category';
+       //  echo 'Hello, This is update Category';
 
         $updateDetails=$this->db
+
+                    //->set('category_id',null)
 
                     ->where('category_id',$grabbedId)
 
@@ -28,18 +33,15 @@ class Products_model extends CI_Model{
         return $updateDetails;
 
 
-
-
     }
     public function get_category_details(){
-        /*
 
+        /*
         $categoryDetails=$this->db->select('*')
                            ->from('tbl_category')
                            ->get();
 
         return $categoryDetails->result_array();
-
        */
         $categoryDetails=$this->db->select('*')
             ->from('tbl_category')
@@ -56,6 +58,7 @@ class Products_model extends CI_Model{
 
 
      $this->db->where('category_id',$categoryDetailsID)
+
                ->update('tbl_category',$data);
 
 

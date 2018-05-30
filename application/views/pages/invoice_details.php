@@ -1,5 +1,10 @@
 
+<?php
+//echo '<pre>';
+//print_r($all_data);
+//exit();
 
+?>
 
 <div class="row-fluid sortable">
 
@@ -26,15 +31,17 @@
                 </thead>
 
                 <tbody>
+                <?php foreach ($all_data as $all_data): ?>
 
                 <tr>
-                      <td><?php echo $order_info->order_id;?></td>
-                      <td class="center"><?php echo $order_info->order_date_time;?></td>
-                      <td class="center"><?php echo $order_info->order_total;?></td>
+                      <td><?php echo $all_data->order_id;?></td>
+                      <td class="center"><?php echo $all_data->order_date_time;?></td>
+                      <td class="center"><?php echo $all_data->order_total;?></td>
                       <td class="center">
-                        <span class="label"><?php echo $order_info->order_status;?></span>
+                        <span class="label"><?php echo $all_data->order_status;?></span>
                       </td>
                 </tr>
+
                 </tbody>
 
             </table>
@@ -77,14 +84,16 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td><?php echo $shipping_info->shipping_id;?></td>
+                    <td><?php echo $all_data->shipping_id;?></td>
 
-                    <td class="center"><?php echo $shipping_info->customer_name;?></td>
+                    <td class="center"><?php echo $all_data->customer_name;?></td>
 
-                    <td class="center"><?php echo $shipping_info->customer_address;?></td>
+                    <td class="center"><?php echo $all_data->customer_address;?></td>
 
                     <td class="center">
-                        <span class="label label-success"><?php echo $shipping_info->zip_code;?></span>
+                        <span class="label label-success"><?php echo $all_data->zip_code;?></span>
+                    </td>
+                </tr>
                 </tbody>
             </table>
             <div class="pagination pagination-centered">
@@ -141,18 +150,20 @@
                 <tbody>
 
                 <tr>
-                    <td><?php echo $shipping_info->customer_name;?></td>
-                    <td class="center"><?php echo $shipping_info->customer_number;?></td>
-                    <td class="center"><?php echo $shipping_info->customer_email;?></td>
-                    <td class="center"><?php echo $shipping_info->customer_fax;?></td>
 
-                    <td><?php echo $shipping_info->shipping_id;?></td>
-                    <td><?php echo $order_info->order_status;?></td>
-                    <td><?php echo $order_info->order_total;?></td>
-                    <td><?php echo $order_info->order_date_time;?></td>
+                    <td><?php echo $all_data->customer_name;?></td>
+                    <td class="center"><?php echo $all_data->customer_number;?></td>
+                    <td class="center"><?php echo $all_data->customer_email;?></td>
+                    <td class="center"><?php echo $all_data->customer_fax;?></td>
+
+                    <td><?php echo $all_data->shipping_id;?></td>
+                    <td><?php echo $all_data->order_status;?></td>
+                    <td><?php echo $all_data->order_total;?></td>
+                    <td><?php echo $all_data->order_date_time;?></td>
 
 
                 </tr>
+                <?php endforeach; ?>
 
                 </tbody>
             </table>
@@ -161,3 +172,5 @@
 
 </div><!--/row-->
 <a class="btn btn-success" style="text-align: center">Print</a>
+
+<!--===========================================this is for update=================================-->

@@ -2,6 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
  class Product extends CI_Controller{
 
     public function __construct()
@@ -15,13 +16,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      public function add_product(){
 
         $data['form_test']=$this->load->view('pages/product_add_form','',True);
-         // $data['form_test']=$this->load->view('pages/form_test','',True);
+        //$data['form_test']=$this->load->view('pages/form_test','',True);
         //$this->load->view('pages/product_add_form');
 
         $this->load->view('admin/admin_dashboard',$data);
 
 
      }
+
      public function add_category(){  /* for saving products */
 
         $this->products_model->add_category_model();
@@ -29,21 +31,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         redirect('category-show');
 
      }
-     public function get_category(){   //This is show all category
-         $categoryDetails['categoryDetails']= $this->products_model->get_category_details();
+     public function get_category(){ //This is show all category
 
+         $categoryDetails['categoryDetails']= $this->products_model->get_category_details();
 
          //print_r($categoryDetails);
 
          $data['form_test']= $this->load->view('pages/category_list_show',$categoryDetails,True);
+
          $this->load->view('admin/admin_dashboard',$data);  //for showing in dashboard
+
      }
+
      public function change_category_status($status,$categoryDetailsID){
+
           //echo $status;
           //echo $categoryDetailsID;
-
          $this->products_model->change_category_status($status,$categoryDetailsID);
-
          $this->get_category();
 
      }
@@ -57,7 +61,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $categoryDetails['categoryDetailsById']= $this->products_model->get_category_details_by_id($categoryDetailsID);
 
          // print_r($categoryDetails) ;
-
          //$this->load->view('pages/edit_category_form',$categoryDetails);
 
 
@@ -143,6 +146,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          $data['form_test']=$this->load->view('pages/edit_product_form',$get_all_active_category,True);
          $data['form_test']=$this->load->view('pages/edit_product_form',$getManufacturer,True);
          $this->load->view('admin/admin_dashboard',$data);
+
+        // return $this->edit_product($productID);
 
 
      }

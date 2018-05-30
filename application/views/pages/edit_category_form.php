@@ -1,14 +1,19 @@
 
+
 <!--
 <?php
 print_r($categoryDetailsById);
 ?>
 -->
 
-<!--======================= this is actually the add category form=============================-->
+<!--======================================== this is actually the add category form=============================-->
+
 <!--
   <?php
+
+
 $grabbedId=$categoryDetailsById->category_id;
+
 echo $grabbedId;
 ?>
 -->

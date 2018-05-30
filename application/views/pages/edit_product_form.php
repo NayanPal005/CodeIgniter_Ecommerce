@@ -1,13 +1,17 @@
+
 <?php echo validation_errors() ;
 
-$grabbedID=$getDetailsById->product_id;
-
+ $grabbedID=$getDetailsById->product_id;
 //echo $grabbedID;
 
 ?>
+
 <div class="box-content">
     <form action="<?php echo base_url('product/edited_product_details') ?>" name="edit_product_form" enctype="multipart/form-data" method="post" style="border:1px solid #ccc; align-self: center;">
+
+
         <?php echo form_hidden('product_id',$grabbedID)?>
+
         <div class="container">
             <h1 style="text-align: center">Edit Product </h1>
             <hr>
@@ -29,16 +33,18 @@ $grabbedID=$getDetailsById->product_id;
             <div class="control-group">
                 <label class="control-label" for="selectError3">Product Manufacturer</label>
                 <div class="controls">
+
                     <select name="manufacturer_id" id="selectError3">
                         <?php foreach ($getManufacturerDetails as $getManufacturerDetails){
-
                             if($getDetailsById->manufacturer_id == $getManufacturerDetails->manufacturer_id){?>
 
                             <option value="<?php echo $getManufacturerDetails->manufacturer_id ?>" selected>
                                 <?php echo $getManufacturerDetails ->manufacturer_name; ?></option>
+
                                 <?php } else {?>
                                 <option value="<?php echo $getManufacturerDetails->manufacturer_id ?>">
                                     <?php echo $getManufacturerDetails ->manufacturer_name; ?></option>
+
                         <?php } } ?>
                     </select>
                 </div>
@@ -54,6 +60,7 @@ $grabbedID=$getDetailsById->product_id;
                 if($getDetailsById->manufacturer_id == $getManufacturerDetails->manufacturer_id){?>
 
                             <option value="<?php echo $getManufacturerDetails->manufacturer_id ?>" selected>
+
                                 <?php echo $getManufacturerDetails ->manufacturer_name; ?></option>
                                 <?php } else {?>
                                 <option value="<?php echo $getManufacturerDetails->manufacturer_id ?>">
@@ -70,8 +77,11 @@ $grabbedID=$getDetailsById->product_id;
                 <label class="control-label" for="selectError3">Product Category</label>
                 <div class="controls">
                     <select name="category_id" id="selectError3">
+
                         <?php foreach ($get_all_active_category as $get_all_active_category){
- /* product table er category id jodi category table er category id soman hole selected otherwise slected tkbe na        */
+
+ /* product table er category id jodi category table er category id soman hole selected otherwise selected tkbe na        */
+
                             if($getDetailsById->category_id==$get_all_active_category->category_id) {?>
 
                             <option value="<?php echo $get_all_active_category->category_id ?>" selected>
@@ -84,7 +94,9 @@ $grabbedID=$getDetailsById->product_id;
                     </select>
                 </div>
             </div>
-              <!--
+
+
+            <!--
             <div class="control-group">
                 <label class="control-label" for="selectError3">Product Category</label>
                 <div class="controls">
@@ -97,6 +109,7 @@ $grabbedID=$getDetailsById->product_id;
                 </div>
             </div>
              -->
+
             <label for="description"><b>Product Quantity</b></label>
             <input type="text" value="<?php echo $getDetailsById->product_quantity?>" placeholder="Enter Product Quantity "  name="product_quantity"  required>
 

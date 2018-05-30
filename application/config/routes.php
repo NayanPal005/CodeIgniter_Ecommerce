@@ -53,15 +53,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 */
 
+/*============================================Admin related routes start======================================= */
+
 $route['admin-form']='admin/form';/* This is manually linking */
 $route['admin-registration']='admin/admin_registration';
-
 $route['dashboard']='admin/show_dashboard';
 $route['admin-dashboard']='admin/show_dashboard';
 $route['404']='admin/error_404';
 $route['admin-profile']='admin/admin_profile';
+$route['default_controller'] = 'welcome';
 
-/*===========================product related routes start======================================= */
+/*==========================================product related routes start======================================= */
 
 $route['product-add']='product/add_product'; //This is Actually Add Category
 
@@ -74,11 +76,14 @@ $route['product-show']='product/get_product_details';
 $route['manage-product']='product/get_product_details';
 
 $route['edit-product/(.+)']='product/edit_product/$1';
+
 $route['delete-product/(.+)']='product/delete_product/$1';
+
 $route['change-product-status/(.+)/(.+)']='product/change_product_status/$1/$2';
+
 $route['product-details/(.+)']='welcome/product_details/$1'; //Details e click korar por ekane asbe
 
-/*===========================product related routes end======================================= */
+/*====================================================product related routes end======================================= */
 
 $route['category-add']='product/add_category'; /*==============for add category======*/
 

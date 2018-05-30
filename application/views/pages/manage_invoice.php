@@ -22,6 +22,7 @@
       <?php foreach ($all_invoice as $all_invoice){?>
         <tr>
           <?php   $order_id=$all_invoice->order_id; ?>
+
             <td style="color: #0e90d2"><?php echo $all_invoice->order_id; ?></td>
 
             <td style="color: #0e90d2"><?php echo $all_invoice->customer_name;  ?></td>
