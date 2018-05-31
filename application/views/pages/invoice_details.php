@@ -1,21 +1,21 @@
 
+
+
+<form>
+
 <?php
+
 //echo '<pre>';
+//
 //print_r($all_data);
-//exit();
-
-
+//
+////$id=$all_data->order_id;
+//
+////echo $id;
+//
+//
+//
 ?>
-<a class="btn btn-info" href="<?php echo base_url("edit-invoice")?>">
-
-    <i class="halflings-icon wrench"></i>Edit Invoice
-
-</a>
-
-
-
-
-
 
 
 <div class="row-fluid sortable">
@@ -43,12 +43,10 @@
                     <th>Status</th>
                 </tr>
                 </thead>
-
                 <tbody>
-                <?php foreach ($all_data as $all_data):
-               $orderID= $all_data->order_id;
-              //  echo $orderID;
 
+                <?php foreach ($all_data as $all_data):
+                 $orderID= $all_data->order_id;
                 ?>
 
                 <tr>
@@ -59,10 +57,9 @@
                         <span class="label"><?php echo $all_data->order_status;?></span>
                       </td>
                 </tr>
-
                 </tbody>
-
             </table>
+
             <div class="pagination pagination-centered">
                 <ul>
                     <li><a href="#">Prev</a></li>
@@ -75,9 +72,11 @@
                     <li><a href="#">Next</a></li>
                 </ul>
             </div>
+
         </div>
     </div>
-    <!--=========================================================First Table end======================================-->
+
+    <!--=============================================================First Table end========================================-->
     <!--========================================================Second table START======================================-->
 
     <div class="box span6">
@@ -130,18 +129,8 @@
     </div><!--/span-->
     <!--=====================================Second table END======================================-->
 
-
 </div>
-
-
-
-
-
-
-
 <div class="row-fluid sortable">
-
-
     <div class="box span12">
         <div class="box-header" data-original-title>
             <h2><i class="halflings-icon user"></i><span class="break"></span>Customer Invoice</h2>
@@ -187,9 +176,17 @@
             </table>
         </div>
     </div><!--/span-->
-
 </div><!--/row-->
-<a class="btn btn-success" style="text-align: center">Print</a>
 
+  <a class="btn btn-success" style="text-align: center">Print</a>
+
+    <a class="btn btn-info" href="<?php echo base_url("edit-invoice/$orderID")?>">
+
+        <i class="halflings-icon wrench"></i>Edit Invoice
+
+        <?php echo $orderID;?>
+
+    </a>
 
 <!--===========================================this is for update=================================-->
+</form>

@@ -14,6 +14,7 @@
         <div id="similar-product" class="carousel slide" data-ride="carousel">
 
             <!-- Wrapper for slides -->
+
             <div class="carousel-inner">
                 <div class="item active">
                     <a href=""><img src="images/431.png" alt=""></a>

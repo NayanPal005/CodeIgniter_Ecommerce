@@ -137,20 +137,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
          $this->load->model('products_model');
+
         $getDetailsById['getDetailsById']= $this->products_model->edit_product_model($productID);
+
         /* now i need category and manufacturer list in the edit form fot edit.so below i grab those */
          $get_all_active_category['get_all_active_category'] = $this->products_model->get_all_active_category_info();
+
          $getManufacturer['getManufacturerDetails']= $this->manufacturers_model->get_manufacturer_model();
 
          $data['form_test']=$this->load->view('pages/edit_product_form',$getDetailsById,True);
          $data['form_test']=$this->load->view('pages/edit_product_form',$get_all_active_category,True);
          $data['form_test']=$this->load->view('pages/edit_product_form',$getManufacturer,True);
+
          $this->load->view('admin/admin_dashboard',$data);
 
         // return $this->edit_product($productID);
 
-
      }
+
      public function edited_product_details()
      {
 
@@ -227,7 +231,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              redirect('manage-product');
          }
          */
-
      }
 
      public function delete_product($grabbedID){
@@ -235,9 +238,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           // echo $grabbedID;
 
          $this->products_model->delete_product_model($grabbedID);
+
          redirect('product-show');
 
      }
+
      public function change_product_status($status,$productID){
 
        //  echo $status,$productID;
@@ -246,7 +251,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
          $this->get_product_details();
 
- }
+     }
+
      private function upload_product_image(){
 
          $config['upload_path']          = './images/';
@@ -266,11 +272,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              $imagePath="images/$productImage[file_name]";
              return $imagePath;
          }
+
          else{
              $error=$this->upload->display_errors();
              echo $error;
          }
+
      }
+
+
+
+
+
+
+
+
+
 
  }
 

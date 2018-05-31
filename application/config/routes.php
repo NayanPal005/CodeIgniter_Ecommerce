@@ -171,7 +171,9 @@ $route['cancel']='checkout/cancel';
 /*====================================Invoice related============================================================*/
 
 $route['manage-invoice']='invoice/manage_invoice';
+
 $route['view-invoice/(.+)']='invoice/view_invoice/$1';
+
 $route['edit-invoice/(.+)']='invoice/edit_invoice/$1';
 
 /*====================================Invoice related============================================================*/

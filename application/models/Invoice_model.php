@@ -46,15 +46,38 @@ class Invoice_model extends CI_Model{
 
    public function all_invoice_info($order_id){
 
-        return $this->db->select('*')
-                   ->from('tbl_order')
+       return $this->db->select('*')
+            ->from('tbl_order')
             ->where('order_id',$order_id)
             ->join('tbl_customer','tbl_customer.customer_id=tbl_order.customer_id')
             ->join('tbl_shipping','tbl_shipping.shipping_id=tbl_order.shipping_id')
             ->get()
             ->result();
 
+   }
 
+
+   public function edit_invoice_model($orderID){
+
+       return $this->db->select('*')
+
+                 ->from('tbl_order')
+
+                 ->where('order_id',$orderID)
+
+                 ->join('tbl_customer','tbl_customer.customer_id=tbl_order.customer_id')
+
+                 ->join('tbl_shipping','tbl_shipping.shipping_id=tbl_order.shipping_id')
+
+                 ->get()
+
+                 ->row();
+
+   }
+   public function edited_invoice_model($details){
+
+
+       return $details;
 
    }
 

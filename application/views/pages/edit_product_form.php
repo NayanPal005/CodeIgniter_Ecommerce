@@ -7,8 +7,8 @@
 ?>
 
 <div class="box-content">
-    <form action="<?php echo base_url('product/edited_product_details') ?>" name="edit_product_form" enctype="multipart/form-data" method="post" style="border:1px solid #ccc; align-self: center;">
 
+    <form action="<?php echo base_url('product/edited_product_details') ?>" name="edit_product_form" enctype="multipart/form-data" method="post" style="border:1px solid #ccc; align-self: center;">
 
         <?php echo form_hidden('product_id',$grabbedID)?>
 
@@ -35,6 +35,7 @@
                 <div class="controls">
 
                     <select name="manufacturer_id" id="selectError3">
+
                         <?php foreach ($getManufacturerDetails as $getManufacturerDetails){
                             if($getDetailsById->manufacturer_id == $getManufacturerDetails->manufacturer_id){?>
 
@@ -80,16 +81,16 @@
 
                         <?php foreach ($get_all_active_category as $get_all_active_category){
 
- /* product table er category id jodi category table er category id soman hole selected otherwise selected tkbe na        */
+       /*   product table er category id jodi category table er category id soman hole selected otherwise selected tkbe na   */
 
                             if($getDetailsById->category_id==$get_all_active_category->category_id) {?>
-
                             <option value="<?php echo $get_all_active_category->category_id ?>" selected>
                                 <?php echo $get_all_active_category ->category_name; ?></option>
                         <?php } else {?>
                         <option value="<?php echo $get_all_active_category->category_id ?>">
                             <?php echo $get_all_active_category ->category_name; ?></option>
                         <?php } }?>
+
 
                     </select>
                 </div>

@@ -43,7 +43,9 @@ class Products_model extends CI_Model{
 
         return $categoryDetails->result_array();
        */
+
         $categoryDetails=$this->db->select('*')
+
             ->from('tbl_category')
             ->get();
 
@@ -53,6 +55,7 @@ class Products_model extends CI_Model{
     }
 
     public function change_category_status($status,$categoryDetailsID){
+
 
      $data['category_status']=$status;
 
@@ -134,6 +137,7 @@ class Products_model extends CI_Model{
         }
     }
 */
+
     public function save_product_model($productImage)
     {
         $top_product=$this->input->post('top_product',True);
@@ -157,6 +161,7 @@ class Products_model extends CI_Model{
         $data['product_quantity'] = $this->input->post('product_quantity', True);
         $data['manufacturer_id'] = $this->input->post('manufacturer_id', True);
         $this->db->insert('tbl_product', $data);
+
     }
 
     public function get_product_details_model(){
@@ -194,23 +199,30 @@ class Products_model extends CI_Model{
 
       return $result;
 
-
   }
+
  public function  edited_products_model($grabbedID, Array $details){
 
       $result=$this->db
+
              ->where('product_id',$grabbedID)
-          ->update('tbl_product',$details);
+
+             ->update('tbl_product',$details);
 
       return $result;
 
  }
+
  public function delete_product_model($grabbedID){
+
      echo $grabbedID;
 
      $result=$this->db
+
                    ->where('product_id',$grabbedID)
+
                    ->delete('tbl_product');
+
      return $result;
 
  }
