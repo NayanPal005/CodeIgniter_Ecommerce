@@ -88,12 +88,13 @@ public function view_invoice($order_id){
 */
 
 
+    }
+    public function edit_invoice($orderID){
 
+    echo "Hello! This is Edit Invoice";
+    echo $orderID;
 
-
-
-
-
+    $this->load->view('pages/edit_invoice_details');
 
     }
 

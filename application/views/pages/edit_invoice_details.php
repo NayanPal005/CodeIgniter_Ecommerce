@@ -4,14 +4,10 @@
 //print_r($all_data);
 //exit();
 
-
 ?>
-<a class="btn btn-info" href="<?php echo base_url("edit-invoice")?>">
-
-    <i class="halflings-icon wrench"></i>Edit Invoice
-
+<a class="btn btn-info" href="<?php echo base_url("")?>">
+    <i class="halflings-icon wrench"></i>Update Invoice
 </a>
-
 
 
 
@@ -45,19 +41,15 @@
                 </thead>
 
                 <tbody>
-                <?php foreach ($all_data as $all_data):
-               $orderID= $all_data->order_id;
-              //  echo $orderID;
-
-                ?>
+             <!--  <?php foreach ($all_data as $all_data): ?> -->
 
                 <tr>
-                      <td><?php echo $all_data->order_id;?></td>
-                      <td class="center"><?php echo $all_data->order_date_time;?></td>
-                      <td class="center"><?php echo $all_data->order_total;?></td>
-                      <td class="center">
+                    <td><?php echo $all_data->order_id;?></td>
+                    <td class="center"><?php echo $all_data->order_date_time;?></td>
+                    <td class="center"><?php echo $all_data->order_total;?></td>
+                    <td class="center">
                         <span class="label"><?php echo $all_data->order_status;?></span>
-                      </td>
+                    </td>
                 </tr>
 
                 </tbody>
@@ -181,7 +173,7 @@
 
 
                 </tr>
-                <?php endforeach; ?>
+            <!--    <?php endforeach; ?> -->
 
                 </tbody>
             </table>
