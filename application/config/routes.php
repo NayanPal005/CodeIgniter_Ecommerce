@@ -174,6 +174,8 @@ $route['manage-invoice']='invoice/manage_invoice';
 
 $route['view-invoice/(.+)']='invoice/view_invoice/$1';
 
+$route['show-invoice/(.+)']='invoice/view_invoice';
+
 $route['edit-invoice/(.+)']='invoice/edit_invoice/$1';
 
 /*====================================Invoice related============================================================*/

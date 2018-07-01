@@ -89,9 +89,9 @@ public function view_invoice($order_id){
 
     public function edit_invoice($orderID){
 
-    echo "Hello! This is Edit Invoice";
+   // echo "Hello! This is Edit Invoice";
 
-    echo $orderID;
+   // echo $orderID;
 
     $data=array();
 
@@ -110,7 +110,11 @@ public function view_invoice($order_id){
 
         echo "THis is Edited Invoice";
 
-        $details['order_id']=$this->input->post('order_id');
+
+
+       $grabID=$this->input->post('order_id');
+       $grabCID=$this->input->post('customer_id');
+      // echo $grabID;
         $details['order_total']=$this->input->post('order_total');
         $details['customer_name']=$this->input->post('customer_name');
         $details['customer_email']=$this->input->post('customer_email');
@@ -118,11 +122,13 @@ public function view_invoice($order_id){
         $details['customer_number']=$this->input->post('customer_number');
         $details['customer_fax']=$this->input->post('customer_fax');
 
-        $this->invoice_model->edited_invoice_model($details);
+        $this->invoice_model->edited_invoice_model($grabID, $grabCID, $details);
 
-        echo '<pre>';
-        print_r($details);
-        exit();
+        redirect('show-invoice');
+
+      //  echo '<pre>';
+       // print_r($details);
+       // exit();
 
 
     }

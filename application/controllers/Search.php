@@ -48,4 +48,14 @@ class Search extends CI_Controller{
 
 
     }
+
+    public function ajax_search_data(){
+
+     $val=$this->input->post('search_val');
+
+     $result=$this->search_model->ajax_search_by_name($val);
+     //echo '<pre>';
+    // print_r($result);
+    // exit();
+    }
 }

@@ -4,6 +4,7 @@
     <h1 style="color: deeppink; text-align: center ">Product Category</h1>
 
     <table class="table table-bordered">
+
         <thead>
 
         <tr>
@@ -25,7 +26,9 @@
            $categoryDetailsID=$categoryDetails->category_id;
 
         ?>
+
         <tr>
+
           <!--===================<td style="color: #0e90d2"><?php echo $categoryDetails->category_id?></td>================== -->
             <td style="color: #0e90d2"><?php echo $categoryDetailsID?></td>
 
@@ -46,6 +49,7 @@
                     echo 'Deleted';
                 }
                 ?>
+
             </td>
 
             <td>

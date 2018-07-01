@@ -1,8 +1,8 @@
 
 <?php
 //
-   echo '<pre>';
-  print_r($all_data);
+   //echo '<pre>';
+ // print_r($all_data);
 //
 // // echo $all_data->order_total;
  $grabbedID= $all_data->order_id;
@@ -15,6 +15,7 @@
     <form action="<?php  echo base_url('invoice/edited_invoice')?> " name="edit_product_form"  method="post" style="border:1px solid #ccc; align-self: center;">
 
        <?php echo form_hidden('order_id',$grabbedID)?>
+       <?php echo form_hidden('customer_id',$grabbedID)?>
 
         <div class="container">
 

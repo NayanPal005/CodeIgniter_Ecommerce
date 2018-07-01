@@ -16,6 +16,8 @@
     <!--[if lt IE 9]>
     <script src="<?php echo base_url()?>Assets/js/html5shiv.js"></script>
     <script src="<?php echo base_url()?>Assets/js/respond.min.js"></script>
+    <script src="<?php echo base_url()?>Assets/js/ajax_call.js"></script>
+
     <![endif]-->
     <link rel="shortcut icon" href="<?php echo base_url()?>images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url()?>Assets/images/ico/apple-touch-icon-144-precomposed.png">
@@ -176,6 +178,32 @@
                     </div>
 
                 </div>
+                <!--=================================== ajax search        ==========================================-->
+                <div class="col-sm-6">
+
+                    <div class="search_box pull-right">
+
+                        <?= form_open('ajax_search',['class'=>'navbar-form navbar-text','role'=>'search'])?>
+
+                        <div class="form-group">
+
+                            <input type="text" name="ajax_search_field" id="ajax_search_id"  class="form-control" placeholder=" Ajax Search Product">
+
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Search</button>
+
+                        <?=  form_close();?>
+
+                    </div>
+                </div>
+
+
+
+
+                <!--===============================   ajax search end                  ===============================================-->
+
+
 
                 <div class="col-sm-3">
 
@@ -474,6 +502,47 @@
 <script src="<?php echo base_url()?>Assets/js/price-range.js"></script>
 <script src="<?php echo base_url()?>Assets/js/jquery.prettyPhoto.js"></script>
 <script src="<?php echo base_url()?>Assets/js/main.js"></script>
+<script type="text/javascript">
+
+    $("#ajax_search_id").click(function () {
+       $("#ajax_search_id").css("width","300px");//mane field e click korlei eta 300px bere jabe
+        //# er por always id hoi
+    })
+
+    </script>
+
+<script type="text/javascript">
+    $("#ajax_search_id").keyup(function () {//field key release ba liklei kaj korbe
+
+      //  alert("Hi");
+
+     var val= $("#ajax_search_id").val();
+       /*
+        The val() method returns or sets the value attribute of the selected elements.
+         When used to return value: This method returns the value of the value
+          attribute of the FIRST matched element.
+       */
+
+       $.ajax({
+
+           url:'search/ajax_search_data',//here search is controller name and ajax_search is method name in controller
+           method:"POST",
+           data:{'search_val':val}
+           success:function(data){
+           console.log(data)
+             //  $(".featured_item").html(data);
+               
+           }
+
+       });
+
+
+    })
+
+
+
+
+</script>
 
 
 </body>

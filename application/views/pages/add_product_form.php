@@ -2,14 +2,14 @@
 
 <?php
 
-print_r($getManufacturerDetails);
+//print_r($getManufacturerDetails);
 
 ?>
 -->
 <!--
 <?php
 
-print_r($get_all_active_category);
+//print_r($get_all_active_category);
 
 ?>
 -->

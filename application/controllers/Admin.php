@@ -3,17 +3,22 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller
-{
 
+
+{
     public function __construct()
     {
+
         parent::__construct();
 
         if (!isset($this->session->user_email) && ($this->session->user_status != 1)) {
 
             redirect('admin-login');
+
         }
+
         $this->load->model('admin_model');
+
     }
 
 
@@ -47,8 +52,8 @@ class Admin extends CI_Controller
         $this->load->view('admin/form');
     }
 
-    public function form_test(){
 
+    public function form_test(){
 
        // $this->load->view('admin/form');
 
@@ -100,8 +105,6 @@ exit();
             //$ndata['view_form'] = 'pages/form_test';
 
             $this->load->view('admin/admin_dashboard',$data);
-
-
 
             /*
             $notification['form_test']=$this->load->view('pages/form_test','',True);

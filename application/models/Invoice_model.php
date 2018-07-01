@@ -74,11 +74,19 @@ class Invoice_model extends CI_Model{
                  ->row();
 
    }
-   public function edited_invoice_model($details){
+   public function edited_invoice_model($grabID,$grabCID, Array $details){
+
+     $updatedResult=$this->db
+                   ->set($details)
+       //  ->where('a.order_id',$grabID)
+       //  ->where('b.customer_id',$grabID)
+           ->where('tbl_order.order_id',$grabID)
+           ->where('tbl_customer.customer_id',$grabCID)
+         //  ->update('tbl_order AS a, tbl_customer AS b');
+       ->update('tbl_order,tbl_customer');
 
 
-       return $details;
-
+     return $updatedResult;
    }
 
 
