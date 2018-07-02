@@ -57,6 +57,27 @@ class Welcome_model extends CI_Model
                    */
 
     }
+    public function brand_cat_filter_model($cat_id,$brand_id){
+      //  echo $brand_id;
+       // echo $cat_id;
+
+        $query=$this->db->select();
+
+        if ($brand_id){
+
+            $this->db->where('tbl_product.manufacturer_id',$brand_id);
+        }
+
+        if ($cat_id){
+
+            $this->db->where('tbl_product.category_id',$cat_id);
+        }
+        $qry=$this->db->get('tbl_product');
+
+        return $qry->result();
+
+
+    }
 
 
 }

@@ -164,4 +164,25 @@ class Welcome extends CI_Controller
 
 
     }
+    public function brand_cat_filter(){
+
+        $brand_id=$this->input->post('b_id');
+
+        $cat_id=$this->input->post('c_id');
+
+       // echo $brand_id;
+
+        //echo $cat_id;
+
+        $result=$this->welcome_model->brand_cat_filter_model($cat_id,$brand_id);
+
+        echo '<pre>';
+
+        print_r($result);
+        
+        exit();
+
+
+    }
+
 }

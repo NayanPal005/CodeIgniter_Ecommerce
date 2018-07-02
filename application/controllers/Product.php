@@ -101,7 +101,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          //$getManufacturer['getManufacturerDetails']= $this->manufacturers_model->get_manufacturer_model();
         // $data['form_test']=   $this->load->view('pages/add_product_form', $getManufacturer, True);
          //$this->load->view('admin/admin_dashboard',$data);
+
          $get_all_active_category['get_all_active_category'] = $this->products_model->get_all_active_category_info();
+
          $getManufacturer['getManufacturerDetails']= $this->manufacturers_model->get_manufacturer_model();
 
          $data['form_test'] = $this->load->view('pages/add_product_form', $get_all_active_category, True);
@@ -111,6 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
      }
+
      public function save_product(){ //This is from Add _Product form
 
         // echo '<pre>';
@@ -120,8 +123,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
          $this->products_model->save_product_model($productImage);
 
-          $this->session->set_userdata('message','Product Save Successfully');
-       redirect('product-show');
+         $this->session->set_userdata('message','Product Save Successfully');
+
+           redirect('product-show');
+
      }
 
      public function get_product_details(){
@@ -133,6 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $this->load->view('admin/admin_dashboard',$data);
 
      }
+
      public function edit_product($productID){
 
 

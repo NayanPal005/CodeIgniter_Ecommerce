@@ -13,19 +13,27 @@
     <link href="<?php echo base_url()?>Assets/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url()?>Assets/css/main.css" rel="stylesheet">
     <link href="<?php echo base_url()?>Assets/css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
+
+
+
     <script src="<?php echo base_url()?>Assets/js/html5shiv.js"></script>
+
     <script src="<?php echo base_url()?>Assets/js/respond.min.js"></script>
+   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> -->
+
     <script src="<?php echo base_url()?>Assets/js/ajax_call.js"></script>
 
-    <![endif]-->
+
+
     <link rel="shortcut icon" href="<?php echo base_url()?>images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url()?>Assets/images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url()?>Assets/images/ico/apple-touch-icon-114-precomposed.png">
 
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url()?>Assets/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="<?php echo base_url()?>Assets/images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
+
+</head>
+<!--/head-->
 
 
 
@@ -178,12 +186,14 @@
                     </div>
 
                 </div>
-                <!--=================================== ajax search        ==========================================-->
+
+                <!--============================================ ajax search =================================================-->
+
                 <div class="col-sm-6">
 
                     <div class="search_box pull-right">
 
-                        <?= form_open('ajax_search',['class'=>'navbar-form navbar-text','role'=>'search'])?>
+                        <?= form_open('',['class'=>'navbar-form navbar-text','role'=>'search'])?>
 
                         <div class="form-group">
 
@@ -198,12 +208,7 @@
                     </div>
                 </div>
 
-
-
-
-                <!--===============================   ajax search end                  ===============================================-->
-
-
+                <!--======================================   ajax search end   ===============================================-->
 
                 <div class="col-sm-3">
 
@@ -250,8 +255,8 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <h2>Category</h2>
-                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
 
+                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                     <?php
                     //$this->load->model('products_model');
 
@@ -261,14 +266,16 @@
 
                     $get_category_for_publish =  $this->products_model->get_published_category();
 
-                    /* ei front-end e ami direct model theke niye aschi front-end e eta kora valo */
+         /*              ei front-end e ami direct model theke niye aschi front-end e eta kora valo                */
 
                     foreach ($get_category_for_publish as $get_category_for_publish ){
-
                     ?>
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">
+                                <h4 class="panel-title"><a href="javascript:void(0)" onclick="category(<?php echo $get_category_for_publish->category_id ?>)">
+
+
                        <?php echo $get_category_for_publish->category_name ?>
                                     </a></h4>
                             </div>
@@ -277,10 +284,14 @@
                         <?php }?>
 
                     </div><!--/category-products-->
+
                     <div class="brands_products"><!--brands_products-->
+
                         <h2>Brands</h2>
                  <?php
+                 
                   $this->load->model('manufacturers_model');
+
                  $get_manufacturer_for_publish=$this->manufacturers_model->get_manufacturer_model();//autoload er model ta add na korle front e ei model kaj korbe na..
                  //so must be autoloaded
               /*  print_r($get_manufacturer_for_publish); */
@@ -289,7 +300,7 @@
                   ?>
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#"> </span>
+                                <li><a href="javascript:void(0)" onclick="brand(<?php echo $get_manufacturer_for_publish->manufacturer_id?>)"> </span>
                                    <?php echo $get_manufacturer_for_publish->manufacturer_name ?>
 
                                     </a></li>
@@ -321,28 +332,29 @@
 
             <div class="col-sm-9 padding-right">
 
-               <?php echo $featured_item;?>
+                 <?php echo $featured_item;?>
 
-            <?php  echo $category_item;?>
+                 <?php  echo $category_item;?>
 
-        <?php echo $recom_item; ?>
-
+                 <?php echo $recom_item; ?>
 
             </div>
         </div>
     </div>
 </section>
 
-<footer id="footer"><!--Footer-->
+ <input type="hidden" id="brand" name="brand_id">
+
+ <input type="hidden" id="category" name="category_id">
+
+<footer id="footer">
     <div class="footer-top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
                     <div class="companyinfo">
                         <h2><span>e</span>-shopper</h2>
-
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
-
                     </div>
                 </div>
                 <div class="col-sm-7">
@@ -491,8 +503,6 @@
         </div>
     </div>
 
-
-
 </footer><!--/Footer-->
 
 
@@ -505,6 +515,7 @@
 <script type="text/javascript">
 
     $("#ajax_search_id").click(function () {
+
        $("#ajax_search_id").css("width","300px");//mane field e click korlei eta 300px bere jabe
         //# er por always id hoi
     })
@@ -512,11 +523,13 @@
     </script>
 
 <script type="text/javascript">
+
     $("#ajax_search_id").keyup(function () {//field key release ba liklei kaj korbe
 
       //  alert("Hi");
 
      var val= $("#ajax_search_id").val();
+
        /*
         The val() method returns or sets the value attribute of the selected elements.
          When used to return value: This method returns the value of the value
@@ -526,24 +539,22 @@
        $.ajax({
 
            url:'search/ajax_search_data',//here search is controller name and ajax_search is method name in controller
+
            method:"POST",
+
            data:{'search_val':val}
+
            success:function(data){
+
            console.log(data)
-             //  $(".featured_item").html(data);
+
+        //  $(".featured_item").html(data);
                
            }
-
        });
-
 
     })
 
-
-
-
 </script>
-
-
 </body>
 </html>

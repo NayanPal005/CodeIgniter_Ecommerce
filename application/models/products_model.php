@@ -102,6 +102,7 @@ class Products_model extends CI_Model{
 
 */
     }
+
     public function get_all_active_category_info(){
 
         $result=$this->db->select('*')
@@ -111,6 +112,7 @@ class Products_model extends CI_Model{
             ->result();
         return $result;
     }
+
 /*
     public function upload_product_image(){
 
@@ -151,7 +153,6 @@ class Products_model extends CI_Model{
             $data['top_product']=1;
 
         }
-
         $data['product_image']=$productImage;
         $data['product_name'] = $this->input->post('product_name', True);
         $data['product_price'] = $this->input->post('product_price', True);

@@ -18,9 +18,8 @@ class search_model extends CI_Model{
     }
     public function ajax_search_by_name($val){
 
-        $query = $this->db->like('product_name', $val)
-            ->or_like('product_short_description', $val)
-            ->or_like('product_long_description', $val)
+        $query = $this->db->select()
+            ->like('product_name',$val)
             ->get('tbl_product');
 
         return $query->result();
