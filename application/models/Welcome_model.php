@@ -23,6 +23,7 @@ class Welcome_model extends CI_Model
 
 
     }
+
     public function get_all_top_product(){
 
         $result=$this->db
@@ -38,6 +39,7 @@ class Welcome_model extends CI_Model
         return $result->result();
 
     }
+
     public function product_details_model($productID){
 
         $result = $this->db
@@ -49,7 +51,8 @@ class Welcome_model extends CI_Model
              ->row();
 
         return $result;
-            /* ->join('tbl_manufacturer','tbl_manufacturer.manufacturer_id=tbl_product.product_id')
+
+        /* ->join('tbl_manufacturer','tbl_manufacturer.manufacturer_id=tbl_product.product_id')
           ->where('product_id',$productID) */ /*jokhon join koracchi tokon jdi manufactuerer
        table e amar product id thakto taole error dekhato.confused hoye jeto je kon table er
        product id..so  join query te kono id dile seta dot(.) diye kon table er id seta bole dite hbe
@@ -57,7 +60,9 @@ class Welcome_model extends CI_Model
                    */
 
     }
+
     public function brand_cat_filter_model($cat_id,$brand_id){
+
       //  echo $brand_id;
        // echo $cat_id;
 
@@ -72,7 +77,10 @@ class Welcome_model extends CI_Model
 
             $this->db->where('tbl_product.category_id',$cat_id);
         }
+
+
         $qry=$this->db->get('tbl_product');
+
 
         return $qry->result();
 

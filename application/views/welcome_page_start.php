@@ -546,7 +546,7 @@
 
            success:function(data){
 
-           console.log(data)
+          // console.log(data)
 
         //  $(".featured_item").html(data);
                
