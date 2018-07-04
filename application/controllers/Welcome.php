@@ -160,8 +160,6 @@ class Welcome extends CI_Controller
         if ($result) {
             $output .= '<div class="features_items">
     <h2 class="title text-center">Features Items</h2>';
-
-
             foreach ($result as $all_active_product) {
                 $output .= '<div class="col-sm-4">
         <div class="product-image-wrapper">
@@ -178,21 +176,16 @@ class Welcome extends CI_Controller
                 <div class="product-overlay" >
                     <div class="overlay-content" >' .
                     '<h2> ' . $all_active_product->product_price . '</h2>
-
-
                         <a href="javascript:void(0)" class="btn btn-default add-to-cart" data-id=" .$all_active_product->product_id" .data-name=" $all_active_product->product_name"
-
                               . data-price=" $all_active_product->product_price "
-
                         ><i class="fa fa-shopping-cart"></i>Add to Cart</a>
                     </div>
                 </div>
             </div>
-  
-            
+         
         </div>
+        
     </div>';
-
             }
 
         } else {
@@ -200,8 +193,6 @@ class Welcome extends CI_Controller
         }
         echo $output;
     }
-
-
 
 
 }

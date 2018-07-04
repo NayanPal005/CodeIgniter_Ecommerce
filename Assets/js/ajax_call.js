@@ -24,11 +24,11 @@ function category(id) {
 
      var cat_id= $("#category").val()
 
-     // alert(url);
+      // alert(url);
 
      var total=brand_id+cat_id;
 
-    // alert(total);
+      // alert(total);
 
      $.ajax({
 
@@ -36,15 +36,22 @@ function category(id) {
 
          method:"POST",
 
-         data:{'b_id':brand_id,'c_id':cat_id},//b_id & c_id are the data that passes in controller which is
+         data:{'b_id':brand_id,'c_id':cat_id},
 
           success:function (data) {
 
-          // console.log(data);
+        //console.log(data);
 
-           $("featured_item").html(data);
+        //$('.features_items').html(data);
+
+        //$('#featured_item').html(data);
+
+          $('.features_items').html(data);
+
+          // $('#search_change').html(data);
 
          }
+
      })
 
 

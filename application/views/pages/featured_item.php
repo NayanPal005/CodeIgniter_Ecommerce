@@ -1,5 +1,5 @@
 
-   <div class="features_items"><!--features_items-->
+   <div class="features_items" id="featured_item">
 
     <h2 class="title text-center">Features Items</h2>
 
@@ -12,7 +12,6 @@
             <div class="single-products">
                 <div class="productinfo text-center">
                     <img src="<?php echo base_url().$all_active_product->product_image?>"  height="180"  alt="" />
-
                     <h2>BDT <?php echo $all_active_product->product_price ?></h2>
                     <p><?php echo $all_active_product->product_short_description ?></p>
 

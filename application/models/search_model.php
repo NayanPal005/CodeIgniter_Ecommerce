@@ -16,6 +16,8 @@ class search_model extends CI_Model{
 
 
     }
+
+
     public function ajax_search_by_name($val){
 
         $query = $this->db->select()

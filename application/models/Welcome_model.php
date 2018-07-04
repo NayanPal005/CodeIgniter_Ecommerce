@@ -78,7 +78,6 @@ class Welcome_model extends CI_Model
             $this->db->where('tbl_product.category_id',$cat_id);
         }
 
-
         $qry=$this->db->get('tbl_product');
 
 

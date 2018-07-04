@@ -332,15 +332,24 @@
 
             <div class="col-sm-9 padding-right">
 
-                 <?php echo $featured_item;?>
+      <!--=====================================featured_item==============================-->
+
+
+                  <?php echo $featured_item;?>
+
+
+       <!--=====================================featured_item==============================-->
 
                  <?php  echo $category_item;?>
 
                  <?php echo $recom_item; ?>
 
             </div>
+
         </div>
+
     </div>
+
 </section>
 
  <input type="hidden" id="brand" name="brand_id">
