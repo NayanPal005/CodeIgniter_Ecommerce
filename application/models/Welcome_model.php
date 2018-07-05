@@ -68,6 +68,7 @@ class Welcome_model extends CI_Model
 
         $query=$this->db->select();
 
+
         if ($brand_id){
 
             $this->db->where('tbl_product.manufacturer_id',$brand_id);
@@ -85,6 +86,7 @@ class Welcome_model extends CI_Model
 
 
     }
+
 
 
 }

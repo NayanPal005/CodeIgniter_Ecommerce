@@ -26,6 +26,7 @@
 
 
     <link rel="shortcut icon" href="<?php echo base_url()?>images/ico/favicon.ico">
+
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url()?>Assets/images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url()?>Assets/images/ico/apple-touch-icon-114-precomposed.png">
 
@@ -206,9 +207,11 @@
                         <?=  form_close();?>
 
                     </div>
+
                 </div>
 
-                <!--======================================   ajax search end   ===============================================-->
+                <!--=========================================ajax search end==================================================-->
+                <!--=========================================ajax search end==================================================-->
 
                 <div class="col-sm-3">
 
@@ -535,32 +538,35 @@
 
     $("#ajax_search_id").keyup(function () {//field key release ba liklei kaj korbe
 
-      //  alert("Hi");
+        //alert("hi");
 
      var val= $("#ajax_search_id").val();
 
        /*
+
         The val() method returns or sets the value attribute of the selected elements.
          When used to return value: This method returns the value of the value
           attribute of the FIRST matched element.
+
        */
 
        $.ajax({
 
-           url:'search/ajax_search_data',//here search is controller name and ajax_search is method name in controller
+        url:'search/ajax_search_data',//here search is controller name and ajax_search is method name in controller
 
-           method:"POST",
 
-           data:{'search_val':val}
+        method:"POST",
 
-           success:function(data){
+          data:{'search_val':val},
 
-          // console.log(data)
+        success:function(data){
 
-        //  $(".featured_item").html(data);
-               
-           }
-       });
+        // console.log(data)
+
+        $(".features_items").html(data);
+
+          }
+     });
 
     })
 

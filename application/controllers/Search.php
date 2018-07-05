@@ -54,6 +54,11 @@ class Search extends CI_Controller
         $val = $this->input->post('search_val');
 
         $result = $this->search_model->ajax_search_by_name($val);
+
+       // echo '<pre>';
+
+        //print_r($result);
+       // die();
         $output = "";
         if ($result) {
 
@@ -71,7 +76,6 @@ class Search extends CI_Controller
             <div class="single-products">
                 <div class="productinfo text-center">';
                 $output .= ' <img src="' . base_url() . $all_active_product->product_image . '"  height="180"  alt="" >';
-
                 $output .= ' <h2>'
                     . $all_active_product->product_price . '</h2>'
                     . '<p>' . $all_active_product->product_short_description . '</p>
@@ -83,7 +87,7 @@ class Search extends CI_Controller
                     '<h2>' . $all_active_product->product_price . '</h2>
                         
                         <a href="javascript:void(0)" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>'.
-                        '<a href="base_url("product-details/$productID")" class="btn btn-default add-to-cart"><i class="	fa fa-bars"></i>Details</a>
+                        '<a href="base_url("product-details/$productID")" class="btn btn-default add-to-cart"><i class="fa fa-bars"></i>Details</a>
                     </div>
                 </div>
             </div>;
@@ -104,8 +108,6 @@ else {
 }
 
         echo $output;
-
-
 
 
     }

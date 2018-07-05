@@ -24,6 +24,7 @@ public function manage_invoice(){
 }
 public function view_invoice($order_id){
 
+
     $datas=array();
     //$data=array();
 

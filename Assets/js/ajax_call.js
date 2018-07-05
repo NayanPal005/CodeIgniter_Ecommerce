@@ -38,11 +38,12 @@ function category(id) {
 
          data:{'b_id':brand_id,'c_id':cat_id},
 
-          success:function (data) {
+         success:function (data) {
 
         //console.log(data);
 
         //$('.features_items').html(data);
+
 
         //$('#featured_item').html(data);
 

@@ -173,10 +173,11 @@ class Welcome extends CI_Controller
                         to cart </a >
                 </div >
                 
+                
                 <div class="product-overlay" >
                     <div class="overlay-content" >' .
                     '<h2> ' . $all_active_product->product_price . '</h2>
-                        <a href="javascript:void(0)" class="btn btn-default add-to-cart" data-id=" .$all_active_product->product_id" .data-name=" $all_active_product->product_name"
+                        <a href=".base_url("product-details/$all_active_product->product_id") ?>" class="btn btn-default add-to-cart" data-id=" .$all_active_product->product_id" .data-name=" $all_active_product->product_name"
                               . data-price=" $all_active_product->product_price "
                         ><i class="fa fa-shopping-cart"></i>Add to Cart</a>
                     </div>
@@ -193,6 +194,7 @@ class Welcome extends CI_Controller
         }
         echo $output;
     }
+
 
 
 }
